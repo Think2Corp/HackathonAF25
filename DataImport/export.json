@@ -1,66 +1,19 @@
 {
-    "objects": [
-      {
-        "name": "Account",
-        "fields": [
-          "BillingCity",
-          "BillingCountry",
-          "BillingPostalCode",
-          "BillingState",
-          "BillingStreet",
-          "CreatedDate",
-          "Id",
-          "IndustryName",
-          "Phone",
-          "Website",
-          "ExternalID"
-        ],
-        "externalId": "ExternalID"
-      },
-      {
-        "name": "Contact",
-        "fields": [
-          "CreatedDate",
-          "Department",
-          "Email",
-          "FirstName",
-          "Id",
-          "LastName",
-          "MailingCity",
-          "MailingStreet",
-          "MobilePhone",
-          "Name",
-          "Title",
-          "Account.Name"
-        ],
-        "lookup": {
-          "Account": {
-            "from": "AccountExternalID",
-            "to": "ExternalID"
-          }
-        }
-      },
-      {
-        "name": "Opportunity",
-        "fields": [
-          "Amount",
-          "CloseDate",
-          "CreatedDate",
-          "Description",
-          "Id",
-          "LeadSource",
-          "Name",
-          "Probability",
-          "StageName",
-          "Type",
-          "Account.Name"
-        ],
-        "lookup": {
-          "Account": {
-            "from": "AccountExternalID",
-            "to": "ExternalID"
-          }
-        }
-      }
-    ]
-  }
+  "objects": [
+    {
+      "query": "SELECT BillingCity, BillingCountry, BillingPostalCode, BillingState, BillingStreet, CreatedDate, Id, Industry, Name, Phone, Website, ExternalID__c FROM Account",
+      "operation": "Upsert",
+      "externalId": "ExternalID__c"
+    },
+    {
+      "query": "SELECT CreatedDate, Department, Email, FirstName, Id, LastName, MailingCity, MailingStreet, MobilePhone, Title, Account.ExternalID__c FROM Contact",
+      "operation": "Upsert",
+      "externalId": "Id"
+    },
+    {
+      "query": "SELECT Amount, CloseDate, CreatedDate, Description, Id, LeadSource, Name, Probability, StageName, Type, Account.ExternalID__c FROM Opportunity",
+      "operation": "Upsert",
+      "externalId": "Id"
+    }
+  ]
+}

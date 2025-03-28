@@ -1,4 +1,4 @@
-﻿Account.Name,AccountExternalID,Amount,CloseDate,CreatedDate,Description,Id,LeadSource,Name,Probability,StageName,Type
+﻿Account.Name,Account.ExternalID__c,Amount,CloseDate,CreatedDate,Description,Id,LeadSource,Name,Probability,StageName,Type
 Dickenson plc,Play-5,15000,01-24-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOAYA5,Purchased List,Dickenson Mobile Generators,10,Qualification,New Customer
 Grand Hotels & Resorts Ltd,Play-6,15000,12-03-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOBYA5,,Grand Hotels Kitchen Generator,60,Id. Decision Makers,Existing Customer - Upgrade
 United Oil & Gas Corp.,Play-7,270000,02-26-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOCYA5,,United Oil Refinery Generators,75,Proposal/Price Quote,Existing Customer - Upgrade
@@ -30,4 +30,6 @@ United Oil & Gas Corp.,Play-7,120000,03-06-25,2025-03-18T12:51:45.000+0000,,006W
 Grand Hotels & Resorts Ltd,Play-6,210000,02-22-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOcYAP,External Referral,Grand Hotels Emergency Generators,100,Closed Won,New Customer
 United Oil & Gas Corp.,Play-7,675000,02-05-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOdYAP,,United Oil Plant Standby Generators,20,Needs Analysis,Existing Customer - Upgrade
 Edge Communications,Play-2,35000,03-19-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOeYAP,,Edge Emergency Generator,60,Id. Decision Makers,Existing Customer - Replacement
+,,,,,,,,,,,
+,,,,,,,,,,,
 

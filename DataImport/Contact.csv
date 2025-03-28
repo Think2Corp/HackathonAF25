@@ -1,4 +1,4 @@
-﻿Account.Name,AccountExternalID,CreatedDate,Department,Email,FirstName,Id,LastName,MailingCity,MailingStreet,MobilePhone,Name,Title
+﻿Account.Name,Account.ExternalID__c,CreatedDate,Department,Email,FirstName,Id,LastName,MailingCity,MailingStreet,MobilePhone,Name,Title
 Rodriguez Household - 1388494821,Play-1,2025-03-18T12:51:45.000+0000,,sofiarodriguez@example.com,Sofia,003WU00000JTuOrYAL,Rodriguez,Minneapolis,3 6th Avenue,612-350-2240,Sofia Rodriguez,
 ,,2025-03-18T12:51:45.000+0000,,kasseycarlick@example.com,Kassey,003WU00000JTuOsYAL,Carlick,Kansas City,989 Northridge Junction,328-540-7945,Kassey Carlick,
 ,,2025-03-18T12:51:45.000+0000,,laurenscarlson@example.com,Laurens,003WU00000JTuOtYAL,Carlson,San Rafael,3 Bunker Hill Point,237-887-9535,Laurens Carlson,
@@ -1040,6 +1040,8 @@ sForce,Play-13,2025-03-18T12:51:45.000+0000,,,Jake,003WU00000JTuQmYAL,Llorrac,,,
 ,,2025-03-18T12:51:45.000+0000,,giavanifinan@example.com,Giavani,003WU00000JTufqYAD,Finan,Greenville,82296 Vera Plaza,617-451-0745,Giavani Finan,
 ,,2025-03-18T12:51:45.000+0000,,cammycricket@example.com,Cammy,003WU00000JTufrYAD,Cricket,San Diego,9 Mitchell Way,709-890-3297,Cammy Cricket,
 ,,2025-03-18T12:51:45.000+0000,,rowlandhappert@example.com,Rowland,003WU00000JTufsYAD,Happert,Columbus,2 Fieldstone Court,768-607-8022,Rowland Happert,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
 ,,,,,,,,,,,,
 ,,,,,,,,,,,,
 
