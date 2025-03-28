@@ -1,0 +1,66 @@
+{
+    "objects": [
+      {
+        "name": "Account",
+        "fields": [
+          "BillingCity",
+          "BillingCountry",
+          "BillingPostalCode",
+          "BillingState",
+          "BillingStreet",
+          "CreatedDate",
+          "Id",
+          "IndustryName",
+          "Phone",
+          "Website",
+          "ExternalID"
+        ],
+        "externalId": "ExternalID"
+      },
+      {
+        "name": "Contact",
+        "fields": [
+          "CreatedDate",
+          "Department",
+          "Email",
+          "FirstName",
+          "Id",
+          "LastName",
+          "MailingCity",
+          "MailingStreet",
+          "MobilePhone",
+          "Name",
+          "Title",
+          "Account.Name"
+        ],
+        "lookup": {
+          "Account": {
+            "from": "AccountExternalID",
+            "to": "ExternalID"
+          }
+        }
+      },
+      {
+        "name": "Opportunity",
+        "fields": [
+          "Amount",
+          "CloseDate",
+          "CreatedDate",
+          "Description",
+          "Id",
+          "LeadSource",
+          "Name",
+          "Probability",
+          "StageName",
+          "Type",
+          "Account.Name"
+        ],
+        "lookup": {
+          "Account": {
+            "from": "AccountExternalID",
+            "to": "ExternalID"
+          }
+        }
+      }
+    ]
+  }

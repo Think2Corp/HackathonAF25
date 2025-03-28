@@ -1,0 +1,35 @@
+﻿BillingCity,BillingCountry,BillingPostalCode,BillingState,BillingStreet,CreatedDate,Id,Industry,Name,Phone,Website,ExternalID
+,,,,,2025-03-18T12:51:45.000+0000,001WU00000oG2FcYAK,,Rodriguez Household - 1388494821,,,Play-1
+Austin,,,TX,"312 Constitution Place
+Austin, TX 78767
+USA",2025-03-18T12:51:45.000+0000,001WU00000oG2FdYAK,Electronics,Edge Communications,(512) 757-6000,http://edgecomm.com,Play-2
+Burlington,USA,27215,NC,525 S. Lexington Ave,2025-03-18T12:51:45.000+0000,001WU00000oG2FeYAK,Apparel,Burlington Textiles Corp of America,(336) 222-7000,www.burlington.com,Play-3
+Paris,France,75251,,2 Place Jussieu,2025-03-18T12:51:45.000+0000,001WU00000oG2FfYAK,Construction,Pyramid Construction Inc.,(014) 427-4427,www.pyramid.com,Play-4
+Lawrence,USA,66045,KS,1301 Hoch Drive,2025-03-18T12:51:45.000+0000,001WU00000oG2FgYAK,Consulting,Dickenson plc,(785) 241-6200,dickenson-consulting.com,Play-5
+Chicago,,,IL,"2334 N. Michigan Avenue, Suite 1500
+Chicago, IL 60601, USA",2025-03-18T12:51:45.000+0000,001WU00000oG2FhYAK,Hospitality,Grand Hotels & Resorts Ltd,(312) 596-1000,www.grandhotels.com,Play-6
+New York,,,NY,"1301 Avenue of the Americas 
+New York, NY 10019
+USA",2025-03-18T12:51:45.000+0000,001WU00000oG2FiYAK,Energy,United Oil & Gas Corp.,(212) 842-5500,http://www.uos.com,Play-7
+Portland,,,OR,"620 SW 5th Avenue Suite 400
+Portland, Oregon 97204
+United States",2025-03-18T12:51:45.000+0000,001WU00000oG2FjYAK,Transportation,Express Logistics and Transport,(503) 421-7800,www.expressl&t.net,Play-8
+Tucson,,,AZ,"888 N Euclid 
+Hallis Center, Room 501
+Tucson, AZ 85721
+United States",2025-03-18T12:51:45.000+0000,001WU00000oG2FkYAK,Education,University of Arizona,(520) 773-9050,www.universityofarizona.com,Play-9
+,,,UK,"Kings Park, 17th Avenue, Team Valley Trading Estate,
+Gateshead, Tyne and Wear NE26 3HS
+United Kingdom",2025-03-18T12:51:45.000+0000,001WU00000oG2FlYAK,Energy,"United Oil & Gas, UK",+44 191 4956203,http://www.uos.com,Play-10
+Singapore,,,Singapore,"9 Tagore Lane
+Singapore, Singapore 787472
+Singapore",2025-03-18T12:51:45.000+0000,001WU00000oG2FmYAK,Energy,"United Oil & Gas, Singapore",(650) 450-8810,http://www.uos.com,Play-11
+Mountain View,,,CA,"345 Shoreline Park
+Mountain View, CA 94043
+USA",2025-03-18T12:51:45.000+0000,001WU00000oG2FnYAK,Biotechnology,GenePoint,(650) 867-3450,www.genepoint.com,Play-12
+San Francisco,US,94087,CA,The Landmark @ One Market,2025-03-18T12:51:45.000+0000,001WU00000oG2FoYAK,,sForce,(415) 901-7000,www.sforce.com,Play-13
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+

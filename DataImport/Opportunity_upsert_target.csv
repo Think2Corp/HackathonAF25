@@ -1,0 +1,33 @@
+﻿Account.Name,AccountExternalID,Amount,CloseDate,CreatedDate,Description,Id,LeadSource,Name,Probability,StageName,Type
+Dickenson plc,Play-5,15000,01-24-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOAYA5,Purchased List,Dickenson Mobile Generators,10,Qualification,New Customer
+Grand Hotels & Resorts Ltd,Play-6,15000,12-03-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOBYA5,,Grand Hotels Kitchen Generator,60,Id. Decision Makers,Existing Customer - Upgrade
+United Oil & Gas Corp.,Play-7,270000,02-26-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOCYA5,,United Oil Refinery Generators,75,Proposal/Price Quote,Existing Customer - Upgrade
+United Oil & Gas Corp.,Play-7,120000,03-05-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTODYA5,Partner,United Oil SLA,100,Closed Won,Existing Customer - Upgrade
+Grand Hotels & Resorts Ltd,Play-6,250000,03-13-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOEYA5,Employee Referral,Grand Hotels Guest Portable Generators,50,Value Proposition,Existing Customer - Upgrade
+Edge Communications,Play-2,75000,03-13-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOFYA5,Word of Mouth,Edge Emergency Generator,100,Closed Won,New Customer
+University of Arizona,Play-9,50000,12-12-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOGYA5,Public Relations,University of AZ Portable Generators,100,Closed Won,New Customer
+United Oil & Gas Corp.,Play-7,125000,01-12-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOHYA5,,United Oil Office Portable Generators,90,Negotiation/Review,Existing Customer - Upgrade
+Express Logistics and Transport,Play-8,220000,12-08-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOIYA5,Trade Show,Express Logistics Standby Generator,100,Closed Won,New Customer
+GenePoint,Play-12,85000,01-15-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOJYA5,Partner,GenePoint Standby Generator,100,Closed Won,New Customer
+Pyramid Construction Inc.,Play-4,100000,01-20-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOKYA5,Phone Inquiry,Pyramid Emergency Generators,10,Prospecting,
+Express Logistics and Transport,Play-8,80000,12-06-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOLYA5,External Referral,Express Logistics Portable Truck Generators,50,Value Proposition,Existing Customer - Upgrade
+GenePoint,Play-12,60000,03-07-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOMYA5,,GenePoint Lab Generators,60,Id. Decision Makers,
+GenePoint,Play-12,30000,03-10-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTONYA5,Partner,GenePoint SLA,100,Closed Won,Existing Customer - Upgrade
+United Oil & Gas Corp.,Play-7,270000,01-08-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOOYA5,,United Oil Installations,90,Negotiation/Review,Existing Customer - Upgrade
+Edge Communications,Play-2,50000,01-02-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOPYA5,Word of Mouth,Edge Installation,100,Closed Won,Existing Customer - Upgrade
+Edge Communications,Play-2,60000,11-28-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOQYA5,Word of Mouth,Edge SLA,100,Closed Won,Existing Customer - Upgrade
+United Oil & Gas Corp.,Play-7,270000,01-07-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTORYA5,Partner,United Oil Installations,100,Closed Won,Existing Customer - Upgrade
+Grand Hotels & Resorts Ltd,Play-6,350000,02-24-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOSYA5,External Referral,Grand Hotels Generator Installations,100,Closed Won,Existing Customer - Upgrade
+United Oil & Gas Corp.,Play-7,915000,02-19-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOTYA5,Partner,United Oil Refinery Generators,100,Closed Won,New Customer
+University of Arizona,Play-9,100000,12-09-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOUYA5,Employee Referral,University of AZ Installations,75,Proposal/Price Quote,Existing Customer - Upgrade
+Express Logistics and Transport,Play-8,120000,12-07-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOVYA5,External Referral,Express Logistics SLA,70,Perception Analysis,Existing Customer - Upgrade
+University of Arizona,Play-9,90000,12-16-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOWYA5,Public Relations,University of AZ SLA,100,Closed Won,Existing Customer - Upgrade
+Grand Hotels & Resorts Ltd,Play-6,90000,12-05-24,2025-03-18T12:51:45.000+0000,,006WU00000AVTOXYA5,External Referral,Grand Hotels SLA,100,Closed Won,Existing Customer - Upgrade
+Burlington Textiles Corp of America,Play-3,235000,01-17-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOYYA5,Web,Burlington Textiles Weaving Plant Generator,100,Closed Won,New Customer
+United Oil & Gas Corp.,Play-7,235000,01-19-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOZYA5,External Referral,United Oil Installations,100,Closed Won,Existing Customer - Upgrade
+United Oil & Gas Corp.,Play-7,440000,01-01-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOaYAP,External Referral,United Oil Emergency Generators,100,Closed Won,Existing Customer - Upgrade
+United Oil & Gas Corp.,Play-7,120000,03-06-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTObYAP,External Referral,United Oil Standby Generators,100,Closed Won,Existing Customer - Upgrade
+Grand Hotels & Resorts Ltd,Play-6,210000,02-22-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOcYAP,External Referral,Grand Hotels Emergency Generators,100,Closed Won,New Customer
+United Oil & Gas Corp.,Play-7,675000,02-05-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOdYAP,,United Oil Plant Standby Generators,20,Needs Analysis,Existing Customer - Upgrade
+Edge Communications,Play-2,35000,03-19-25,2025-03-18T12:51:45.000+0000,,006WU00000AVTOeYAP,,Edge Emergency Generator,60,Id. Decision Makers,Existing Customer - Replacement
+
