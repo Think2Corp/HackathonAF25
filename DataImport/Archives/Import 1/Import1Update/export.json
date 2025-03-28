@@ -1,0 +1,17 @@
+{
+  "objectSets": [
+    {
+      "objects": [
+        
+        {
+          "query": "SELECT CreatedDate, Department, Email, FirstName, Id, LastName, MailingCity, MailingStreet, MobilePhone, Title, AccountId FROM Contact",
+          "operation":"Update"
+        }        ,
+        {
+          "query": "SELECT Amount, CloseDate, CreatedDate, Description, Id, LeadSource, Name, Probability, StageName, Type, Difficulty__c, AccountId FROM Opportunity",
+          "operation":"Insert"
+        }
+      ]
+    }
+  ]
+}

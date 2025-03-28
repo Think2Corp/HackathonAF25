@@ -1,0 +1,39 @@
+﻿AccountId,Amount,CloseDate,CreatedDate,Description,Id,LeadSource,Name,Probability,StageName,Type,Difficulty__c
+001F900001r1qs0IAA,15000,2025-01-24,2025-03-18T12:51:45.000+0000,,,Purchased List,Dickenson Mobile Generators,10,Qualification,New Customer,20
+001F900001r1qs1IAA,15000,2024-12-03,2025-03-18T12:51:45.000+0000,,,,Grand Hotels Kitchen Generator,60,Id. Decision Makers,Existing Customer - Upgrade,50
+001F900001r1qs2IAA,270000,2025-02-26,2025-03-18T12:51:45.000+0000,,,,United Oil Refinery Generators,75,Proposal/Price Quote,Existing Customer - Upgrade,45
+001F900001r1qs2IAA,120000,2025-03-05,2025-03-18T12:51:45.000+0000,,,Partner,United Oil SLA,100,Closed Won,Existing Customer - Upgrade,32
+001F900001r1qs1IAA,250000,2025-03-13,2025-03-18T12:51:45.000+0000,,,Employee Referral,Grand Hotels Guest Portable Generators,50,Value Proposition,Existing Customer - Upgrade,43
+001F900001r1qrxIAA,75000,2025-03-13,2025-03-18T12:51:45.000+0000,,,Word of Mouth,Edge Emergency Generator,100,Closed Won,New Customer,80
+001F900001r1qs4IAA,50000,2024-12-12,2025-03-18T12:51:45.000+0000,,,Public Relations,University of AZ Portable Generators,100,Closed Won,New Customer,50
+001F900001r1qs2IAA,125000,2025-01-12,2025-03-18T12:51:45.000+0000,,,,United Oil Office Portable Generators,90,Negotiation/Review,Existing Customer - Upgrade,50
+001F900001r1qs3IAA,220000,2024-12-08,2025-03-18T12:51:45.000+0000,,,Trade Show,Express Logistics Standby Generator,100,Closed Won,New Customer,90
+001F900001r1qs7IAA,85000,2025-01-15,2025-03-18T12:51:45.000+0000,,,Partner,GenePoint Standby Generator,100,Closed Won,New Customer,40
+001F900001r1qrzIAA,100000,2025-01-20,2025-03-18T12:51:45.000+0000,,,Phone Inquiry,Pyramid Emergency Generators,10,Prospecting,,10
+001F900001r1qs3IAA,80000,2024-12-06,2025-03-18T12:51:45.000+0000,,,External Referral,Express Logistics Portable Truck Generators,50,Value Proposition,Existing Customer - Upgrade,10
+001F900001r1qs7IAA,60000,2025-03-07,2025-03-18T12:51:45.000+0000,,,,GenePoint Lab Generators,60,Id. Decision Makers,,80
+001F900001r1qs7IAA,30000,2025-03-10,2025-03-18T12:51:45.000+0000,,,Partner,GenePoint SLA,100,Closed Won,Existing Customer - Upgrade,65
+001F900001r1qs2IAA,270000,2025-01-08,2025-03-18T12:51:45.000+0000,,,,United Oil Installations,90,Negotiation/Review,Existing Customer - Upgrade,70
+001F900001r1qrxIAA,50000,2025-01-02,2025-03-18T12:51:45.000+0000,,,Word of Mouth,Edge Installation,100,Closed Won,Existing Customer - Upgrade,20
+001F900001r1qrxIAA,60000,2024-11-28,2025-03-18T12:51:45.000+0000,,,Word of Mouth,Edge SLA,100,Closed Won,Existing Customer - Upgrade,30
+001F900001r1qs2IAA,270000,2025-01-07,2025-03-18T12:51:45.000+0000,,,Partner,United Oil Installations,100,Closed Won,Existing Customer - Upgrade,50
+001F900001r1qs1IAA,350000,2025-02-24,2025-03-18T12:51:45.000+0000,,,External Referral,Grand Hotels Generator Installations,100,Closed Won,Existing Customer - Upgrade,45
+001F900001r1qs2IAA,915000,2025-02-19,2025-03-18T12:51:45.000+0000,,,Partner,United Oil Refinery Generators,100,Closed Won,New Customer,90
+001F900001r1qs4IAA,100000,2024-12-09,2025-03-18T12:51:45.000+0000,,,Employee Referral,University of AZ Installations,75,Proposal/Price Quote,Existing Customer - Upgrade,10
+001F900001r1qs3IAA,120000,2024-12-07,2025-03-18T12:51:45.000+0000,,,External Referral,Express Logistics SLA,70,Perception Analysis,Existing Customer - Upgrade,60
+001F900001r1qs4IAA,90000,2024-12-16,2025-03-18T12:51:45.000+0000,,,Public Relations,University of AZ SLA,100,Closed Won,Existing Customer - Upgrade,30
+001F900001r1qs1IAA,90000,2024-12-05,2025-03-18T12:51:45.000+0000,,,External Referral,Grand Hotels SLA,100,Closed Won,Existing Customer - Upgrade,30
+001F900001r1qryIAA,235000,2025-01-17,2025-03-18T12:51:45.000+0000,,,Web,Burlington Textiles Weaving Plant Generator,100,Closed Won,New Customer,20
+001F900001r1qs2IAA,235000,2025-01-19,2025-03-18T12:51:45.000+0000,,,External Referral,United Oil Installations,100,Closed Won,Existing Customer - Upgrade,70
+001F900001r1qs2IAA,440000,2025-01-01,2025-03-18T12:51:45.000+0000,,,External Referral,United Oil Emergency Generators,100,Closed Won,Existing Customer - Upgrade,70
+001F900001r1qs2IAA,120000,2025-03-06,2025-03-18T12:51:45.000+0000,,,External Referral,United Oil Standby Generators,100,Closed Won,Existing Customer - Upgrade,25
+001F900001r1qs1IAA,210000,2025-02-22,2025-03-18T12:51:45.000+0000,,,External Referral,Grand Hotels Emergency Generators,100,Closed Won,New Customer,100
+001F900001r1qs2IAA,675000,2025-02-05,2025-03-18T12:51:45.000+0000,,,,United Oil Plant Standby Generators,20,Needs Analysis,Existing Customer - Upgrade,75
+001F900001r1qrxIAA,35000,2025-03-19,2025-03-18T12:51:45.000+0000,,,,Edge Emergency Generator,60,Id. Decision Makers,Existing Customer - Replacement,30
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+
