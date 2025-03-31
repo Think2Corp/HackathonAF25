@@ -1,0 +1,20 @@
+{
+  "objects": [
+    {
+      "query": "SELECT BillingCity, BillingCountry, BillingPostalCode, BillingState, BillingStreet, CreatedDate, Industry, Name, Phone, Website, ExternalID__c FROM Account",
+      "operation": "Upsert",
+      "externalId": "ExternalID__c"
+    },
+    {
+      "query": "SELECT CreatedDate, Department, Email, FirstName, LastName, MailingCity, MailingStreet, MobilePhone, Title, AccountId, ExternalID__c FROM Contact",
+      "operation": "Upsert",
+      "externalId": "ExternalID__c"
+    },
+    {
+      "query": "SELECT Amount, CloseDate, CreatedDate, LeadSource, Name, StageName, Type, Difficulty__c, AccountId, ExternalID__c FROM Opportunity",
+      "operation": "Upsert",
+      "externalId": "ExternalID__c"
+    }
+  ],
+  "excludeIdsFromCSVFiles": "true"
+}
