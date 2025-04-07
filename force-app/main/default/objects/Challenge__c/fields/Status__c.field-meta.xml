@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <defaultValue>&apos;Draft&apos;</defaultValue>
+    <description>The Status of the Challenge, it can be:
+Draft: Challenge in preparation, not ready to be started.
+ToStart: Challenge ready to be started, all informations are set.
+OnGoing: The Challenge has started and is running.
+Finished: The Challenge is over.
+Cancelled: The Challenge has been cancelled.</description>
+    <label>Status</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Draft</fullName>
+                <default>false</default>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>ToStart</fullName>
+                <default>false</default>
+                <label>ToStart</label>
+            </value>
+            <value>
+                <fullName>OnGoing</fullName>
+                <default>false</default>
+                <label>OnGoing</label>
+            </value>
+            <value>
+                <fullName>Finished</fullName>
+                <default>false</default>
+                <label>Finished</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
