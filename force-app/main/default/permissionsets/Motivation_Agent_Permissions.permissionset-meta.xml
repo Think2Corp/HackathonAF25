@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>UserHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description
   >Allows custom permissions for Agentforce Agent : Motivation_Agent&apos;s agent user : motivation_agent@00df9000002wfut.ext.</description>
     <fieldPermissions>
