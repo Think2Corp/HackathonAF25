@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Handles communication with Slack for various topics.</description>
+    <developerName>Slack_Communication</developerName>
+    <genAiFunctions>
+        <functionName>Slack__CreateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__SearchSlack</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__SendSlackDirectMessage</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__UpdateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If a user requests to communicate with Slack, initiate the connection.</description>
+        <developerName>instruction_ifauserreq0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ifauserreq0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Gather necessary information from the user before sending messages to Slack.</description>
+        <developerName>instruction_gathernece1</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_gathernece1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Ensure messages are formatted correctly before sending to Slack.</description>
+        <developerName>instruction_ensuremess2</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ensuremess2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Confirm receipt of messages sent to Slack and inform the user.</description>
+        <developerName>instruction_confirmrec3</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_confirmrec3</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Slack Communication</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to manage and facilitate communication with Slack for other topics.</scope>
+</GenAiPlugin>

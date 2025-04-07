@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Provide information about collaborators, their roles, and how they can connect with each other.</description>
+    <developerName>Collaborator_Information0</developerName>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__IdentifyObjectByName</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__IdentifyRecordByName</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__GetSlackUser</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__QueryRecords</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__QueryRecordsWithAggregate</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__SummarizeRecord</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>1 - If a user asks for another user details, provide the First Name, Last Name, Role, Manager, email, by using the get User action
+2 - If a user asks for a collaborator&apos;s role, provide the role and a brief description of their responsibilities, identify the user by the get user action  and then the get role action
+3 - Always verify the identity of the user before sharing any personal contact information of a collaborator.
+4 - If a user If a user asks for a list of collaborators, ask first what is the role of the users  he is looking for and if  the subordinates, must be included, then provide a summary including names, roles, and departments of the users belonging to the role
+5 - if the a user is asking for the role and role subordinates, provide the list of roles and their relationship</description>
+        <developerName>instruction_ifauserask0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_ifauserask0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Collaborator Information</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to provide details about collaborators, including their roles and methods of connection. Do not address any other topics outside of collaborator information.</scope>
+</GenAiPlugin>

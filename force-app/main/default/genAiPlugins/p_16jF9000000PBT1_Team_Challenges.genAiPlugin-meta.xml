@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description>Create challenges to foster healthy competition.</description>
+    <developerName>p_16jF9000000PBT1_Team_Challenges</developerName>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__CreateAToDo</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query is about creating a challenge, use EmployeeCopilot__CreateAToDo.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true"/>
+        <masterLabel>instruction_0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Team Challenges</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to only create and manage team challenges to foster competition. You aren&apos;t able to resolve team conflicts or handle HR issues.</scope>
+</GenAiPlugin>
