@@ -11,9 +11,7 @@ public with sharing class UserHelper {
   ) {
     List<GenericResultWrapper> results = new List<GenericResultWrapper>();
     if (queryWrapperList == null || queryWrapperList.isEmpty()) {
-      results.add(
-        new GenericResultWrapper('No input provided', null, null, null)
-      );
+      results.add(new GenericResultWrapper('No input provided', null));
       return results;
     }
     QueryWrapper queryWrapper = queryWrapperList[0];
@@ -27,20 +25,11 @@ public with sharing class UserHelper {
         WHERE Name LIKE :likeName
       ];
       if (users.isEmpty()) {
-        results.add(
-          new GenericResultWrapper('No users found', null, null, null)
-        );
+        results.add(new GenericResultWrapper('No users found', null));
         return results;
       }
       for (User user : users) {
-        results.add(
-          new GenericResultWrapper(
-            'User found: ' + user.Name,
-            user.Id,
-            user.Email,
-            null
-          )
-        );
+        results.add(new GenericResultWrapper('User found', user));
       }
     } else if (queryWrapper.queryType == 'role') {
       // Query user role details
@@ -50,36 +39,20 @@ public with sharing class UserHelper {
         WHERE Name LIKE :likeName
       ];
       if (users.isEmpty()) {
-        results.add(
-          new GenericResultWrapper('No users found', null, null, null)
-        );
+        results.add(new GenericResultWrapper('No users found', null));
         return results;
       }
       for (User user : users) {
         if (user.UserRole != null) {
-          results.add(
-            new GenericResultWrapper(
-              'User found: ' + user.Name,
-              user.UserRole.Id,
-              null,
-              user.UserRole.Name
-            )
-          );
+          results.add(new GenericResultWrapper('User found', user.UserRole));
         } else {
           results.add(
-            new GenericResultWrapper(
-              'User found: ' + user.Name + ' (No role assigned)',
-              null,
-              null,
-              null
-            )
+            new GenericResultWrapper('User found (No role assigned)', null)
           );
         }
       }
     } else {
-      results.add(
-        new GenericResultWrapper('Invalid query type', null, null, null)
-      );
+      results.add(new GenericResultWrapper('Invalid query type', null));
     }
     return results;
   }
@@ -97,23 +70,14 @@ public with sharing class UserHelper {
   public class GenericResultWrapper {
     @InvocableVariable(description='Result message')
     public String message;
-    @InvocableVariable(description='ID (User or Role)')
-    public String id;
-    @InvocableVariable(description='Email (for user queries)')
-    public String email;
-    @InvocableVariable(description='Role Name (for role queries)')
-    public String roleName;
+    @InvocableVariable(description='Result object as JSON string')
+    public String resultObject;
 
-    public GenericResultWrapper(
-      String message,
-      String id,
-      String email,
-      String roleName
-    ) {
+    public GenericResultWrapper(String message, Object resultObject) {
       this.message = message;
-      this.id = id;
-      this.email = email;
-      this.roleName = roleName;
+      this.resultObject = resultObject != null
+        ? JSON.serialize(resultObject)
+        : null;
     }
   }
 }
