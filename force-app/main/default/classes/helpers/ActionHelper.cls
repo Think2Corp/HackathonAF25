@@ -7,8 +7,6 @@ public with sharing class ActionHelper {
     public String message;
     @InvocableVariable(description='Result object as JSON string')
     public String resultObject;
-    @InvocableVariable(description='List of User sObjects')
-    public List<User> userList;
 
     public GenericResultWrapper(String message, Object resultObject) {
       this.message = message;
@@ -16,9 +14,17 @@ public with sharing class ActionHelper {
         ? JSON.serialize(resultObject)
         : null;
     }
+  }
 
-    // Overloaded constructor to initialize userList
-    public GenericResultWrapper(
+  public class UserResultWrapper {
+    @InvocableVariable(description='Result message')
+    public String message;
+    @InvocableVariable(description='Result object as JSON string')
+    public String resultObject;
+    @InvocableVariable(description='List of User sObjects')
+    public List<User> userList;
+
+    public UserResultWrapper(
       String message,
       Object resultObject,
       List<User> userList

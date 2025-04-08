@@ -14,7 +14,7 @@ public with sharing class GetSubRoles {
     @InvocableVariable(description='List of Sub Role sObjects')
     public List<UserRole> subRoles;
     @InvocableVariable(description='Result message')
-    public String message; // New field for status message
+    public String message;
 
     public RoleResultWrapper(
       String roleName,

@@ -6,13 +6,13 @@ public with sharing class GetUsersOfRole {
     label='Get Users of Role'
     description='Query users by role name or role ID'
   )
-  public static List<ActionHelper.GenericResultWrapper> getUsersOfRole(
+  public static List<ActionHelper.UserResultWrapper> getUsersOfRole(
     List<ActionHelper.QueryWrapper> queryWrapperList
   ) {
-    List<ActionHelper.GenericResultWrapper> results = new List<ActionHelper.GenericResultWrapper>();
+    List<ActionHelper.UserResultWrapper> results = new List<ActionHelper.UserResultWrapper>();
     if (queryWrapperList == null || queryWrapperList.isEmpty()) {
       results.add(
-        new ActionHelper.GenericResultWrapper('No input provided', null, null)
+        new ActionHelper.UserResultWrapper('No input provided', null, null)
       );
       return results;
     }
@@ -22,11 +22,11 @@ public with sharing class GetUsersOfRole {
 
     if (users.isEmpty()) {
       results.add(
-        new ActionHelper.GenericResultWrapper('No users found', null, null)
+        new ActionHelper.UserResultWrapper('No users found', null, null)
       );
     } else {
       results.add(
-        new ActionHelper.GenericResultWrapper('Users found', null, users)
+        new ActionHelper.UserResultWrapper('Users found', null, users)
       );
     }
 
