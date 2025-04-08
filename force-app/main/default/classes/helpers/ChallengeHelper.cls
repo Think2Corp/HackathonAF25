@@ -10,7 +10,7 @@ public with sharing class ChallengeHelper {
     String name,
     String manager
   ) {
-    String query = 'SELECT Id, Name, Status__c, Type__c, Description__c, Result__c, SlackChannel__c, StartDate__c, EndDate__c, Manager__c, Manager__r.Name, Participants__c FROM Challenge__c WHERE ';
+    String query = 'SELECT Id, Name, Status__c, Type__c, Description__c, Result__c, SlackChannel__c, StartDate__c, EndDate__c, Manager__c, Manager__r.Name, Participants__c FROM Challenge__c';
     List<String> conditions = new List<String>();
 
     // Build query conditions based on input
@@ -37,11 +37,9 @@ public with sharing class ChallengeHelper {
 
     // If no conditions, return empty results
     if (!conditions.isEmpty()) {
+      query += ' WHERE ';
       query += String.join(conditions, ' AND ');
-    } else {
-      return new List<Challenge__c>();
     }
-
     // Execute query and return results
     return Database.query(query);
   }
@@ -54,7 +52,7 @@ public with sharing class ChallengeHelper {
       return challenges; // Return all challenges if no participant filter is provided
     }
 
-    String participantFilter = participantIdentifier.toLowerCase();
+    String participantFilter = participantIdentifier.toLowerCase().trim();
     List<Challenge__c> filteredChallenges = new List<Challenge__c>();
 
     for (Challenge__c challenge : challenges) {
