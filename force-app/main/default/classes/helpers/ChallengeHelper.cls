@@ -46,19 +46,30 @@ public with sharing class ChallengeHelper {
 
   public static List<Challenge__c> filterChallengesByParticipant(
     List<Challenge__c> challenges,
-    String participantIdentifier
+    String participantRole,
+    String participantName
   ) {
-    if (String.isBlank(participantIdentifier)) {
+    if (String.isBlank(participantRole) && String.isBlank(participantName)) {
       return challenges; // Return all challenges if no participant filter is provided
     }
 
-    String participantFilter = participantIdentifier.toLowerCase().trim();
+    String participantRoleFilter = participantRole != null
+      ? participantRole.toLowerCase().trim()
+      : null;
+    String participantNameFilter = participantName != null
+      ? participantName.toLowerCase().trim()
+      : null;
     List<Challenge__c> filteredChallenges = new List<Challenge__c>();
 
     for (Challenge__c challenge : challenges) {
       if (
         challenge.Participants__c != null &&
-        challenge.Participants__c.toLowerCase().contains(participantFilter)
+        ((participantRoleFilter != null &&
+        challenge.Participants__c.toLowerCase()
+          .contains(participantRoleFilter)) ||
+        (participantNameFilter != null &&
+        challenge.Participants__c.toLowerCase()
+          .contains(participantNameFilter)))
       ) {
         filteredChallenges.add(challenge);
       }

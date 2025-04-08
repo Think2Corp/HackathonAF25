@@ -15,8 +15,10 @@ public with sharing class GetChallenges {
     public String name;
     @InvocableVariable(description='Manager Name')
     public String manager;
-    @InvocableVariable(description='Participant Name or Role')
-    public String participantIdentifier;
+    @InvocableVariable(description='Participant Role')
+    public String participantRole;
+    @InvocableVariable(description='Participant Name')
+    public String participantName;
   }
 
   public class ChallengeResultWrapper {
@@ -65,7 +67,8 @@ public with sharing class GetChallenges {
     // Delegate participant filtering to ChallengeHelper
     List<Challenge__c> filteredChallenges = ChallengeHelper.filterChallengesByParticipant(
       challenges,
-      queryInput.participantIdentifier
+      queryInput.participantRole,
+      queryInput.participantName
     );
 
     if (filteredChallenges.isEmpty()) {

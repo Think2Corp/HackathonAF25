@@ -48,7 +48,7 @@ private class GetChallengesTest {
 
     GetChallenges.ChallengeQueryInput input = new GetChallenges.ChallengeQueryInput();
     input.status = 'Draft';
-    input.participantIdentifier = 'John';
+    input.participantName = 'John';
     List<GetChallenges.ChallengeQueryInput> inputs = new List<GetChallenges.ChallengeQueryInput>{
       input
     };
@@ -84,7 +84,7 @@ private class GetChallengesTest {
     insert new List<Challenge__c>{ challenge1, challenge2 };
 
     GetChallenges.ChallengeQueryInput input = new GetChallenges.ChallengeQueryInput();
-    input.participantIdentifier = 'john';
+    input.participantName = 'john';
     List<GetChallenges.ChallengeQueryInput> inputs = new List<GetChallenges.ChallengeQueryInput>{
       input
     };
