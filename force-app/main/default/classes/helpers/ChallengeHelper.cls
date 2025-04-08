@@ -4,7 +4,6 @@ public with sharing class ChallengeHelper {
 
   public static List<Challenge__c> queryChallenges(
     String status,
-    String roleName,
     Date startDate,
     Date endDate,
     String id,
@@ -17,10 +16,6 @@ public with sharing class ChallengeHelper {
     // Build query conditions based on input
     if (status != null) {
       conditions.add('Status__c = :status');
-    }
-    if (roleName != null) {
-      String likeRoleName = '%' + roleName + '%';
-      conditions.add('Participants__c LIKE :likeRoleName');
     }
     if (startDate != null) {
       conditions.add('StartDate__c >= :startDate');
@@ -49,5 +44,28 @@ public with sharing class ChallengeHelper {
 
     // Execute query and return results
     return Database.query(query);
+  }
+
+  public static List<Challenge__c> filterChallengesByParticipant(
+    List<Challenge__c> challenges,
+    String participantIdentifier
+  ) {
+    if (String.isBlank(participantIdentifier)) {
+      return challenges; // Return all challenges if no participant filter is provided
+    }
+
+    String participantFilter = participantIdentifier.toLowerCase();
+    List<Challenge__c> filteredChallenges = new List<Challenge__c>();
+
+    for (Challenge__c challenge : challenges) {
+      if (
+        challenge.Participants__c != null &&
+        challenge.Participants__c.toLowerCase().contains(participantFilter)
+      ) {
+        filteredChallenges.add(challenge);
+      }
+    }
+
+    return filteredChallenges;
   }
 }
