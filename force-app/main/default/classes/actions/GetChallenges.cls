@@ -22,9 +22,15 @@ public with sharing class GetChallenges {
   public class ChallengeResultWrapper {
     @InvocableVariable(description='List of Challenge Objects')
     public List<Challenge__c> challenges;
+    @InvocableVariable(description='Result message')
+    public String message;
 
-    public ChallengeResultWrapper(List<Challenge__c> challenges) {
+    public ChallengeResultWrapper(
+      List<Challenge__c> challenges,
+      String message
+    ) {
       this.challenges = challenges;
+      this.message = message;
     }
   }
 
@@ -37,6 +43,12 @@ public with sharing class GetChallenges {
   ) {
     List<ChallengeResultWrapper> results = new List<ChallengeResultWrapper>();
     if (queryInputList == null || queryInputList.isEmpty()) {
+      results.add(
+        new ChallengeResultWrapper(
+          new List<Challenge__c>(),
+          'No input provided'
+        )
+      );
       return results;
     }
 
@@ -51,8 +63,20 @@ public with sharing class GetChallenges {
       queryInput.manager
     );
 
-    if (!challenges.isEmpty()) {
-      results.add(new ChallengeResultWrapper(challenges));
+    if (challenges.isEmpty()) {
+      results.add(
+        new ChallengeResultWrapper(
+          new List<Challenge__c>(),
+          'No challenges found'
+        )
+      );
+    } else {
+      results.add(
+        new ChallengeResultWrapper(
+          challenges,
+          'Challenges retrieved successfully'
+        )
+      );
     }
 
     return results;
