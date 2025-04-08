@@ -63,12 +63,12 @@ public with sharing class GetChallenges {
     );
 
     // Delegate participant filtering to ChallengeHelper
-    challenges = ChallengeHelper.filterChallengesByParticipant(
+    List<Challenge__c> filteredChallenges = ChallengeHelper.filterChallengesByParticipant(
       challenges,
       queryInput.participantIdentifier
     );
 
-    if (challenges.isEmpty()) {
+    if (filteredChallenges.isEmpty()) {
       results.add(
         new ChallengeResultWrapper(
           new List<Challenge__c>(),
@@ -78,7 +78,7 @@ public with sharing class GetChallenges {
     } else {
       results.add(
         new ChallengeResultWrapper(
-          challenges,
+          filteredChallenges,
           'Challenges retrieved successfully'
         )
       );
