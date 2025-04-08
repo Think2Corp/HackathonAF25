@@ -13,19 +13,23 @@ public with sharing class GetSubRoles {
     public String parentRoleId;
     @InvocableVariable(description='List of Sub Role sObjects')
     public List<UserRole> subRoles;
+    @InvocableVariable(description='Result message')
+    public String message; // New field for status message
 
     public RoleResultWrapper(
       String roleName,
       String roleId,
       String parentRoleName,
       String parentRoleId,
-      List<UserRole> subRoles
+      List<UserRole> subRoles,
+      String message
     ) {
       this.roleName = roleName;
       this.roleId = roleId;
       this.parentRoleName = parentRoleName;
       this.parentRoleId = parentRoleId;
       this.subRoles = subRoles;
+      this.message = message;
     }
   }
 
@@ -46,6 +50,16 @@ public with sharing class GetSubRoles {
   ) {
     List<RoleResultWrapper> results = new List<RoleResultWrapper>();
     if (queryInputList == null || queryInputList.isEmpty()) {
+      results.add(
+        new RoleResultWrapper(
+          null,
+          null,
+          null,
+          null,
+          new List<UserRole>(),
+          'No input provided'
+        )
+      );
       return results;
     }
 
@@ -53,6 +67,16 @@ public with sharing class GetSubRoles {
     List<UserRole> roles = RoleHelper.querySubRoles(queryInput.roleIdentifier);
 
     if (roles.isEmpty()) {
+      results.add(
+        new RoleResultWrapper(
+          null,
+          null,
+          null,
+          null,
+          new List<UserRole>(),
+          'No roles found'
+        )
+      );
       return results;
     }
 
@@ -68,7 +92,8 @@ public with sharing class GetSubRoles {
           role.Id,
           role.ParentRole != null ? role.ParentRole.Name : null,
           role.ParentRoleId,
-          subRoles
+          subRoles,
+          'Role retrieved successfully'
         )
       );
     }
