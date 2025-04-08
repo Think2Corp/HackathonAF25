@@ -46,7 +46,6 @@ public with sharing class ChallengeHelper {
     } else {
       return new List<Challenge__c>();
     }
-    query += ' LIMIT 200';
 
     // Execute query and return results
     return Database.query(query);
