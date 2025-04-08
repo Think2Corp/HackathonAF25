@@ -4,8 +4,8 @@ public with sharing class SendSlackToChannel {
     private static final String DEFAULT_SLACK_BOT_TOKEN = 'xoxb-8701943387079-8708672092535-CG61Xmo1PXvfmf66i6YIuz9P';
 
     @InvocableMethod(label='Send Slack Message to Channel' description='Sends a simple message to a Slack channel')
-    public static void postMessage(List<SlackMessageRequest> requests) {
-        List<String> results = new List<String>();
+    public static List<SlackMessageRequest> postMessage(List<SlackMessageRequest> requests) {
+        List<SlackMessageRequest> results = new List<SlackMessageRequest>();
         for (SlackMessageRequest request : requests) {
             // Check if the optional token is provided, if not use the default
             String slackBotToken = String.isBlank(request.slackBotToken) ? DEFAULT_SLACK_BOT_TOKEN : request.slackBotToken;
@@ -27,15 +27,16 @@ public with sharing class SendSlackToChannel {
             if (response.getStatusCode() == 200) {
                 System.debug('Slack message sent successfully.');
                 // Return the message sent on success
-                results.add(request.messageText);
+                results.add(request);
             } else {
                 System.debug('Failed to send Slack message.');
                 // Return null or an error message on failure
-                results.add('Failed to send Slack message.');
+                results.add(request);
             }
         }
-        // Return the list of sent messages
-    }
+         // Return the list of sent messages
+    
+        return new List<SlackMessageRequest>(results);}
 
     // Simple class for message details
     public class SlackMessageRequest {
