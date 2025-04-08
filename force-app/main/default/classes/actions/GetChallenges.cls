@@ -3,28 +3,40 @@ public with sharing class GetChallenges {
   }
 
   public class ChallengeQueryInput {
-    @InvocableVariable(description='Challenge Status')
+    @InvocableVariable(
+      description='The Challenge Status of the Challenge to search for'
+    )
     public String status;
-    @InvocableVariable(description='Start Date')
+    @InvocableVariable(
+      description='The Start Date of the Challenge to search for'
+    )
     public Date startDate;
-    @InvocableVariable(description='End Date')
+    @InvocableVariable(
+      description='The End Date of the Challenge to search for'
+    )
     public Date endDate;
-    @InvocableVariable(description='Challenge ID')
+    @InvocableVariable(
+      description='The Challenge ID of the Challenge to search for'
+    )
     public String id;
-    @InvocableVariable(description='Challenge Name')
+    @InvocableVariable(description='The Name of the Challenge to search for')
     public String name;
-    @InvocableVariable(description='Manager Name')
+    @InvocableVariable(description='The Manager of the Challenge to search for')
     public String manager;
-    @InvocableVariable(description='Participant Role')
+    @InvocableVariable(
+      description='The Role of the Participant of the Challenge to search for'
+    )
     public String participantRole;
-    @InvocableVariable(description='Participant Name')
+    @InvocableVariable(
+      description='The Name of the Participant of the Challenge to search for'
+    )
     public String participantName;
   }
 
   public class ChallengeResultWrapper {
-    @InvocableVariable(description='List of Challenge Objects')
+    @InvocableVariable(description='List of Challenge Objects found')
     public List<Challenge__c> challenges;
-    @InvocableVariable(description='Result message')
+    @InvocableVariable(description='Result message of the search')
     public String message;
 
     public ChallengeResultWrapper(
