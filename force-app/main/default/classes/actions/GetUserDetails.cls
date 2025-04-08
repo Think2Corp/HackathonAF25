@@ -12,7 +12,7 @@ public with sharing class GetUserDetails {
     List<ActionHelper.GenericResultWrapper> results = new List<ActionHelper.GenericResultWrapper>();
     if (queryWrapperList == null || queryWrapperList.isEmpty()) {
       results.add(
-        new ActionHelper.GenericResultWrapper('No input provided', null)
+        new ActionHelper.GenericResultWrapper('No input provided', null, null)
       );
       return results;
     }
@@ -22,12 +22,12 @@ public with sharing class GetUserDetails {
 
     if (users.isEmpty()) {
       results.add(
-        new ActionHelper.GenericResultWrapper('No users found', null)
+        new ActionHelper.GenericResultWrapper('No users found', null, null)
       );
     } else {
-      for (User user : users) {
-        results.add(new ActionHelper.GenericResultWrapper('User found', user));
-      }
+      results.add(
+        new ActionHelper.GenericResultWrapper('Users found', null, users)
+      );
     }
 
     return results;
