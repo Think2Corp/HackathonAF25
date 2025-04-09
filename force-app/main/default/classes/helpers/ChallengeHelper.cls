@@ -10,7 +10,7 @@ public with sharing class ChallengeHelper {
     String name,
     String manager
   ) {
-    String query = 'SELECT Id, Name, Status__c, Type__c, Description__c, Result__c, SlackChannel__c, StartDate__c, EndDate__c, Manager__c, Manager__r.Name, Participants__c FROM Challenge__c';
+    String query = 'SELECT Id, Name, Status__c, Type__c, Description__c, Result__c, SlackChannel__c, StartDate__c, EndDate__c, Manager__c, Manager__r.Name, Participants__c, Reward__c FROM Challenge__c';
     List<String> conditions = new List<String>();
 
     // Build query conditions based on input
@@ -53,23 +53,15 @@ public with sharing class ChallengeHelper {
       return challenges; // Return all challenges if no participant filter is provided
     }
 
-    String participantRoleFilter = participantRole != null
-      ? participantRole.toLowerCase().trim()
-      : null;
-    String participantNameFilter = participantName != null
-      ? participantName.toLowerCase().trim()
-      : null;
+    String participantRoleFilter = participantRole != null ? participantRole.toLowerCase().trim() : null;
+    String participantNameFilter = participantName != null ? participantName.toLowerCase().trim() : null;
     List<Challenge__c> filteredChallenges = new List<Challenge__c>();
 
     for (Challenge__c challenge : challenges) {
       if (
         challenge.Participants__c != null &&
-        ((participantRoleFilter != null &&
-        challenge.Participants__c.toLowerCase()
-          .contains(participantRoleFilter)) ||
-        (participantNameFilter != null &&
-        challenge.Participants__c.toLowerCase()
-          .contains(participantNameFilter)))
+        ((participantRoleFilter != null && challenge.Participants__c.toLowerCase().contains(participantRoleFilter)) ||
+        (participantNameFilter != null && challenge.Participants__c.toLowerCase().contains(participantNameFilter)))
       ) {
         filteredChallenges.add(challenge);
       }
