@@ -27,6 +27,10 @@
                 <behavior>Edit</behavior>
                 <field>Participants__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Reward__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

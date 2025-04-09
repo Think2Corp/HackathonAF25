@@ -85,6 +85,12 @@
                 <identifier>RecordStatus_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Reward__c</fieldItem>
+                <identifier>RecordReward__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-9a653cea-ff2c-4c93-af92-0b1b5ddb4491</name>
         <type>Facet</type>
     </flexiPageRegions>
