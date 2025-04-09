@@ -28,6 +28,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Challenge__c.Reward__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Challenge__c.SlackChannel__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -59,6 +64,10 @@
     </tabSettings>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ActivateSystemModeFlows</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>BotManageBots</name>
     </userPermissions>
     <userPermissions>
@@ -80,6 +89,14 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageCustomPermissions</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageInteraction</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunFlow</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

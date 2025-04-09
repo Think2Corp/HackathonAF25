@@ -28,6 +28,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Challenge__c.Reward__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Challenge__c.SlackChannel__c</field>
         <readable>true</readable>
     </fieldPermissions>
