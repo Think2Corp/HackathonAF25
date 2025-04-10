@@ -1,7 +1,4 @@
 public with sharing class RoleHelper {
-  public RoleHelper() {
-  }
-
   public static List<UserRole> querySubRoles(String roleIdentifier) {
     if (String.isBlank(roleIdentifier)) {
       return new List<UserRole>();

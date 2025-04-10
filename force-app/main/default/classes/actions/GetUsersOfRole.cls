@@ -1,7 +1,4 @@
 public with sharing class GetUsersOfRole {
-  public GetUsersOfRole() {
-  }
-
   public class Input {
     @InvocableVariable(required=true description='Name to search for')
     public String name;

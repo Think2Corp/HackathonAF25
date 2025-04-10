@@ -1,7 +1,4 @@
 public with sharing class ChallengeHelper {
-  public ChallengeHelper() {
-  }
-
   public static List<Challenge__c> queryChallenges(
     String status,
     Date startDate,

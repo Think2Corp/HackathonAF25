@@ -1,7 +1,4 @@
 public with sharing class OpportunityHelper {
-  public OpportunityHelper() {
-  }
-
   public static List<Opportunity> queryOpportunities(
     String name,
     String owner,
