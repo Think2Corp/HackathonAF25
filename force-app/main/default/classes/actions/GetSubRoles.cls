@@ -2,12 +2,12 @@ public with sharing class GetSubRoles {
   public GetSubRoles() {
   }
 
-  public class RoleQueryInput {
+  public class Input {
     @InvocableVariable(required=true description='Role ID or fuzzy role name to search for')
     public String roleIdentifier;
   }
 
-  public class RoleResultWrapper {
+  public class Output {
     @InvocableVariable(description='Role Name')
     public String roleName;
     @InvocableVariable(description='Role ID')
@@ -21,7 +21,7 @@ public with sharing class GetSubRoles {
     @InvocableVariable(description='Result message')
     public String message;
 
-    public RoleResultWrapper(
+    public Output(
       String roleName,
       String roleId,
       String parentRoleName,
@@ -39,18 +39,18 @@ public with sharing class GetSubRoles {
   }
 
   @InvocableMethod(label='Get Sub Roles' description='Query sub-roles by role ID or fuzzy role name')
-  public static List<RoleResultWrapper> getSubRoles(List<RoleQueryInput> queryInputList) {
-    List<RoleResultWrapper> results = new List<RoleResultWrapper>();
-    if (queryInputList == null || queryInputList.isEmpty()) {
-      results.add(new RoleResultWrapper(null, null, null, null, new List<UserRole>(), 'No input provided'));
+  public static List<Output> getSubRoles(List<Input> inputList) {
+    List<Output> results = new List<Output>();
+    if (inputList == null || inputList.isEmpty()) {
+      results.add(new Output(null, null, null, null, new List<UserRole>(), 'No input provided'));
       return results;
     }
 
-    RoleQueryInput queryInput = queryInputList[0];
+    Input queryInput = inputList[0];
     List<UserRole> roles = RoleHelper.querySubRoles(queryInput.roleIdentifier);
 
     if (roles.isEmpty()) {
-      results.add(new RoleResultWrapper(null, null, null, null, new List<UserRole>(), 'No roles found'));
+      results.add(new Output(null, null, null, null, new List<UserRole>(), 'No roles found'));
       return results;
     }
 
@@ -61,7 +61,7 @@ public with sharing class GetSubRoles {
         WHERE ParentRoleId = :role.Id
       ];
       results.add(
-        new RoleResultWrapper(
+        new Output(
           role.Name,
           role.Id,
           role.ParentRole != null ? role.ParentRole.Name : null,
