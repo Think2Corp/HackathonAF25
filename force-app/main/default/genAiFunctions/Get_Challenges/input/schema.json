@@ -1,0 +1,62 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "endDate": {
+      "title": "endDate",
+      "description": "The End Date of the Challenge to search for",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "id": {
+      "title": "id",
+      "description": "The Challenge ID of the Challenge to search for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "manager": {
+      "title": "manager",
+      "description": "The Manager of the Challenge to search for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "name": {
+      "title": "name",
+      "description": "The Name of the Challenge to search for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "participantName": {
+      "title": "participantName",
+      "description": "The Name of the Participant of the Challenge to search for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "participantRole": {
+      "title": "participantRole",
+      "description": "The Role of the Participant of the Challenge to search for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "startDate": {
+      "title": "startDate",
+      "description": "The Start Date of the Challenge to search for",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "status": {
+      "title": "status",
+      "description": "The Challenge Status of the Challenge to search for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

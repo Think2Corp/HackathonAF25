@@ -1,0 +1,14 @@
+{
+  "required": ["roleIdentifier"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "roleIdentifier": {
+      "title": "roleIdentifier",
+      "description": "Role ID or fuzzy role name to search for",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

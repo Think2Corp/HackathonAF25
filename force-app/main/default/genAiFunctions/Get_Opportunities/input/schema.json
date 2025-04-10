@@ -1,0 +1,41 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "closeDate": {
+      "title": "closeDate",
+      "description": "Opportunity Close Date",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "name": {
+      "title": "name",
+      "description": "Opportunity Name",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "owner": {
+      "title": "owner",
+      "description": "Opportunity Owner",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "stage": {
+      "title": "stage",
+      "description": "Opportunity Stage",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "type": {
+      "title": "type",
+      "description": "Opportunity Type",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

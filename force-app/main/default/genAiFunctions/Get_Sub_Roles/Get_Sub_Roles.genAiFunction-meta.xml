@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Query sub-roles by role ID or fuzzy role name</description>
+    <invocationTarget>GetSubRoles</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Get Sub Roles</masterLabel>
+</GenAiFunction>

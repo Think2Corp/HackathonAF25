@@ -1,0 +1,67 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "message": {
+      "title": "message",
+      "description": "Result message",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "parentRoleId": {
+      "title": "parentRoleId",
+      "description": "Parent Role ID",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "parentRoleName": {
+      "title": "parentRoleName",
+      "description": "Parent Role Name",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "roleId": {
+      "title": "roleId",
+      "description": "Role ID",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "roleName": {
+      "title": "roleName",
+      "description": "Role Name",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "subRoles": {
+      "title": "subRoles",
+      "description": "List of Sub Role sObjects",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "lightning__recordInfoType",
+        "lightning:sObjectInfo": {
+          "apiName": "UserRole"
+        }
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
