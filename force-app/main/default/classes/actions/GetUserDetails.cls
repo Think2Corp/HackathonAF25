@@ -2,32 +2,41 @@ public with sharing class GetUserDetails {
   public GetUserDetails() {
   }
 
-  @InvocableMethod(
-    label='Get User Details'
-    description='Query user details by name'
-  )
-  public static List<ActionHelper.UserResultWrapper> getUserDetails(
-    List<ActionHelper.QueryWrapper> queryWrapperList
-  ) {
-    List<ActionHelper.UserResultWrapper> results = new List<ActionHelper.UserResultWrapper>();
-    if (queryWrapperList == null || queryWrapperList.isEmpty()) {
-      results.add(
-        new ActionHelper.UserResultWrapper('No input provided', null, null)
-      );
+  public class Input {
+    @InvocableVariable(required=true description='Name to search for')
+    public String name;
+  }
+
+  public class Output {
+    @InvocableVariable(description='Result message')
+    public String message;
+    @InvocableVariable(description='Result object as JSON string')
+    public String resultObject;
+    @InvocableVariable(description='List of User sObjects')
+    public List<User> userList;
+
+    public Output(String message, Object resultObject, List<User> userList) {
+      this.message = message;
+      this.resultObject = resultObject != null ? JSON.serialize(resultObject) : null;
+      this.userList = userList;
+    }
+  }
+
+  @InvocableMethod(label='Get User Details' description='Query user details by name')
+  public static List<Output> getUserDetails(List<Input> InputList) {
+    List<Output> results = new List<Output>();
+    if (InputList == null || InputList.isEmpty()) {
+      results.add(new Output('No input provided', null, null));
       return results;
     }
 
-    ActionHelper.QueryWrapper queryWrapper = queryWrapperList[0];
-    List<User> users = UserHelper.queryUsersByName(queryWrapper.name);
+    Input Input = InputList[0];
+    List<User> users = UserHelper.queryUsersByName(Input.name);
 
     if (users.isEmpty()) {
-      results.add(
-        new ActionHelper.UserResultWrapper('No users found', null, null)
-      );
+      results.add(new Output('No users found', null, null));
     } else {
-      results.add(
-        new ActionHelper.UserResultWrapper('Users found', null, users)
-      );
+      results.add(new Output('Users found', null, users));
     }
 
     return results;

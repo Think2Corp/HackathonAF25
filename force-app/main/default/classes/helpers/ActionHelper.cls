@@ -10,30 +10,7 @@ public with sharing class ActionHelper {
 
     public GenericResultWrapper(String message, Object resultObject) {
       this.message = message;
-      this.resultObject = resultObject != null
-        ? JSON.serialize(resultObject)
-        : null;
-    }
-  }
-
-  public class UserResultWrapper {
-    @InvocableVariable(description='Result message')
-    public String message;
-    @InvocableVariable(description='Result object as JSON string')
-    public String resultObject;
-    @InvocableVariable(description='List of User sObjects')
-    public List<User> userList;
-
-    public UserResultWrapper(
-      String message,
-      Object resultObject,
-      List<User> userList
-    ) {
-      this.message = message;
-      this.resultObject = resultObject != null
-        ? JSON.serialize(resultObject)
-        : null;
-      this.userList = userList;
+      this.resultObject = resultObject != null ? JSON.serialize(resultObject) : null;
     }
   }
 
