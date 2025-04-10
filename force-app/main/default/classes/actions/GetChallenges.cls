@@ -1,7 +1,4 @@
 public with sharing class GetChallenges {
-  public GetChallenges() {
-  }
-
   public class Input {
     @InvocableVariable(description='The Challenge Status of the Challenge to search for')
     public String status;

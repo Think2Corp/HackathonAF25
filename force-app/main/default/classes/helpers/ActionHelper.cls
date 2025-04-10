@@ -1,7 +1,4 @@
 public with sharing class ActionHelper {
-  public ActionHelper() {
-  }
-
   public class GenericResultWrapper {
     @InvocableVariable(description='Result message')
     public String message;

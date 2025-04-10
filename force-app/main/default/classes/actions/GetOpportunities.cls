@@ -1,7 +1,4 @@
 public with sharing class GetOpportunities {
-  public GetOpportunities() {
-  }
-
   public class Input {
     @InvocableVariable(description='Opportunity Name')
     public String name;

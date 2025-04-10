@@ -1,7 +1,4 @@
 public with sharing class GetSubRoles {
-  public GetSubRoles() {
-  }
-
   public class Input {
     @InvocableVariable(required=true description='Role ID or fuzzy role name to search for')
     public String roleIdentifier;
