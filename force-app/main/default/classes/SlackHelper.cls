@@ -6,6 +6,7 @@ public with sharing class SlackHelper {
     }
 
     public class ReturnSlackCallout {
+        public string status;
         public String message;
         public HttpResponse res;
     }
@@ -49,14 +50,12 @@ public with sharing class SlackHelper {
 
         // Check if the token is provided
         if (String.isBlank(token)) {
-            result.status = 'error';
             result.message = 'No token provided';
             return result;
         }
 
         // Check if the endpoint is provided
         if (String.isBlank(endpoint)) {
-            result.status = 'error';
             result.message = 'No endpoint provided';
             return result;
         }
@@ -68,27 +67,30 @@ public with sharing class SlackHelper {
         req.setMethod(method);
         req.setHeader('Content-Type', 'application/json');
         req.setHeader('Authorization', 'Bearer ' + token);
-        req.setBody(payload);
+        if (!String.isBlank(payload)) 
+            {
+            req.setBody(payload);
+        }
 
         Http http = new Http();
         result.res = http.send(req);
 
-        return result;
-        } 
         if (result.res.getStatusCode() == 200) {
-            System.debug('Slack API callout successful: ' + res.getBody());
-            SlackApiCallout.message = 'Slack API callout successful';
-            return result;
+            System.debug('Slack API callout successful: ' + result.res.getBody());
+            result.message = 'Slack API callout successful';
+            result.status = 'success';
         } else {
-            System.debug('Slack API callout failed: ' + res.getBody());
-            SlackApiCallout.message = 'Slack API callout failed: ' + res.getBody();
-            return result;
+            System.debug('Slack API callout failed: ' + result.res.getBody());
+            result.message = 'Slack API callout failed: ' + result.res.getBody();
+            result.status = 'error';
         }
-        } catch (HttpResponseException e) {
-            System.debug('HTTP response error: ' + e.getMessage());
-            SlackApiCallout.message = 'HTTP response error: ' + e.getMessage();
-            return result;
-        }
+    } catch (Exception e) {
+        System.debug('HTTP response error: ' + e.getMessage());
+        result.message = 'HTTP response error: ' + e.getMessage();
+        result.status = 'error';
+    }
+
+    return result;
     }
     
 

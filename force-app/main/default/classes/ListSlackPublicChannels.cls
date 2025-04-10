@@ -55,21 +55,11 @@ SlackHelper.ReturnToken returned_token = SlackHelper.getBotToken(config.agentNam
 
 // Get the public channels
 
-            try {
-                // Setup the HTTP request
-                HttpRequest req = new HttpRequest();
-                req.setEndpoint(SLACK_API_URL);
-                req.setMethod('GET');
-                req.setHeader('Authorization', 'Bearer ' + returned_token.token);
-                req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-                // Send the request
-                Http http = new Http();
-                HttpResponse res = http.send(req);
-
+           SlackHelper.ReturnSlackCallout slackcallout = SlackHelper.SlackApiCallout(SLACK_API_URL, 'GET', returned_token.token, null);
+            Output.message=slackcallout.message;
                 // Handle the response
-                if (res.getStatusCode() == 200) {
-                    SlackResponse slackRes = (SlackResponse) JSON.deserialize(res.getBody(), SlackResponse.class);
+                if (slackcallout.status == 'success') {
+                    SlackResponse slackRes = (SlackResponse) JSON.deserialize(slackcallout.res.getBody(), SlackResponse.class);
 
                     // Check if the response is valid and parse the channels
                     if (slackRes.ok && slackRes.channels != null) {
@@ -81,18 +71,11 @@ SlackHelper.ReturnToken returned_token = SlackHelper.getBotToken(config.agentNam
                             Output.message = 'Fetched ' + Output.channelInfoList.size() + ' channels';
                         }
                     } else {
-                        Output.message = 'Failed to fetch channels: ' + (slackRes.ok ? 'No channels found' : 'Invalid response' + res.getBody());
+                        Output.message = 'Failed to fetch channels: ' + (slackRes.ok ? 'No channels found' : 'Invalid response' + slackcallout.res.getBody());
                         Outputs.add(Output);
                         return Outputs;
                     }
-                } else {
-                    Output.message = 'Slack API failed with status ' + res.getStatus() + ': ' + res.getBody();
-                    Outputs.add(Output);
-                    return Outputs;
-                }
-            } catch (Exception ex) {
-                Output.message = 'Error during Slack API call: ' + ex.getMessage();
-            }
+                } 
 
             // Add the Output to the list of Outputs
             Outputs.add(Output);
