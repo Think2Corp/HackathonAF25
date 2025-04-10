@@ -2,7 +2,7 @@ public with sharing class GetOpportunities {
   public GetOpportunities() {
   }
 
-  public class OpportunityQueryInput {
+  public class Input {
     @InvocableVariable(description='Opportunity Name')
     public String name;
     @InvocableVariable(description='Opportunity Owner')
@@ -15,27 +15,27 @@ public with sharing class GetOpportunities {
     public String stage;
   }
 
-  public class OpportunityResultWrapper {
+  public class Output {
     @InvocableVariable(description='List of Opportunity Objects')
     public List<Opportunity> opportunities;
     @InvocableVariable(description='Result message')
     public String message;
 
-    public OpportunityResultWrapper(List<Opportunity> opportunities, String message) {
+    public Output(List<Opportunity> opportunities, String message) {
       this.opportunities = opportunities;
       this.message = message;
     }
   }
 
   @InvocableMethod(label='Get Opportunities' description='Query opportunities based on various criteria')
-  public static List<OpportunityResultWrapper> getOpportunities(List<OpportunityQueryInput> queryInputList) {
-    List<OpportunityResultWrapper> results = new List<OpportunityResultWrapper>();
-    if (queryInputList == null || queryInputList.isEmpty()) {
-      results.add(new OpportunityResultWrapper(new List<Opportunity>(), 'No input provided'));
+  public static List<Output> getOpportunities(List<Input> inputList) {
+    List<Output> results = new List<Output>();
+    if (inputList == null || inputList.isEmpty()) {
+      results.add(new Output(new List<Opportunity>(), 'No input provided'));
       return results;
     }
 
-    OpportunityQueryInput queryInput = queryInputList[0];
+    Input queryInput = inputList[0];
     List<Opportunity> opportunities = OpportunityHelper.queryOpportunities(
       queryInput.name,
       queryInput.owner,
@@ -45,9 +45,9 @@ public with sharing class GetOpportunities {
     );
 
     if (opportunities.isEmpty()) {
-      results.add(new OpportunityResultWrapper(new List<Opportunity>(), 'No opportunities found'));
+      results.add(new Output(new List<Opportunity>(), 'No opportunities found'));
     } else {
-      results.add(new OpportunityResultWrapper(opportunities, 'Opportunities retrieved successfully'));
+      results.add(new Output(opportunities, 'Opportunities retrieved successfully'));
     }
 
     return results;
