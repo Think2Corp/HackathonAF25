@@ -2,6 +2,11 @@ public with sharing class GetSubRoles {
   public GetSubRoles() {
   }
 
+  public class RoleQueryInput {
+    @InvocableVariable(required=true description='Role ID or fuzzy role name to search for')
+    public String roleIdentifier;
+  }
+
   public class RoleResultWrapper {
     @InvocableVariable(description='Role Name')
     public String roleName;
@@ -33,33 +38,11 @@ public with sharing class GetSubRoles {
     }
   }
 
-  public class RoleQueryInput {
-    @InvocableVariable(
-      required=true
-      description='Role ID or fuzzy role name to search for'
-    )
-    public String roleIdentifier;
-  }
-
-  @InvocableMethod(
-    label='Get Sub Roles'
-    description='Query sub-roles by role ID or fuzzy role name'
-  )
-  public static List<RoleResultWrapper> getSubRoles(
-    List<RoleQueryInput> queryInputList
-  ) {
+  @InvocableMethod(label='Get Sub Roles' description='Query sub-roles by role ID or fuzzy role name')
+  public static List<RoleResultWrapper> getSubRoles(List<RoleQueryInput> queryInputList) {
     List<RoleResultWrapper> results = new List<RoleResultWrapper>();
     if (queryInputList == null || queryInputList.isEmpty()) {
-      results.add(
-        new RoleResultWrapper(
-          null,
-          null,
-          null,
-          null,
-          new List<UserRole>(),
-          'No input provided'
-        )
-      );
+      results.add(new RoleResultWrapper(null, null, null, null, new List<UserRole>(), 'No input provided'));
       return results;
     }
 
@@ -67,16 +50,7 @@ public with sharing class GetSubRoles {
     List<UserRole> roles = RoleHelper.querySubRoles(queryInput.roleIdentifier);
 
     if (roles.isEmpty()) {
-      results.add(
-        new RoleResultWrapper(
-          null,
-          null,
-          null,
-          null,
-          new List<UserRole>(),
-          'No roles found'
-        )
-      );
+      results.add(new RoleResultWrapper(null, null, null, null, new List<UserRole>(), 'No roles found'));
       return results;
     }
 
