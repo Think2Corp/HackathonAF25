@@ -23,15 +23,15 @@ public with sharing class GetUserDetails {
   }
 
   @InvocableMethod(label='Get User Details' description='Query user details by name')
-  public static List<Output> getUserDetails(List<Input> InputList) {
+  public static List<Output> getUserDetails(List<Input> inputList) {
     List<Output> results = new List<Output>();
-    if (InputList == null || InputList.isEmpty()) {
+    if (inputList == null || inputList.isEmpty()) {
       results.add(new Output('No input provided', null, null));
       return results;
     }
 
-    Input Input = InputList[0];
-    List<User> users = UserHelper.queryUsersByName(Input.name);
+    Input input = inputList[0];
+    List<User> users = UserHelper.queryUsersByName(input.name);
 
     if (users.isEmpty()) {
       results.add(new Output('No users found', null, null));
