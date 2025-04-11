@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Extract user names or roles from input text in the format &quot;[Name1, Name2, Name3]&quot;, query users, and return their IDs and sObjects</description>
+    <invocationTarget>GetUsersFromTextList</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Get Users from Text List</masterLabel>
+</GenAiFunction>

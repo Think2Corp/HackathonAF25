@@ -1,0 +1,44 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "message": {
+      "title": "message",
+      "description": "Result message",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "userIds": {
+      "title": "userIds",
+      "description": "List of User IDs found",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "lightning__recordIdType"
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "users": {
+      "title": "users",
+      "description": "List of User sObjects found",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "lightning__recordInfoType",
+        "lightning:sObjectInfo": {
+          "apiName": "User"
+        }
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
