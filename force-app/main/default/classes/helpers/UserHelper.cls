@@ -34,10 +34,10 @@ public with sharing class UserHelper {
     }
 
     String identifiersText = inputText.substring(startIndex + 1, endIndex);
-    // Split by comma and trim whitespace
+    // Split by comma and trim whitespace and quote characters
     List<String> identifiers = new List<String>();
     for (String identifier : identifiersText.split(',')) {
-      identifiers.add(identifier.trim());
+      identifiers.add(identifier.trim().replace('"', '').replace('\'', ''));
     }
 
     return identifiers;
