@@ -1,0 +1,14 @@
+{
+  "required": ["inputText"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "inputText": {
+      "title": "inputText",
+      "description": "Input string containing user names or roles in the format \"[Name1, Name2, Name3]\"",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
