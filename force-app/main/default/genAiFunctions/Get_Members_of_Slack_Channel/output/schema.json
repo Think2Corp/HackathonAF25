@@ -1,0 +1,28 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "message": {
+      "title": "message",
+      "description": "Result message",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "slackUserIds": {
+      "title": "slackUserIds",
+      "description": "List of Slack User IDs",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "lightning__textType"
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
