@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_2</activeVersionIdentifier>
+    <description
+  >The template generates a message to congratulate the Sales for the winning of an opportunity</description>
+    <developerName>WonOpportunityCelebration</developerName>
+    <masterLabel>Won Opportunity Celebration</masterLabel>
+    <templateVersions>
+        <content
+    >You are the Agent motivator of the Happiest Company whose job is to celebrate and congratulate the commercial for winning an amazing Opportunity. Your job is to write a direct private slack message to {!$Input:WonOpportunity.Owner.FirstName} for the opportunity {!$Input:WonOpportunity.Name} on the {!$Input:WonOpportunity.Account.Name}
+
+Here the summary of the opportunity: {!$RecordSnapshot:WonOpportunity.Snapshot}
+
+
+Instructions:
+&quot;&quot;&quot;
+- Begin with a playful or enthusiastic opening to immediately set the friendly tone 
+- Celebrate the achievement in a way that’s natural and personal.
+- Use exclamatory punctuation and superlatives to emphasize enthusiasm, recognition, and the exceptional nature of the opportunity won. These elements should be used sparingly and appropriately to amplify the positive impact of the message without sounding excessive.
+- Always use emojis, GIFs, or playful punctuation (e.g., “!!!”) to make the message feel dynamic and fun
+- Always limit the message to about 500 words, Keep sentences concise, as messages in private chats tend to be brief.
+- Always use only the first Name
+- Use in priority this tone of voice: {!$Input:WonOpportunity.Owner.aiResponseStyle__c}. if not provided you must be extremely casual as you were {!$Input:WonOpportunity.Owner.FirstName}&apos;s best friend
+- Never sign the message
+- Never use the stage and the probability information on the message
+Follow these instructions strictly to generate only the message to be sent to the Sales rep.
+Do not explain what you are doing in this situation simply write the message.
+{!$Input:SpecificInstructions}
+&quot;&quot;&quot;
+Now generate the text message to the user 
+</content>
+        <inputs>
+            <apiName>WonOpportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>WonOpportunity</masterLabel>
+            <referenceName>Input:WonOpportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SpecificInstructions</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>SpecificInstructions</masterLabel>
+            <referenceName>Input:SpecificInstructions</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_creative_CM_12l_fuT6c931e47</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:WonOpportunity.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:WonOpportunity</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content
+    >You are the Agent motivator of the Happiest Company whose job is to celebrate and congratulate the commercial for winning an amazing Opportunity. Your job is to write a direct private slack message to {!$Input:WonOpportunity.Owner.FirstName} for the opportunity {!$Input:WonOpportunity.Name} on the {!$Input:WonOpportunity.Account.Name}
+
+Here the summary of the opportunity: {!$RecordSnapshot:WonOpportunity.Snapshot}
+
+You can inspire from this document for celebration messages : {!$EinsteinSearch:File_Creative_Celebration_Message_Librar_1Cx_fuTb36c4026.results}
+
+
+Instructions:
+&quot;&quot;&quot;
+- Begin with a playful or enthusiastic opening to immediately set the friendly tone 
+- Celebrate the achievement in a way that’s natural and personal.
+- Use exclamatory punctuation and superlatives to emphasize enthusiasm, recognition, and the exceptional nature of the opportunity won. These elements should be used sparingly and appropriately to amplify the positive impact of the message without sounding excessive.
+- Always use emojis, GIFs, or playful punctuation (e.g., “!!!”) to make the message feel dynamic and fun
+- Always limit the message to about 500 words, Keep sentences concise, as messages in private chats tend to be brief.
+- Always use only the first Name
+- Use in priority this tone of voice: {!$Input:WonOpportunity.Owner.aiResponseStyle__c}. if not provided you must be extremely casual as you were {!$Input:WonOpportunity.Owner.FirstName}&apos;s best friend
+- Never sign the message
+- Never use the stage and the probability information on the message
+Follow these instructions strictly to generate only the message to be sent to the Sales rep.
+Do not explain what you are doing in this situation simply write the message.
+{!$Input:SpecificInstructions}
+&quot;&quot;&quot;
+Now generate the text message to the user 
+</content>
+        <inputs>
+            <apiName>WonOpportunity</apiName>
+            <definition>SOBJECT://Opportunity</definition>
+            <masterLabel>WonOpportunity</masterLabel>
+            <referenceName>Input:WonOpportunity</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SpecificInstructions</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>SpecificInstructions</masterLabel>
+            <referenceName>Input:SpecificInstructions</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_creative_CM_12l_fuT6c931e47</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition
+      >invocable://getEinsteinRetrieverResults/File_Creative_Celebration_Message_Librar_1Cx_fuTb36c4026</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>searchText</parameterName>
+                <valueExpression>{!$Input:WonOpportunity.Owner.aiResponseStyle__c}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://List&lt;String&gt;</definition>
+                <isRequired>false</isRequired>
+                <parameterName>outputFieldNames</parameterName>
+                <valueExpression>[&quot;Chunk&quot;]</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://Integer</definition>
+                <isRequired>false</isRequired>
+                <parameterName>resultCount</parameterName>
+                <valueExpression>5</valueExpression>
+            </parameters>
+            <referenceName>EinsteinSearch:File_Creative_Celebration_Message_Librar_1Cx_fuTb36c4026</referenceName>
+        </templateDataProviders>
+        <templateDataProviders>
+            <definition>invocable://getDataForGrounding</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>recordId</parameterName>
+                <valueExpression>{!$Input:WonOpportunity.Id}</valueExpression>
+            </parameters>
+            <referenceName>RecordSnapshot:WonOpportunity</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_2</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
