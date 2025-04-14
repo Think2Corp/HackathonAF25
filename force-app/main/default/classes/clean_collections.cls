@@ -27,7 +27,7 @@ public with sharing class clean_collections {
                     String cleaned = str.replace('\\', '').replace('"', '');
                     output.cleanedCollection.add(cleaned);
                 }
-                output.message = 'Successfully cleaned ' + output.cleanedCollection.size() + ' strings';
+                output.message =  output.cleanedCollection.size() + 'cleaned users.' + ' Listing: ' + String.join(output.cleanedCollection, ', ');
             } else {
                 output.message = 'Input collection was empty or null';
             }
