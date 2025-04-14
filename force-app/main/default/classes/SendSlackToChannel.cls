@@ -18,10 +18,12 @@ public with sharing class SendSlackToChannel {
         }
          // Return the list of sent messages
     
-        return Outputs;}
+        return Outputs;
+    }
 
     // Simple class for message details
     public class Input {
+     
         @InvocableVariable(label='Channel ID' description='Slack Channel ID (e.g. C01XXXXXXX)')
         public String channelId;
 
@@ -37,7 +39,7 @@ public with sharing class SendSlackToChannel {
     }
 
     public class Output {
-        @InvocableVariable(label='Output Message')
+        @InvocableVariable(label='Output Message' description='Result message from Slack API')
         public String message;
     }
 }
