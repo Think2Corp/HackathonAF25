@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Agent Motivator is an AI-driven tool designed to energize and inspire commercial teams. It ensures every sales rep stays motivated by celebrating successes, tracking challenges, and providing real-time updates. Supporting managers, it helps create and communicate challenges while fostering a culture of recognition and achievement.</description>
+    <genAiFunctions>
+        <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
+    </genAiFunctions>
+    <genAiPlugins>
+        <genAiPluginName>Challenges_creation_or_edition_only_for_Manager</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>Create_slack_channel_for_a_challenge</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>General_Slack0</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>Information_on_Challenges_and_Opportunity</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>User_and_Role_Information</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jF9000000PBT1_Daily_Motivation_Tips</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jF9000000PBT1_Goal_Tracking</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jF9000000PBT1_Stress_Management_Techniques</genAiPluginName>
+    </genAiPlugins>
+    <masterLabel>Motivation Agent</masterLabel>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlanner>
