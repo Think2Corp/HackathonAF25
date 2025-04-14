@@ -1,0 +1,21 @@
+{
+  "required": ["agentName"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "agentName": {
+      "title": "agentName",
+      "description": "The name of the agent (used to fetch the bot token in the custom metadata type). Use your agentName.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "userSlackBotToken": {
+      "title": "User set slack Bot Token",
+      "description": "Optional bot token (xoxb-...). Never use this field.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

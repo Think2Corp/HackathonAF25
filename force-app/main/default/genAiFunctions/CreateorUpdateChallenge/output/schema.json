@@ -1,0 +1,18 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "ChallengeOutput": {
+      "title": "ChallengeOutput",
+      "description": "Challenge record variable with the values of the record created or updated",
+      "lightning:type": "lightning__recordInfoType",
+      "lightning:sObjectInfo": {
+        "apiName": "Challenge__c"
+      },
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

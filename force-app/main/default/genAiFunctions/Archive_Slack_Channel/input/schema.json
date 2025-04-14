@@ -1,0 +1,14 @@
+{
+  "required": ["channelID"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "channelID": {
+      "title": "channelID",
+      "description": "The ID of the channel to archive",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

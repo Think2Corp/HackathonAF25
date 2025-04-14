@@ -1,0 +1,28 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "channelInfoList": {
+      "title": "channelInfoList",
+      "description": "List of public channels with names and ids",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "@apexClassType/c__ListSlackPublicChannels$ChannelInfo"
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "message": {
+      "title": "message",
+      "description": "Result message from Slack API",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
