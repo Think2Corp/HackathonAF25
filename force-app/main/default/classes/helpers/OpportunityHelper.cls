@@ -4,7 +4,9 @@ public with sharing class OpportunityHelper {
     String owner,
     Date closeDate,
     String type,
-    String stage
+    String stage,
+    Boolean isClosed,
+    Boolean isWon
   ) {
     String query = 'SELECT Id, Name, Owner.Name, Amount, Type, CloseDate, StageName, Difficulty__c, Description FROM Opportunity';
     List<String> conditions = new List<String>();
@@ -26,6 +28,14 @@ public with sharing class OpportunityHelper {
     }
     if (stage != null) {
       conditions.add('StageName = :stage');
+    }
+
+    if(isClosed != null) {
+      conditions.add('IsClosed = :isClosed');
+    }
+
+    if(isWon != null) {
+      conditions.add('IsWon = :isWon');
     }
 
     // If no conditions, return empty results
