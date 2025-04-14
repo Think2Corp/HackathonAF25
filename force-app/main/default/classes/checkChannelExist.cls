@@ -3,8 +3,11 @@ public with sharing class checkChannelExist {
     private static final String SLACK_API_URL = 'https://slack.com/api/conversations.list?types=public_channel';
     
     public class Input {
-        @InvocableVariable(required=true label='Channel Name' description='The name of the channel to check')
+        @InvocableVariable(label='Channel Name' description='The name of the channel to check')
         public String channelName;
+        
+        @InvocableVariable(label='Channel ID' description='The ID of the channel to check')
+        public String channelId;
         
         @InvocableVariable(label='Agent Name' description='The name of the agent (used to fetch the bot token in the custom metadata type)')
         public String agentName;
@@ -34,7 +37,7 @@ public with sharing class checkChannelExist {
         public String name;
     }
     
-    @InvocableMethod(label='Check if Slack channel exists' description='Checks if a given Slack channel name exists')
+    @InvocableMethod(label='Check if Slack channel exists' description='Checks if a given Slack channel exists by name or ID')
     public static List<Output> checkChannel(List<Input> inputs) {
         List<Output> outputs = new List<Output>();
         
@@ -42,6 +45,12 @@ public with sharing class checkChannelExist {
             Output output = new Output();
             output.channelExists = false;
             output.returned_channelId = null;
+            
+            if (String.isBlank(input.channelName) && String.isBlank(input.channelId)) {
+                output.message = 'Error: Either Channel Name or Channel ID must be provided';
+                outputs.add(output);
+                continue;
+            }
             
             // Get the bot token
             SlackHelper.ReturnToken returnedToken = SlackHelper.getBotToken(input.agentName, input.userSlackBotToken);
@@ -68,10 +77,11 @@ public with sharing class checkChannelExist {
                 
                 if (slackRes.ok && slackRes.channels != null) {
                     for (SlackChannel channel : slackRes.channels) {
-                        if (channel.name == input.channelName) {
+                        if ((String.isNotBlank(input.channelName) && channel.name == input.channelName) || 
+                            (String.isNotBlank(input.channelId) && channel.id == input.channelId)) {
                             output.channelExists = true;
                             output.returned_channelId = channel.id;
-                            output.message = 'Channel found' + ' with ID: ' + channel.id;
+                            output.message = 'Channel found with ID: ' + channel.id;
                             break;
                         }
                     }
