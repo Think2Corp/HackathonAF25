@@ -54,8 +54,8 @@ public with sharing class UserHelper {
     List<String> conditions = new List<String>();
 
     for (String identifier : identifiers) {
-      String likeIdentifier = '%' + identifier + '%';
-      conditions.add('(Name LIKE :likeIdentifier OR UserRole.Name LIKE :likeIdentifier)');
+      String likeIdentifier = '%' + String.escapeSingleQuotes(identifier) + '%';
+      conditions.add('(Name LIKE \'' + likeIdentifier + '\' OR UserRole.Name LIKE \'' + likeIdentifier + '\')');
     }
 
     String finalQuery = baseQuery + String.join(conditions, ' OR ');
