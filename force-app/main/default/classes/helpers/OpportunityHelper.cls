@@ -3,6 +3,8 @@ public with sharing class OpportunityHelper {
     String name,
     String owner,
     Date closeDate,
+    Date closeDateStart,
+    Date closeDateEnd,
     String type,
     String stage,
     Boolean isClosed,
@@ -22,6 +24,13 @@ public with sharing class OpportunityHelper {
     }
     if (closeDate != null) {
       conditions.add('CloseDate = :closeDate');
+    } else {
+      if (closeDateStart != null) {
+        conditions.add('CloseDate >= :closeDateStart');
+      }
+      if (closeDateEnd != null) {
+        conditions.add('CloseDate <= :closeDateEnd');
+      }
     }
     if (type != null) {
       conditions.add('Type = :type');

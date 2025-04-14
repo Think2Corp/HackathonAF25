@@ -14,6 +14,10 @@ public with sharing class GetOpportunities {
     public Boolean isClosed;
     @InvocableVariable(description='Is Opportunity Won')
     public Boolean isWon;
+    @InvocableVariable(description='Start Date for Close Date Range')
+    public Date closeDateStart;
+    @InvocableVariable(description='End Date for Close Date Range')
+    public Date closeDateEnd;
   }
 
   public class Output {
@@ -41,6 +45,8 @@ public with sharing class GetOpportunities {
       queryInput.name,
       queryInput.owner,
       queryInput.closeDate,
+      queryInput.closeDateStart,
+      queryInput.closeDateEnd,
       queryInput.type,
       queryInput.stage,
       queryInput.isClosed,
