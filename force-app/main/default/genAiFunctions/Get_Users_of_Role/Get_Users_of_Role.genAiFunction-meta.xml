@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Query users by role name or role ID</description>
+    <invocationTarget>GetUsersOfRole</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Get Users of Role</masterLabel>
+    <progressIndicatorMessage>Getting Users</progressIndicatorMessage>
+</GenAiFunction>

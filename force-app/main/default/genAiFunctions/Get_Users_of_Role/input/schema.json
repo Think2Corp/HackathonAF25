@@ -1,0 +1,14 @@
+{
+  "required": ["name"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "title": "name",
+      "description": "Name or Id of the Role to get Users from",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
