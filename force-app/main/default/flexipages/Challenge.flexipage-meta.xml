@@ -63,8 +63,7 @@
                     <name>secondaryFields</name>
                     <value>Facet-7ceb475b-4fda-4630-908a-87cc9f335014</value>
                 </componentInstanceProperties>
-                <componentName
-        >record_flexipage:dynamicHighlights</componentName>
+                <componentName>record_flexipage:dynamicHighlights</componentName>
                 <identifier>record_flexipage_dynamicHighlights</identifier>
             </componentInstance>
         </itemInstances>
