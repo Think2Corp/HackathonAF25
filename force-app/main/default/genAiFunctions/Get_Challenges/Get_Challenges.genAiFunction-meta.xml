@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Query challenges based on various criteria</description>
+    <description>1 - Get the challenges corresponding for the criteria given, and share the details
+2 - If you don&apos;t get any results, ask to the users to give you more details about the challenge by proposing the inputs possible
+3 - if the challenge retrieved is in status Draft, always say that the challenge is under definition for now
+4 - If the challenge retrieved is in status ToStart, always say that the challenge is not started and share the start date
+5 - If the challenge retrieved is in status OnGoing, always give the remaining days
+6 - if the challenge retrieved is in status Cancelled, always says to ask to the manager to get more info
+7 - if the challenge retrieved is in status Finished, always give the results</description>
     <invocationTarget>GetChallenges</invocationTarget>
     <invocationTargetType>apex</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
-    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <masterLabel>Get Challenges</masterLabel>
+    <progressIndicatorMessage>searching for the challenges</progressIndicatorMessage>
 </GenAiFunction>

@@ -20,7 +20,7 @@
       "description": "The Manager of the Challenge to search for",
       "lightning:type": "lightning__textType",
       "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+      "copilotAction:isUserInput": false
     },
     "name": {
       "title": "name",
@@ -31,14 +31,14 @@
     },
     "participantName": {
       "title": "participantName",
-      "description": "The Name of the Participant of the Challenge to search for",
+      "description": "The Name of the Participants of the Challenge to search for",
       "lightning:type": "lightning__textType",
       "lightning:isPII": false,
       "copilotAction:isUserInput": true
     },
     "participantRole": {
       "title": "participantRole",
-      "description": "The Role of the Participant of the Challenge to search for",
+      "description": "The Role of the Participants of the Challenge to search for",
       "lightning:type": "lightning__textType",
       "lightning:isPII": false,
       "copilotAction:isUserInput": true
