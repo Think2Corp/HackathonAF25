@@ -1,6 +1,18 @@
 public with sharing class ListSlackPublicChannels {
   private static final String SLACK_API_URL = 'https://slack.com/api/conversations.list?types=public_channel';
 
+  // Input of the invocable method : name of the agent to fetch Slack bot token from custom metadata and Slack bot token. One of them is required
+  public class Input {
+    @InvocableVariable(
+      label='agentName'
+      description='The name of the agent (used to fetch the bot token in the custom metadata type)'
+    )
+    public String agentName;
+
+    @InvocableVariable(label='User set slack Bot Token' description='Optional bot token (xoxb-...)')
+    public String userSlackBotToken;
+  }
+
   // Output of the invocable method : List of channels and action message
   public class Output {
     @InvocableVariable
@@ -20,18 +32,6 @@ public with sharing class ListSlackPublicChannels {
     }
   }
 
-  // Input of the invocable method : name of the agent to fetch Slack bot token from custom metadata and Slack bot token. One of them is required
-  public class Input {
-    @InvocableVariable(
-      label='agentName'
-      description='The name of the agent (used to fetch the bot token in the custom metadata type)'
-    )
-    public String agentName;
-
-    @InvocableVariable(label='User set slack Bot Token' description='Optional bot token (xoxb-...)')
-    public String userSlackBotToken;
-  }
-
   public class ChannelInfo {
     public String id;
     public String name;
@@ -49,7 +49,7 @@ public with sharing class ListSlackPublicChannels {
     public String name;
   }
 
-  // This method will be called from the Agentforce custom action to fetch the list of public channels
+  // This method will be called from the AgentForce custom action to fetch the list of public channels
   @InvocableMethod(label='List public Slack channels' description='Returns the names and IDs of public Slack channels')
   public static List<Output> getSlackChannels(List<Input> configs) {
     List<Output> outputs = new List<Output>();

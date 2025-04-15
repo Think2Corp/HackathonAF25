@@ -1,6 +1,34 @@
 public with sharing class SendSlackToChannel {
-  // Replace this with your real bot token (starts with xoxb-)
   private static final String SLACK_API_URL = 'https://slack.com/api/chat.postMessage';
+
+  public class Input {
+    @InvocableVariable(
+      label='Channel ID'
+      description='Slack Channel ID (e.g. C01XXXXXXX) or Slack User ID (e.g. U01XXXXXXX)'
+    )
+    public String channelId;
+
+    @InvocableVariable(label='Message Text' description='Text of the message to send to the Slack channel or DM')
+    public String messageText;
+
+    @InvocableVariable(
+      label='agentName'
+      description='The name of the agent (used to fetch the bot token in the custom metadata type)'
+    )
+    public String agentName;
+
+    @InvocableVariable(label='User set slack Bot Token' description='Optional bot token (xoxb-...)')
+    public String userSlackBotToken;
+  }
+
+  public class Output {
+    @InvocableVariable(label='Output Message' description='Result message from Slack API')
+    public String message;
+
+    public Output(String message) {
+      this.message = message;
+    }
+  }
 
   @InvocableMethod(
     label='Send Slack Message to Channel or DMs'
@@ -30,35 +58,5 @@ public with sharing class SendSlackToChannel {
 
     // Return the list of sent messages
     return outputs;
-  }
-
-  // Simple class for message details
-  public class Input {
-    @InvocableVariable(
-      label='Channel ID'
-      description='Slack Channel ID (e.g. C01XXXXXXX) or Slack User ID (e.g. U01XXXXXXX)'
-    )
-    public String channelId;
-
-    @InvocableVariable(label='Message Text' description='Text of the message to send to the Slack channel or DM')
-    public String messageText;
-
-    @InvocableVariable(
-      label='agentName'
-      description='The name of the agent (used to fetch the bot token in the custom metadata type)'
-    )
-    public String agentName;
-
-    @InvocableVariable(label='User set slack Bot Token' description='Optional bot token (xoxb-...)')
-    public String userSlackBotToken;
-  }
-
-  public class Output {
-    @InvocableVariable(label='Output Message' description='Result message from Slack API')
-    public String message;
-
-    public Output(String message) {
-      this.message = message;
-    }
   }
 }
