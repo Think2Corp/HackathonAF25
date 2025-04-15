@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description
+  >Handles the creation of cases for contacts. This topic is triggered when a user requests to create a case or escalate an issue.</description>
+    <developerName>Case_Creation0</developerName>
+    <genAiFunctions>
+        <functionName>SvcCopilotTmpl__CreateCase</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__GetRecordDetails</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__IdentifyRecordByName</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Once the customer provides necessary details, proceed to create the case.</description>
+        <developerName>instruction_oncethecus0</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>instruction_oncethecus0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description
+    >Confirm with the user that the case has been created and provide any relevant case number or follow-up information.</description>
+        <developerName>instruction_confirmwit1</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>instruction_confirmwit1</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Case Creation</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to create a case for the contact based on the information provided by the user.</scope>
+</GenAiPlugin>

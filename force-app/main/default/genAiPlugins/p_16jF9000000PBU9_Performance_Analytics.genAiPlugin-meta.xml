@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description
+  >Provide insights on sales performance and areas for improvement. This topic is chosen when analyzing sales data.</description>
+    <developerName>p_16jF9000000PBU9_Performance_Analytics</developerName>
+    <genAiFunctions>
+        <functionName>Get_Opportunities2</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If the query is about performance analytics, use Get_Opportunities2.</description>
+        <developerName>instruction_0</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>instruction_0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Always clarify the date range or specific criteria for the performance data.</description>
+        <developerName>instruction_1</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>instruction_1</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Performance Analytics</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope
+  >Your job is to only provide performance analytics and insights. This may include generating reports and identifying areas for improvement.</scope>
+</GenAiPlugin>

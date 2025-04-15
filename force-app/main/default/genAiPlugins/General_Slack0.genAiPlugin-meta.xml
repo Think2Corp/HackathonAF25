@@ -28,9 +28,6 @@
         <functionName>Archive_Slack_Channel</functionName>
     </genAiFunctions>
     <genAiFunctions>
-        <functionName>Slack__GetSlackUser</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
         <functionName>Get_Users_Info_for_Slack</functionName>
     </genAiFunctions>
     <genAiFunctions>
@@ -85,6 +82,12 @@
         <developerName>instruction_whenrequir6</developerName>
         <language>en_US</language>
         <masterLabel>instruction_whenrequir6</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Use GetTask action if you are asked information about Tasks</description>
+        <developerName>instruction_usegettask7</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_usegettask7</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>General Slack</masterLabel>

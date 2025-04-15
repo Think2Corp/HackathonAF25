@@ -7,7 +7,7 @@
     <templateVersions>
         <content>Instructions:
 &quot;&quot;&quot;
-Retrieve the values from this text field {!$Input:Participants} and add each value from this field and create a list using this structure:
+Retreive the values from this text field {!$Input:Participants} and add each value from this field and create a list using this structure: 
 The list start with [ and finished with ].
 The values must be separated with ,
 Never describe what you do
@@ -29,7 +29,7 @@ Never Add any &quot;
     <templateVersions>
         <content>Instructions:
 &quot;&quot;&quot;
-Retrieve the values from this text field {!$Input:Participants} and add each value from this field and create a list using this structure:
+Retreive the values from this text field {!$Input:Participants} and add each value from this field and create a list using this structure: 
 The list always start with [ and finished with ]
 The values must be separated with ,
 Never describe what you do
@@ -51,7 +51,7 @@ Never Add any &quot;
     <templateVersions>
         <content>Instructions:
 &quot;&quot;&quot;
-Retrieve the values from this text field {!$Input:Participants} and create a list of these values
+Retreive the values from this text field {!$Input:Participants} and create a list of these values
 The list always start with [ and finished with ]
 The values must be separated with ,
 Never Add any &quot;
