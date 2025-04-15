@@ -43,6 +43,7 @@ public with sharing class GetMembersOfSlackChannel {
     // Process only the first element of the input list
     Input input = inputList[0];
 
+    // Validate the input
     if (String.isBlank(input.channelId)) {
       results.add(new Output('Invalid channel ID provided', new List<String>()));
       return results;

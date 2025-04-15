@@ -6,8 +6,18 @@ public with sharing class ListSlackPublicChannels {
     @InvocableVariable
     public List<ChannelInfo> channelInfoList;
 
-    @InvocableVariable(label='Output Message')
+    @InvocableVariable(label='Result Message')
     public String message;
+
+    public Output() {
+      this.message = '';
+      this.channelInfoList = new List<ChannelInfo>();
+    }
+
+    public Output(String message, List<ChannelInfo> channelInfoList) {
+      this.message = message;
+      this.channelInfoList = channelInfoList;
+    }
   }
 
   // Input of the invocable method : name of the agent to fetch Slack bot token from custom metadata and Slack bot token. One of them is required
@@ -42,29 +52,32 @@ public with sharing class ListSlackPublicChannels {
   // This method will be called from the Agentforce custom action to fetch the list of public channels
   @InvocableMethod(label='List public Slack channels' description='Returns the names and IDs of public Slack channels')
   public static List<Output> getSlackChannels(List<Input> configs) {
-    List<Output> Outputs = new List<Output>();
+    List<Output> outputs = new List<Output>();
 
     // Loop through the list of requests
     for (Input config : configs) {
-      Output Output = new Output();
-      Output.channelInfoList = new List<ChannelInfo>();
+      Output output = new Output();
+      output.channelInfoList = new List<ChannelInfo>();
 
       // Auth
-
-      SlackHelper.ReturnToken returned_token = SlackHelper.getBotToken(config.agentName, config.userSlackBotToken);
+      SlackHelper.ReturnToken returnedToken = SlackHelper.getBotToken(config.agentName, config.userSlackBotToken);
+      if (String.isBlank(returnedToken.token)) {
+        output.message = 'No valid Slack bot token provided';
+        outputs.add(output);
+        return outputs;
+      }
 
       // Get the public channels
-
-      SlackHelper.ReturnSlackCallout slackcallout = SlackHelper.SlackApiCallout(
+      SlackHelper.ReturnSlackCallout slackCallout = SlackHelper.SlackApiCallout(
         SLACK_API_URL,
         'GET',
-        returned_token.token,
+        returnedToken.token,
         null
       );
-      Output.message = slackcallout.message;
+      output.message = slackCallout.message;
       // Handle the response
-      if (slackcallout.status == 'success') {
-        SlackResponse slackRes = (SlackResponse) JSON.deserialize(slackcallout.res.getBody(), SlackResponse.class);
+      if (slackCallout.status == 'success') {
+        SlackResponse slackRes = (SlackResponse) JSON.deserialize(slackCallout.res.getBody(), SlackResponse.class);
 
         // Check if the response is valid and parse the channels
         if (slackRes.ok && slackRes.channels != null) {
@@ -72,23 +85,23 @@ public with sharing class ListSlackPublicChannels {
             ChannelInfo info = new ChannelInfo();
             info.id = ch.id;
             info.name = ch.name;
-            Output.channelInfoList.add(info);
-            Output.message = 'Fetched ' + Output.channelInfoList.size() + ' channels';
+            output.channelInfoList.add(info);
+            output.message = 'Fetched ' + output.channelInfoList.size() + ' channels';
           }
         } else {
-          Output.message =
+          output.message =
             'Failed to fetch channels: ' +
-            (slackRes.ok ? 'No channels found' : 'Invalid response' + slackcallout.res.getBody());
-          Outputs.add(Output);
-          return Outputs;
+            (slackRes.ok ? 'No channels found' : 'Invalid response' + slackCallout.res.getBody());
+          outputs.add(output);
+          return outputs;
         }
       }
 
       // Add the Output to the list of Outputs
-      Outputs.add(Output);
+      outputs.add(Output);
     }
 
     // Return the list of Outputs
-    return Outputs;
+    return outputs;
   }
 }
