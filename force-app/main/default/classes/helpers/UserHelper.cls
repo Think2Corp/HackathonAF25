@@ -65,4 +65,85 @@ public with sharing class UserHelper {
 
     return users;
   }
+
+  public static Set<Id> getUserIdsByNamesAndIds(List<Id> userIds, List<String> userNames) {
+    // Validate inputs
+    if ((userIds == null || userIds.isEmpty()) && (userNames == null || userNames.isEmpty())) {
+      return new Set<Id>();
+    }
+
+    // Query users based on IDs or names using a single query with OR
+    List<User> users = [
+      SELECT Id, Name
+      FROM User
+      WHERE Id IN :userIds OR Name IN :userNames
+    ];
+
+    // Collect and return user IDs
+    Set<Id> queriedUserIds = new Set<Id>();
+    for (User user : users) {
+      queriedUserIds.add(user.Id);
+    }
+    return queriedUserIds;
+  }
+
+  public static Map<Id, List<String>> getCustomPermissionsForUsers(List<Id> userIds, List<String> userNames) {
+    // Use the new helper method to get user IDs
+    Set<Id> queriedUserIds = getUserIdsByNamesAndIds(userIds, userNames);
+
+    if (queriedUserIds.isEmpty()) {
+      return new Map<Id, List<String>>();
+    }
+
+    // Step 2: Get all Permission Sets assigned to the users
+    Map<Id, Set<Id>> userToPermissionSetIds = new Map<Id, Set<Id>>();
+    for (PermissionSetAssignment psa : [
+      SELECT AssigneeId, PermissionSetId
+      FROM PermissionSetAssignment
+      WHERE AssigneeId IN :queriedUserIds
+    ]) {
+      if (!userToPermissionSetIds.containsKey(psa.AssigneeId)) {
+        userToPermissionSetIds.put(psa.AssigneeId, new Set<Id>());
+      }
+      userToPermissionSetIds.get(psa.AssigneeId).add(psa.PermissionSetId);
+    }
+
+    // Step 3: Flatten all Permission Set IDs
+    Set<Id> allPermissionSetIds = new Set<Id>();
+    for (Set<Id> permissionSetIds : userToPermissionSetIds.values()) {
+      allPermissionSetIds.addAll(permissionSetIds);
+    }
+
+    // Step 4: Get all Custom Permissions accessible via these Permission Sets
+    Map<Id, List<String>> permissionSetToCustomPermissions = new Map<Id, List<String>>();
+    for (CustomPermission cp : [
+      SELECT DeveloperName, Id
+      FROM CustomPermission
+      WHERE
+        Id IN (
+          SELECT SetupEntityId
+          FROM SetupEntityAccess
+          WHERE ParentId IN :allPermissionSetIds AND SetupEntityType = 'CustomPermission'
+        )
+    ]) {
+      if (!permissionSetToCustomPermissions.containsKey(cp.Id)) {
+        permissionSetToCustomPermissions.put(cp.Id, new List<String>());
+      }
+      permissionSetToCustomPermissions.get(cp.Id).add(cp.DeveloperName);
+    }
+
+    // Step 5: Map custom permissions back to users
+    Map<Id, List<String>> userToCustomPermissions = new Map<Id, List<String>>();
+    for (Id userId : userToPermissionSetIds.keySet()) {
+      List<String> userPermissions = new List<String>();
+      for (Id permissionSetId : userToPermissionSetIds.get(userId)) {
+        if (permissionSetToCustomPermissions.containsKey(permissionSetId)) {
+          userPermissions.addAll(permissionSetToCustomPermissions.get(permissionSetId));
+        }
+      }
+      userToCustomPermissions.put(userId, userPermissions);
+    }
+
+    return userToCustomPermissions;
+  }
 }
