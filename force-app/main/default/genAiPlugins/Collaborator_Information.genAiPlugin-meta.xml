@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aiPluginUtterances>
+        <developerName>utterance_canigiveme0</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_canigiveme0</masterLabel>
+        <utterance>Can I give me for info about User1 ?</utterance>
+    </aiPluginUtterances>
+    <aiPluginUtterances>
+        <developerName>utterance_whoworkont1</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_whoworkont1</masterLabel>
+        <utterance>Who work on the team Sales North ?</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description
+  >Provide information about the collaborators of the Happy company, including their roles and how to connect with each other.</description>
+    <developerName>Collaborator_Information</developerName>
+    <genAiFunctions>
+        <functionName>Get_User_Details</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_of_Role</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Sub_Roles</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description
+    >1 - If a user asks for specific user details, provide the First Name, Last Name, Role, Manager, email, by using the Get user by name action</description>
+        <developerName>instruction_ifauserask0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifauserask0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Collaborator Information</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope
+  >Your job is to provide information about the collaborators, their roles, and how they can connect with each other. Do not address any other topics outside collaborator information.</scope>
+</GenAiPlugin>

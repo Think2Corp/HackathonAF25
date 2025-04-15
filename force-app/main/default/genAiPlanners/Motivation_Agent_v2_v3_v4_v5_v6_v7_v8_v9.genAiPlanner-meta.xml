@@ -6,19 +6,13 @@
         <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
     </genAiFunctions>
     <genAiPlugins>
-        <genAiPluginName>Create_slack_channel_for_a_challenge</genAiPluginName>
+        <genAiPluginName>Challenges_Closure_and_Results_Calculation_only_for_manager</genAiPluginName>
     </genAiPlugins>
     <genAiPlugins>
-        <genAiPluginName>General_Slack0</genAiPluginName>
+        <genAiPluginName>Challenges_and_Opportunities_follow_up</genAiPluginName>
     </genAiPlugins>
     <genAiPlugins>
-        <genAiPluginName>p_16jF9000000PBT1_Daily_Motivation_Tips</genAiPluginName>
-    </genAiPlugins>
-    <genAiPlugins>
-        <genAiPluginName>p_16jF9000000PBT1_Goal_Tracking</genAiPluginName>
-    </genAiPlugins>
-    <genAiPlugins>
-        <genAiPluginName>p_16jF9000000PBT1_Stress_Management_Techniques</genAiPluginName>
+        <genAiPluginName>Challenges_creation_or_edition_only_for_Manager</genAiPluginName>
     </genAiPlugins>
     <masterLabel>Motivation Agent</masterLabel>
     <plannerType>AiCopilot__ReAct</plannerType>

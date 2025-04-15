@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Handles communication with Slack for various topics.</description>
+    <developerName>General_Slack</developerName>
+    <genAiFunctions>
+        <functionName>Slack__CreateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__SearchSlack</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__SendSlackDirectMessage</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__UpdateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__GetSlackUser</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Confirm receipt of messages sent to Slack and inform the user.</description>
+        <developerName>instruction_confirmrec0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_confirmrec0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Ensure messages are formatted correctly before sending to Slack.</description>
+        <developerName>instruction_ensuremess1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ensuremess1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Gather necessary information from the user before sending messages to Slack.</description>
+        <developerName>instruction_gathernece2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_gathernece2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If a user requests to communicate with Slack, initiate the connection.</description>
+        <developerName>instruction_ifauserreq3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifauserreq3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description
+    >If asked by the user to write to a Slack channel, ensure you have the channel name and message content. Convert the Slack channel name to a Slack channel ID, then send the message to the specified Slack channel using the &apos;Send Slack Message to Channel&apos; action.</description>
+        <developerName>instruction_ifaskedbyt4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifaskedbyt4</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>General Slack</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to manage and facilitate communication with Slack for other topics.</scope>
+</GenAiPlugin>

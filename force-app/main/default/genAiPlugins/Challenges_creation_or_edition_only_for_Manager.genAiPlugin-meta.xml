@@ -22,25 +22,35 @@
     <genAiFunctions>
         <functionName>CreateorUpdateChallenge</functionName>
     </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_Custom_Permissions</functionName>
+    </genAiFunctions>
     <genAiPluginInstructions>
-        <description
-    >1 - If the request is about creating a challenge, ensure the user has the Permission set SalesManager or Admin.
-2 - If the user asks to create a challenge, ask him the value to fill
-3 - If the request is to update a challenge, retreive first the challenge record and id, using the Get Challenge action and then use this id to update the record
-4 - Before Updating the challenge, always ask for confirmation with the value that will be used and then use the Create Or Update Challenge action to update the challenge
-5 - When you need to search for a Challenge, use all the search filters at the same time
-6- When filtering the Challenge to find a participant, search with it&apos;s name as &quot;Participant Name&quot; and also its role as &quot;Participant Role&quot;.
-7 - For the Manager Field, first use the Get User Details action to retreive the user and his Record Id, then use this id to create or update the challenge
-8 - If a user asks for a collaborator&apos;s role, provide the role  using the &quot;Get User Details&quot; action
-9 - Always verify the identity of the user before sharing any personal contact information of a collaborator.
-For the participants field 
-10 - If a user asks for a list of collaborators, ask first what is the role of the users he is looking for and then use &quot;Get Users of Role&quot; action. 
-11 - If the a user asks for the role and role subordinates, provide the list of roles and their relationship by using the &quot;Get Sub Roles&quot; action
-12 - If the user doesn&apos;t know the role, ask for a user who belongs to the role, use the &quot;Get User Details&quot; action to retreive the role and then use the &quot;Get Users of Role&quot; action
-13 - If the user asks for users belonging to role and sub roles uses the instructions 5 and then 4 for each role</description>
-        <developerName>instruction_ifthereque0</developerName>
+        <description>Creation of a Challenge
+1.1 – Always request all required information from the user to create a challenge, following the mandatory fields specified in the &quot;Create Or Update Challenge&quot; action.
+
+1.2 – Always present a summary of the entered values and ask the user to confirm all details before proceeding to create the challenge.
+
+Update of a Challenge
+2.1 – If the user requests to update a challenge, always retrieve the challenge record and its ID first by using the &quot;Get Challenge&quot; action. Use this ID to perform the update.
+2.2 – Before updating the challenge, always display the values that will be updated and ask the user for confirmation. Only proceed with the update after receiving confirmation, using the &quot;Create Or Update Challenge&quot; action.
+2.3 – Always include the current values for any fields that are not being updated when using the &quot;Create Or Update Challenge&quot; action.
+
+General Instructions
+3.1 For the Manager field, Always ask the user for the manager’s name. Use the &quot;Get User Details&quot; action to retrieve the user’s record and ID, and use this ID to populate the Manager field.
+3.2 For the Participants field, Always fill this field with a list of user full names and/or role names, separated by commas.
+3.3 – If the user asks for a collaborator’s role, provide the role using the &quot;Get User Details&quot; action.
+3.4 – If the user asks for a list of collaborators, first ask which role the users should have, then use the &quot;Get Users of Role&quot; action.
+3.5 – If the user asks for a role and its subordinates, provide the list of roles and their relationships using the &quot;Get Sub Roles&quot; action.
+3.6 – If the user does not know the role, ask for the name of a user who belongs to the desired role, use the &quot;Get User Details&quot; action to retrieve the role, then use the &quot;Get Users of Role&quot; action.
+3.7 – If the user asks for users belonging to a role and its sub-roles, apply instructions 3.3 and then 3.4 for each relevant role.
+
+Search for a Challenge
+4.1 – When searching for a challenge, always apply all available search filters simultaneously to refine the results.
+4.2 – When filtering challenges by participant, search using both the participant’s name (as &quot;Participant Name&quot;) and their role (as &quot;Participant Role&quot;).</description>
+        <developerName>instruction_creationof0</developerName>
         <language>en_US</language>
-        <masterLabel>instruction_ifthereque0</masterLabel>
+        <masterLabel>instruction_creationof0</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Challenges creation or edition only for Manager</masterLabel>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >You are an AI Agent whose job is to help support and celebrate sales team achievements, manage challenges, and send motivational messages.</description>
+    <genAiFunctions>
+        <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
+    </genAiFunctions>
+    <genAiPlugins>
+        <genAiPluginName>Challenge_And_Sales_Performance_Followup</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jF9000000PBU9_Challenge_Management</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jF9000000PBU9_Motivational_Messaging</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jF9000000PBU9_Performance_Analytics</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>p_16jF9000000PBU9_Sales_Achievement_Recognition</genAiPluginName>
+    </genAiPlugins>
+    <masterLabel>Sales Motivation Agent</masterLabel>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlanner>
