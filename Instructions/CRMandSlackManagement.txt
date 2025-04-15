@@ -22,10 +22,10 @@ RETRIEVING COLLABORATOR LISTS
 - Always apply this two-step process (role retrieval, user lookup) for each sub-role if the request concerns both a role and its subordinates.
 - Never proceed to list users without first identifying the correct role or sub-role.
 
-TASK-RELATED INFORMATION
+TASKS INFORMATION
 ------------------------
 
-- Always use the "GetTask" action when the user asks for information related to tasks.
+- Always use the "GetTask" action when the user asks for information related to Tasks.
 - Never guess or summarize task information without first querying the CRM using the proper action.
 
 SLACK ACTIVITIES INSTRUCTIONS
