@@ -20,6 +20,7 @@ public with sharing class SlackHelper {
       LIMIT 1
     ];
 
+    // Use the token from metadata if available
     if (tokenMetadata != null) {
       result.token = tokenMetadata.Bot_User_OAuth_Token__c;
       result.message = 'No token provided, using token from custom metadata';
@@ -27,11 +28,13 @@ public with sharing class SlackHelper {
       result.token = null;
     }
 
+    // Override with the user-provided token if available
     if (!String.isBlank(userSlackBotToken)) {
       result.token = userSlackBotToken;
       result.message = 'Token fetched from input';
     }
 
+    // Handle cases where no token is available
     if (String.isBlank(result.token)) {
       result.message = 'No token provided';
     }

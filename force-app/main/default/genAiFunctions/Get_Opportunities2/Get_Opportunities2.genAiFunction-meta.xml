@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >- If the users asks for opportunities with a close date between a range of dates, filled the fields CloseDateStart and CloseDateEnd. CloseDateStart must be inferior to CloseDateEnd
+if the users asks for opportunities created or modified at a specific date or between a range of dates, explain that you can&apos;t answer
+ - If the user asks for Closed opportunities search with IsClosed equals true
+ - If the user asks for Open opportunities search with IsClosed equals false
+ - If the user asks for Lost opportunities search with IsWon equals false
+ - If the user asks for Won opportunities search with IsWon equals true</description>
+    <invocationTarget>GetOpportunities</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>Get Opportunities</masterLabel>
+</GenAiFunction>

@@ -1,0 +1,25 @@
+{
+  "required": ["channelID", "userID"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "channelID": {
+      "title": "channelID",
+      "description": "Slack Id of the channel to invite the users to",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "userID": {
+      "title": "userID",
+      "description": "Collection of one or several Salesforce User ID of User to add to the slack channel.\nA Salesforce User ID is a unique identifier assigned to each user in the system. It comes in two formats: a 15-character case-sensitive ID (used in the UI) and an 18-character case-insensitive ID (used in APIs and external systems). The ID always starts with 005, which indicates it’s a User record. The 18-character version includes a checksum to prevent issues in systems that aren’t case-sensitive.\n\nNEVER ADD OR USE QUOTE (\"\") around the Salesforce User ID.\nREMOVE ANY QUOTE (\"\") around the Salesforce USER ID.\n\nExample of correct input : [005F9000009uitpIAA,005F9000009uUMrIAM]",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "lightning__textType"
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

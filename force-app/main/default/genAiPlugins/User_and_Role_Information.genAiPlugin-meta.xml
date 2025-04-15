@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description
+  >Provide information about users, and roles, and how they relate with each other inside Salesforce only.</description>
+    <developerName>User_and_Role_Information</developerName>
+    <genAiFunctions>
+        <functionName>Get_Users_of_Role</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_User_Details2</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Sub_Roles</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description
+    >1 - If a user asks for single user details, provide the First Name, Last Name, Role, Manager, email, by using the &quot;Get User Details&quot; action
+2 - If a user asks for a collaborator&apos;s role, provide the role  using the &quot;Get User Details&quot; action
+3 - Always verify the identity of the user before sharing any personal contact information of a collaborator.
+4 - If a user asks for a list of collaborators, ask first what is the role of the users he is looking for and then use &quot;Get Users of Role&quot; action. 
+5 - If the a user asks for the role and role subordinates, provide the list of roles and their relationship by using the &quot;Get Sub Roles&quot; action
+6 - If the user doesn&apos;t know the role, ask for a user who belongs to the role, use the &quot;Get User Details&quot; action to retreive the role and then use the &quot;Get Users of Role&quot; action
+7 - If the user asks for users belonging to role and sub roles uses the instructions 5 and then 4 for each role</description>
+        <developerName>instruction_ifauserask0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifauserask0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>User and Role Information</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope
+  >Your job is only to provide details about collaborators and their roles. You can answer questions about User details,  which users belong to which roles and the hierarchy of roles
+Do not address Slack topic.
+Do not address any other topics outside of collaborator and role information.</scope>
+</GenAiPlugin>
