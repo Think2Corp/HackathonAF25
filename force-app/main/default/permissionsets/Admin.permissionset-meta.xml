@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>motivatorChallengeAdministration</name>
+    </customPermissions>
     <description>PS for the admin users.</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -44,6 +48,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Challenge__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.aiResponseStyle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>

@@ -10,6 +10,14 @@ public with sharing class GetOpportunities {
     public String type;
     @InvocableVariable(description='Opportunity Stage')
     public String stage;
+    @InvocableVariable(description='Is Opportunity Closed')
+    public Boolean isClosed;
+    @InvocableVariable(description='Is Opportunity Won')
+    public Boolean isWon;
+    @InvocableVariable(description='Start Date for Close Date Range')
+    public Date closeDateStart;
+    @InvocableVariable(description='End Date for Close Date Range')
+    public Date closeDateEnd;
   }
 
   public class Output {
@@ -37,8 +45,12 @@ public with sharing class GetOpportunities {
       queryInput.name,
       queryInput.owner,
       queryInput.closeDate,
+      queryInput.closeDateStart,
+      queryInput.closeDateEnd,
       queryInput.type,
-      queryInput.stage
+      queryInput.stage,
+      queryInput.isClosed,
+      queryInput.isWon
     );
 
     if (opportunities.isEmpty()) {

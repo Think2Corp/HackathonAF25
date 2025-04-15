@@ -1,0 +1,84 @@
+{
+  "required": ["ChallengeName", "ChallengeStatus"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "ChallengeDescription": {
+      "title": "ChallengeDescription",
+      "description": "Long text field describing the challenge",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "ChallengeEndDate": {
+      "title": "ChallengeEndDate",
+      "description": "Date field defining the end of the challenge",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "ChallengeID": {
+      "title": "ChallengeID",
+      "description": "ID of the Challenge in case of Update",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "ChallengeName": {
+      "title": "ChallengeName",
+      "description": "Text field defining the Name of the Challenge",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "ChallengeResults": {
+      "title": "ChallengeResults",
+      "description": "Text field describing the results of the challenge once it is closed",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "ChallengeSlackChannel": {
+      "title": "ChallengeSlackChannel",
+      "description": "Text field defining Id of the Slack Channel created for the challenge",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "ChallengeStartDate": {
+      "title": "ChallengeStartDate",
+      "description": "Date field defining the start of the challenge",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "ChallengeStatus": {
+      "title": "ChallengeStatus",
+      "description": "Picklist field with the value:\n \"Draft\", \"ToStart\",  \"OnGoing\", \"Finished\", \"Cancelled\",",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "ChallengeType": {
+      "title": "ChallengeType",
+      "description": "Picklist field with the value\nTeam, Personal",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "ManagerId": {
+      "title": "ManagerId",
+      "description": "User ID of the manager responsible of the challenge",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "Participants": {
+      "title": "Participants",
+      "description": "Challenge Participants",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

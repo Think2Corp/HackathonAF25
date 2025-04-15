@@ -1,0 +1,21 @@
+{
+  "required": ["channelName"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "channelName": {
+      "title": "channelName",
+      "description": "The name of the channel to create. Put in lowercase. Remove any \"#\" character from the input.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "channelType": {
+      "title": "channelType",
+      "description": "Optional Boolean.False for Public. True for Private. Set on False by default.",
+      "lightning:type": "lightning__booleanType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

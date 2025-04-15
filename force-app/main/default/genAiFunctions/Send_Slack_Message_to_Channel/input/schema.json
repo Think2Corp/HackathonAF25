@@ -1,0 +1,35 @@
+{
+  "required": ["agentName", "messageText"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "agentName": {
+      "title": "agentName",
+      "description": "The name of the agent (used to fetch the bot token in the custom metadata type). Use your agentName.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "channelId": {
+      "title": "Channel ID",
+      "description": "Slack Channel ID (e.g. C01XXXXXXX)",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "messageText": {
+      "title": "Message Text",
+      "description": "Plain text or markdown message to be sent to a user. Do not include HTML tags. You can format markdown lists as ordered or unordered, but DO NOT mix the 2 formats in your message input parameter. A string like <@U123456789> represents a User mention in Slack. You can extract a Slack User ID from a mention by removing the <@ and > characters. For example, the User ID in <@U123456789> is U123456789. A string like <#C123456789> represents a Channel mention in Slack. You can extract a Slack Channel ID from a mention by removing the <# and > characters. For example, the Channel ID in <@C123456789> is C123456789. When providing information to a user, if a Slack User ID is detected in the content being provided, convert that ID into a Slack User @mention. For example if there is a reference to a User in a string like 'U123456789', wrap that string into a string surrounded with '<@' and '>', for instance: '<@123456789>'. When providing information to a user, if a Slack Channel ID is detected in the content being provided, convert that ID into a Slack Channel @mention. For example if there is a reference to a User in a string like 'U123456789', wrap that string into a string surrounded with '<#' and '>', for instance: '<#C123456789>'.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "userSlackBotToken": {
+      "title": "User set slack Bot Token",
+      "description": "Optional bot token (xoxb-...). Never use this field.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

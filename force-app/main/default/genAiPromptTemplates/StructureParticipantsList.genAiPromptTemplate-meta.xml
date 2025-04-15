@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_2</activeVersionIdentifier>
+    <description>Structure the list for calling a custom action</description>
+    <developerName>StructureParticipantsList</developerName>
+    <masterLabel>Structure Participants List</masterLabel>
+    <templateVersions>
+        <content>Instructions:
+&quot;&quot;&quot;
+Retrieve the values from this text field {!$Input:Participants} and add each value from this field and create a list using this structure:
+The list start with [ and finished with ].
+The values must be separated with ,
+Never describe what you do
+Only produce the list
+Never Add any &quot;
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>Participants</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Participants</masterLabel>
+            <referenceName>Input:Participants</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_strict_CM_12l_fuT0ac9f616</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Instructions:
+&quot;&quot;&quot;
+Retrieve the values from this text field {!$Input:Participants} and add each value from this field and create a list using this structure:
+The list always start with [ and finished with ]
+The values must be separated with ,
+Never describe what you do
+Only produce the list
+Never Add any &quot;
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>Participants</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Participants</masterLabel>
+            <referenceName>Input:Participants</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_strict_CM_12l_fuT0ac9f616</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Instructions:
+&quot;&quot;&quot;
+Retrieve the values from this text field {!$Input:Participants} and create a list of these values
+The list always start with [ and finished with ]
+The values must be separated with ,
+Never Add any &quot;
+Never describe what you do
+Only produce the list
+
+&quot;&quot;&quot;
+</content>
+        <inputs>
+            <apiName>Participants</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Participants</masterLabel>
+            <referenceName>Input:Participants</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_strict_CM_12l_fuT0ac9f616</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_3</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
