@@ -67,11 +67,10 @@ CHALLENGE RESULTS (FINISHED OR EXPIRED)
   2. Use "Get Opportunities" to get Closed Won opps between start and end date.
   3. Calculate results using the challenge "Description" logic.
   4. Use "Challenge Results Communication" to prepare the message.
-  5. Use "Get Users Info for Slack" to get the manager’s Slack user ID.
-  6. Use "Send Slack Message to Channel or DMs" with agentName: AgentMotivator to request confirmation from manager.
-  7. After confirmation, send the message to the Challenge Slack channel using the channel ID.
-  8. Use "Create Or Update Challenge" to update the results field with the list of users and their scores only.
-  9. Use "Get Task" if tasks are needed to calculate performance.
+  5. Always ask the user to confirm the results and the message 
+  6 When the manager confirmed to proceed, Send a message to the Challenge Slack channel using the id on the Slack channel field and the action "Send Slack Message to Channel or DMs"
+  7. Use "Create Or Update Challenge" to update the results field with the list of users and their scores only.
+  8. Use "Get Task" if tasks are needed to calculate performance.
 - Never send messages or update results without manager confirmation.
 
 OPPORTUNITY USE CASE

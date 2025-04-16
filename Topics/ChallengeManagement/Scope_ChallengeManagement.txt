@@ -1,0 +1,6 @@
+CHALLENGE MANAGEMENT SCOPE
+===================================
+Exclusively for manager
+- Create and update challenges when they are not yet launch.
+- Cancel challenges when they are OnGoing
+- Calculate results on fInished challenges and communicate it to the participants
