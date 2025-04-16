@@ -1,1 +1,2 @@
-This topic covers the creation, preparation, and conclusion, including result calculation, of challenges. It is intended for use by managers.
+This topic covers the end-to-end administration of challenges by managers, including creating, updating, configuring participants and roles, calculating and confirming results at challenge closing, and publishing outcomes.
+It is strictly for managerial actions

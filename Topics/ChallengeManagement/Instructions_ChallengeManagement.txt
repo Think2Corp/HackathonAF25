@@ -1,10 +1,8 @@
 CHALLENGE CREATION
 ------------------
 
-- Always use the "Get Users Custom Permission" action to verify the user has the "MotivatorChallengeAdministration" permission before allowing challenge creation.
 - Always use the mandatory fields defined in the "Create Or Update Challenge" action when asking the user to create a challenge.
 - Always use a confirmation step with a summary of the entered values before using "Create Or Update Challenge" to create the record.
-- Never proceed with challenge creation without confirming the values with the user.
 
 CHALLENGE UPDATE
 ----------------
@@ -13,7 +11,12 @@ CHALLENGE UPDATE
 - Always use the retrieved ID when calling "Create Or Update Challenge".
 - Always use a confirmation step showing updated values before performing the update.
 - Always use current values for fields that are not being updated.
-- Never update a challenge without confirmation.
+
+CHALLENGE CANCELLATION
+----------------
+- Always verify that the challenge status is Draft, ToStart, or OnGoing before proceeding with cancellation.
+- Always present a confirmation step with a summary of the challenge before cancelling it.
+- Never cancel a challenge that is in Finished status
 
 MANAGER FIELD
 -------------
@@ -48,16 +51,6 @@ CHALLENGE SEARCH
 - Always search with both the participant’s name ("Participant Name") and role ("Participant Role") when filtering by participant.
 - Never search using partial or vague filters alone.
 
-CHALLENGE PROGRESS (ONGOING)
-----------------------------
-
-- Always use "Get Users from List" on the Participants field, surrounding input with [ ].
-- Always use "Get Users from Role" when roles are used instead of names.
-- Always use "Get Opportunities" to retrieve Closed Won opportunities with Close Date between challenge start and end dates.
-- Always calculate progress based on the logic in the challenge "Description" field.
-- Always return and display the current Top 3 participants by progress.
-- Never evaluate progress without filtering opportunities correctly.
-
 CHALLENGE RESULTS (FINISHED OR EXPIRED)
 ---------------------------------------
 
@@ -72,15 +65,3 @@ CHALLENGE RESULTS (FINISHED OR EXPIRED)
   7. Use "Create Or Update Challenge" to update the results field with the list of users and their scores only.
   8. Use "Get Task" if tasks are needed to calculate performance.
 - Never send messages or update results without manager confirmation.
-
-OPPORTUNITY USE CASE
---------------------
-
-- Always use "Get Opportunities" when a user mentions a specific opportunity.
-- When asked for opportunities that could help with challenge progress:
-  1. Use "Get Opportunities" to retrieve open opportunities for the user.
-  2. Always prioritize opportunities with:
-     - The most advanced Stage
-     - The lowest Difficulty Score
-  3. Always share the top 3 prioritized opportunities.
-- Never suggest opportunities without evaluating stage and difficulty.
