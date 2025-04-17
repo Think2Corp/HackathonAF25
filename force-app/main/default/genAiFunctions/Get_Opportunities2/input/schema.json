@@ -1,69 +1,69 @@
 {
-  "unevaluatedProperties": false,
-  "properties": {
-    "closeDate": {
-      "title": "closeDate",
-      "description": "Opportunity Close Date",
-      "lightning:type": "lightning__dateType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "closeDate" : {
+      "title" : "closeDate",
+      "description" : "Date field at the date of the opportunity has been closed",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "closeDateEnd": {
-      "title": "closeDateEnd",
-      "description": "End Date for Close Date Range",
-      "lightning:type": "lightning__dateType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "closeDateEnd" : {
+      "title" : "closeDateEnd",
+      "description" : "Date input for the end date for searching in a range of Close Date",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "closeDateStart": {
-      "title": "closeDateStart",
-      "description": "Start Date for Close Date Range",
-      "lightning:type": "lightning__dateType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "closeDateStart" : {
+      "title" : "closeDateStart",
+      "description" : "Date input for the start date for searching in a range of Close Date",
+      "lightning:type" : "lightning__dateType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "isClosed": {
-      "title": "isClosed",
-      "description": "Is Opportunity Closed",
-      "lightning:type": "lightning__booleanType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "isClosed" : {
+      "title" : "isClosed",
+      "description" : "Boolean specifying Is Opportunity Closed",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "isWon": {
-      "title": "isWon",
-      "description": "Is Opportunity Won",
-      "lightning:type": "lightning__booleanType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "isWon" : {
+      "title" : "isWon",
+      "description" : "Boolean specifying Is Opportunity Won",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "name": {
-      "title": "name",
-      "description": "Opportunity Name",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "name" : {
+      "title" : "name",
+      "description" : "Text field specifying Opportunity Name",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "owner": {
-      "title": "owner",
-      "description": "Opportunity Owner",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "owner" : {
+      "title" : "owner",
+      "description" : "Lookup field to User specifying the Opportunity Owner",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "stage": {
-      "title": "stage",
-      "description": "Opportunity Stage",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": false
+    "stage" : {
+      "title" : "stage",
+      "description" : "Picklist list specifying the opportunity stage\nValues in the order of progression:\nProspecting\nQualification\nNeeds Analysis\nValue Proposition\nId. Decision Makers\nPerception Analysis\nProposal/Price Quote\nNegotiation/Review\nClosed Won\nClosed Lost",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
     },
-    "type": {
-      "title": "type",
-      "description": "Opportunity Type",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "type" : {
+      "title" : "type",
+      "description" : "Picklist list specifying the opportunity stage\nValues: \nExisting Customer - Upgrade\nExisting Customer - Replacement\nExisting Customer - Downgrade\nNew Customer",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     }
   },
-  "lightning:type": "lightning__objectType"
+  "lightning:type" : "lightning__objectType"
 }
