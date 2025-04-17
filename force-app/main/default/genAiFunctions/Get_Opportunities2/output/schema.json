@@ -6,7 +6,7 @@
       "description": "Result message",
       "lightning:type": "lightning__textType",
       "lightning:isPII": false,
-      "copilotAction:isDisplayable": false,
+      "copilotAction:isDisplayable": true,
       "copilotAction:isUsedByPlanner": true,
       "copilotAction:useHydratedPrompt": false
     },
