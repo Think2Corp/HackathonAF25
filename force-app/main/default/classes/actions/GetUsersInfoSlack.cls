@@ -1,7 +1,10 @@
 public with sharing class GetUsersInfoSlack {
   public class Input {
-    @InvocableVariable(description='Optional list of User IDs to filter')
-    public List<Id> userIds;
+    @InvocableVariable(description='Optional list of Salesforce User IDs to filter')
+    public List<Id> userSalesforceIds;
+
+    @InvocableVariable(description='Optional list of Slack User IDs to filter')
+    public List<Id> userSlackIds;
   }
 
   public class UserInfoWrapper {
@@ -46,7 +49,10 @@ public with sharing class GetUsersInfoSlack {
     }
 
     Input input = inputList[0];
-    List<UserInfoWrapper> userInfoList = SlackHelper.getUsersInfo(input.userIds);
+    List<Id> userSalesforceIds = input.userSalesforceIds != null ? input.userSalesforceIds : new List<Id>();
+    List<Id> userSlackIds = input.userSlackIds != null ? input.userSlackIds : new List<Id>();
+
+    List<UserInfoWrapper> userInfoList = SlackHelper.getUsersInfo(userSalesforceIds, userSlackIds);
     List<String> userInfoListString = new List<String>();
 
     for (UserInfoWrapper userInfo : userInfoList) {

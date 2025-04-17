@@ -89,8 +89,10 @@ public with sharing class SlackHelper {
     return result;
   }
 
-  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(List<Id> userIds) {
+  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(List<Id> userIds, List<Id> slackIds) {
     List<GetUsersInfoSlack.UserInfoWrapper> userInfoList = new List<GetUsersInfoSlack.UserInfoWrapper>();
+    Map<String, String> idMapSalesforceSlack = new Map<String, String>();
+    Map<String, String> idMapSlackSalesforce = new Map<String, String>();
 
     // Query users based on provided IDs or all users if no IDs are provided
     List<User> users;
@@ -114,11 +116,32 @@ public with sharing class SlackHelper {
     }
 
     String teamId = 'T08LMTRBD2B'; // More generic ??
-    Map<String, String> slackIdMap = Slack.UserMappingService.getSlackUserIdMap(salesforceIds, teamId);
+    if (salesforceIds != null && !salesforceIds.isEmpty()) {
+      idMapSalesforceSlack = Slack.UserMappingService.getSlackUserIdMap(salesforceIds, teamId);
+    }
+    if (slackIds != null && !slackIds.isEmpty()) {
+      idMapSlackSalesforce = Slack.UserMappingService.getSalesforceUserIdMap(slackIds);
+    }
+
+    // Build the merged map <SalesforceId, SlackId>
+    Map<String, String> mergedMap = new Map<String, String>();
+
+    // Add entries from idMapSalesforceSlack directly
+    if (idMapSalesforceSlack != null) {
+      mergedMap.putAll(idMapSalesforceSlack);
+    }
+
+    // Add entries from idMapSlackSalesforce, ensuring <SalesforceId, SlackId> format
+    for (String slackId : idMapSlackSalesforce.keySet()) {
+      String salesforceId = idMapSlackSalesforce.get(slackId);
+      if (!mergedMap.containsKey(salesforceId)) {
+        mergedMap.put(salesforceId, slackId);
+      }
+    }
 
     // Build the user info list
     for (User user : users) {
-      String slackId = slackIdMap.get(user.Id);
+      String slackId = mergedMap.get(user.Id);
       userInfoList.add(new GetUsersInfoSlack.UserInfoWrapper(user.Name, user.Id, slackId));
     }
 
