@@ -51,13 +51,7 @@ public with sharing class GetUsersInfoSlack {
 
     for (UserInfoWrapper userInfo : userInfoList) {
       userInfoListString.add(
-        'Name=(' +
-          userInfo.name +
-          '), Salesforce ID=[' +
-          userInfo.salesforceId +
-          '], Slack ID={' +
-          userInfo.slackId +
-          '}'
+        'Name=' + userInfo.name + ', Salesforce ID=' + userInfo.salesforceId + ', Slack ID=' + userInfo.slackId
       );
     }
 
