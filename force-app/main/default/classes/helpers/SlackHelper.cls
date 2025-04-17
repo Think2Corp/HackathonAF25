@@ -89,62 +89,54 @@ public with sharing class SlackHelper {
     return result;
   }
 
-  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(List<Id> userIds, List<Id> slackIds) {
-    List<GetUsersInfoSlack.UserInfoWrapper> userInfoList = new List<GetUsersInfoSlack.UserInfoWrapper>();
-    Map<String, String> idMapSalesforceSlack = new Map<String, String>();
-    Map<String, String> idMapSlackSalesforce = new Map<String, String>();
+  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(List<Id> salesforceUserIds, List<Id> slackIds) {
+    List<GetUsersInfoSlack.UserInfoWrapper> results = new List<GetUsersInfoSlack.UserInfoWrapper>();
 
-    // Query users based on provided IDs or all users if no IDs are provided
-    List<User> users;
-    if (userIds != null && !userIds.isEmpty()) {
-      users = [
-        SELECT Id, Name
-        FROM User
-        WHERE Id IN :userIds
-      ];
-    } else {
-      users = [
-        SELECT Id, Name
-        FROM User
-      ];
-    }
-
-    // Get Slack IDs for the queried users
-    List<String> salesforceIds = new List<String>();
-    for (User user : users) {
-      salesforceIds.add(user.Id);
-    }
-
-    String teamId = 'T08LMTRBD2B'; // More generic ??
-    if (salesforceIds != null && !salesforceIds.isEmpty()) {
-      idMapSalesforceSlack = Slack.UserMappingService.getSlackUserIdMap(salesforceIds, teamId);
-    }
-    if (slackIds != null && !slackIds.isEmpty()) {
-      idMapSlackSalesforce = Slack.UserMappingService.getSalesforceUserIdMap(slackIds);
-    }
-
-    // Build the merged map <SalesforceId, SlackId>
-    Map<String, String> mergedMap = new Map<String, String>();
-
-    // Add entries from idMapSalesforceSlack directly
-    if (idMapSalesforceSlack != null) {
-      mergedMap.putAll(idMapSalesforceSlack);
-    }
-
-    // Add entries from idMapSlackSalesforce, ensuring <SalesforceId, SlackId> format
-    for (String slackId : idMapSlackSalesforce.keySet()) {
-      String salesforceId = idMapSlackSalesforce.get(slackId);
-      if (!mergedMap.containsKey(salesforceId)) {
-        mergedMap.put(salesforceId, slackId);
+    // If both lists are empty, fetch all Salesforce Users
+    if ((salesforceUserIds == null || salesforceUserIds.isEmpty()) && (slackIds == null || slackIds.isEmpty())) {
+      salesforceUserIds = new List<Id>();
+      for (User u : [SELECT Id FROM User WHERE IsActive = TRUE]) {
+        salesforceUserIds.add(u.Id);
       }
     }
 
-    // Build the user info list
-    for (User user : users) {
-      String slackId = mergedMap.get(user.Id);
-      userInfoList.add(new GetUsersInfoSlack.UserInfoWrapper(user.Name, user.Id, slackId));
+    // Get mappings from the Slack UserMappingService
+    String teamId = 'T08LMTRBD2B'; // More generic ??
+    Map<String, String> sfToSlackMap = new Map<String, String>();
+    if (salesforceUserIds != null && !salesforceUserIds.isEmpty()) {
+      sfToSlackMap = Slack.UserMappingService.getSlackUserIdMap(salesforceUserIds, teamId);
     }
 
-    return userInfoList;
+    Map<String, String> slackToSfMap = new Map<String, String>();
+    if (slackIds != null && !slackIds.isEmpty()) {
+      slackToSfMap = Slack.UserMappingService.getSalesforceUserIdMap(slackIds);
+    }
+
+    Set<String> allSfIds = new Set<String>();
+    if (sfToSlackMap != null) {
+      allSfIds.addAll(sfToSlackMap.keySet());
+    }
+    if (slackToSfMap != null) {
+      allSfIds.addAll(slackToSfMap.values());
+    }
+
+    // Query User information
+    Map<Id, User> userMap = new Map<Id, User>([SELECT Id, Name FROM User WHERE Id IN :allSfIds]);
+
+    for (String sfId : allSfIds) {
+      User user = userMap.get((Id) sfId); // Cast String to Id for querying User
+      String slackId = sfToSlackMap != null && sfToSlackMap.containsKey(sfId) ? sfToSlackMap.get(sfId) : null;
+      if (slackId == null && slackToSfMap != null) {
+        for (String sId : slackToSfMap.keySet()) {
+          if (slackToSfMap.get(sId) == sfId) {
+            slackId = sId;
+            break;
+          }
+        }
+      }
+      results.add(new GetUsersInfoSlack.UserInfoWrapper(user.Name, user.Id, slackId));
+    }
+
+    return results;
   }
 }
