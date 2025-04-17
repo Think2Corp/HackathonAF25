@@ -32,11 +32,8 @@ public with sharing class TaskHelper {
     if (dueDate != null) {
       conditions.add('ActivityDate = :dueDate');
     } else {
-      if (dueDateStart != null) {
-        conditions.add('ActivityDate >= :dueDateStart');
-      }
-      if (dueDateEnd != null) {
-        conditions.add('ActivityDate <= :dueDateEnd');
+      if (dueDateStart != null && dueDateEnd != null) {
+        conditions.add('ActivityDate >= :dueDateStart AND ActivityDate <= :dueDateEnd');
       }
     }
     if (whatId != null) {
