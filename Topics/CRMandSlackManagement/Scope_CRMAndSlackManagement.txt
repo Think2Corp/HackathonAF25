@@ -1,0 +1,3 @@
+Manage CRM tasks and retrieve user details, roles, and teams
+Handle Slack interactions, including channel actions and agent communications
+Do not perform tasks outside these functions

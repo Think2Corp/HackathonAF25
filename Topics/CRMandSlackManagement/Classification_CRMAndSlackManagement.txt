@@ -1,0 +1,1 @@
+This topic covers handling general CRM and Slack-related requests, including retrieving user details, roles, and teams, managing tasks, and facilitating communication and channel management on Slack.
