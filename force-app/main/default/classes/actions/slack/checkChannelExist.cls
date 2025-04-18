@@ -1,7 +1,5 @@
 public with sharing class checkChannelExist {
-
-  private static final String SLACK_API_URL = 'https://slack.com/api/conversations.list';
-
+  private static final String SLACK_API_URL = 'https://slack.com/api/conversations.list?type=public_channel,private_channel&exclude_archived=true&limit=1000';
 
   public class Input {
     @InvocableVariable(label='Channel Name' description='The name of the channel to check')

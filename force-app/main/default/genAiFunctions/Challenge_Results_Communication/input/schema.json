@@ -1,0 +1,38 @@
+{
+  "required" : [ "Input:FinishedChallenge", "Input:SpecificManagerInstructions", "Input:Results" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:FinishedChallenge" : {
+      "title" : "FinishedChallenge",
+      "description" : "Challenge Record that is finished",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Challenge__c"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:SpecificManagerInstructions" : {
+      "title" : "SpecificManagerInstructions",
+      "description" : "Specific Instructions that the manager can add to create the message. If there is no specific instruction set it to none",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Input:Results" : {
+      "title" : "Results",
+      "description" : "Results calcutated by the agent. ",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

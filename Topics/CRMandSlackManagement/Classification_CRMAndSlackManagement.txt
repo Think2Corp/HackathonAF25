@@ -1,0 +1,1 @@
+This topic covers handling general CRM and Slack-related requests, including retrieving user details, roles, and teams, managing tasks, facilitating communication and channel management on Slack, and sending direct Slack messages to opportunity owners to congratulate on closed-won deals or motivate on open opportunities.

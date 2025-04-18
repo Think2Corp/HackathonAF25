@@ -11,9 +11,7 @@ If the challenge status is "Ongoing", follow these steps:
    - If the field contains roles, use "Get Users from Role".
 
 2. Retrieve performance data:
-   - For each user, use "Get Opportunities" to find opportunities where:
-     - Stage = Closed Won
-     - Close Date is between the Start Date and End Date of the challenge.
+   - For each user, use "Get Opportunities" to find opportunities where "Get Task" to find tasks.
 
 3. Calculate progress:
    - Use the challenge "Description" field to determine the goal.

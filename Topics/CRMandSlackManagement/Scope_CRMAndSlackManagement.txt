@@ -1,0 +1,4 @@
+- Manage CRM tasks and retrieve user details, roles, and teams
+- Handle Slack interactions, including channel management and agent communications
+- Send direct Slack messages to opportunity owners to congratulate on closed-won deals
+- Send direct Slack messages to opportunity owners to motivate closing open opportunities

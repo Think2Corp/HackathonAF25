@@ -1,7 +1,5 @@
 public with sharing class ListSlackPublicChannels {
-
-  private static final String SLACK_API_URL = 'https://slack.com/api/conversations.list';
-
+  private static final String SLACK_API_URL = 'https://slack.com/api/conversations.list?exclude_archived=true&limit=1000';
 
   // Input of the invocable method : name of the agent to fetch Slack bot token from custom metadata and Slack bot token. One of them is required
   public class Input {

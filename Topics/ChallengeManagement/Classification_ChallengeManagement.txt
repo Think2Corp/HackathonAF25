@@ -1,0 +1,2 @@
+This topic covers the end-to-end administration of challenges by managers, including creating, updating, configuring participants and roles, calculating and confirming results at challenge closing, and publishing outcomes.
+It is strictly for managerial actions
