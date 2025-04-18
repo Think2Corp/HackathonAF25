@@ -1,0 +1,1 @@
+This topic handles identifying and celebrating exceptional closed-won opportunities that meet specific criteria (above-average amount, high difficulty prediction, or high performer status). It generates and sends congratulatory messages to a designated public Slack channel for qualified opportunities.

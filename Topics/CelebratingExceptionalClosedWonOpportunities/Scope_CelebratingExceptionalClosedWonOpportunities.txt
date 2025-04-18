@@ -1,0 +1,3 @@
+- Identify opportunities that meet exceptional criteria  
+- Send congratulatory messages to the public Slack channel `C08MTJ3N55J`  
+- Do not handle challenge-related communications or general opportunity management
