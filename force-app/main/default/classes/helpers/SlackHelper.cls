@@ -89,7 +89,10 @@ public with sharing class SlackHelper {
     return result;
   }
 
-  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(List<Id> salesforceUserIds, List<Id> slackIds) {
+  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(
+    List<Id> salesforceUserIds,
+    List<String> slackIds
+  ) {
     List<GetUsersInfoSlack.UserInfoWrapper> results = new List<GetUsersInfoSlack.UserInfoWrapper>();
 
     // If both lists are empty, fetch all Salesforce Users
@@ -113,10 +116,10 @@ public with sharing class SlackHelper {
     }
 
     Set<String> allSfIds = new Set<String>();
-    if (sfToSlackMap != null) {
+    if (sfToSlackMap != null && !sfToSlackMap.isEmpty()) {
       allSfIds.addAll(sfToSlackMap.keySet());
     }
-    if (slackToSfMap != null) {
+    if (slackToSfMap != null && !slackToSfMap.isEmpty()) {
       allSfIds.addAll(slackToSfMap.values());
     }
 
@@ -126,7 +129,7 @@ public with sharing class SlackHelper {
     for (String sfId : allSfIds) {
       User user = userMap.get((Id) sfId); // Cast String to Id for querying User
       String slackId = sfToSlackMap != null && sfToSlackMap.containsKey(sfId) ? sfToSlackMap.get(sfId) : null;
-      if (slackId == null && slackToSfMap != null) {
+      if (slackId == null && slackToSfMap != null && !slackToSfMap.isEmpty()) {
         for (String sId : slackToSfMap.keySet()) {
           if (slackToSfMap.get(sId) == sfId) {
             slackId = sId;

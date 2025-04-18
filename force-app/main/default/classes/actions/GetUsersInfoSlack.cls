@@ -50,7 +50,7 @@ public with sharing class GetUsersInfoSlack {
 
     Input input = inputList[0];
     List<Id> userSalesforceIds = input.userSalesforceIds != null ? input.userSalesforceIds : new List<Id>();
-    List<Id> userSlackIds = input.userSlackIds != null ? input.userSlackIds : new List<Id>();
+    List<String> userSlackIds = input.userSlackIds != null ? input.userSlackIds : new List<String>();
 
     List<UserInfoWrapper> userInfoList = SlackHelper.getUsersInfo(userSalesforceIds, userSlackIds);
     List<String> userInfoListString = new List<String>();
