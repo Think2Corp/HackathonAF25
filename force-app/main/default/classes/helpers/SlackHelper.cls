@@ -123,12 +123,20 @@ public with sharing class SlackHelper {
       allSfIds.addAll(slackToSfMap.values());
     }
 
+    // Remove technical IDs from the set
+    allSfIds.remove('force__cornerstone');
+
     // Query User information
     Map<Id, User> userMap = new Map<Id, User>([SELECT Id, Name FROM User WHERE Id IN :allSfIds]);
 
     for (String sfId : allSfIds) {
       User user = userMap.get((Id) sfId); // Cast String to Id for querying User
+      if (user == null) {
+        continue;
+      }
+
       String slackId = sfToSlackMap != null && sfToSlackMap.containsKey(sfId) ? sfToSlackMap.get(sfId) : null;
+
       if (slackId == null && slackToSfMap != null && !slackToSfMap.isEmpty()) {
         for (String sId : slackToSfMap.keySet()) {
           if (slackToSfMap.get(sId) == sfId) {
@@ -137,6 +145,7 @@ public with sharing class SlackHelper {
           }
         }
       }
+
       results.add(new GetUsersInfoSlack.UserInfoWrapper(user.Name, user.Id, slackId));
     }
 
