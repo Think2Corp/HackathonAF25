@@ -11,5 +11,5 @@
     <invocationTargetType>apex</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
-    <masterLabel>Get Opportunities</masterLabel>
+    <masterLabel>Get Opportunities (Deprecated2)</masterLabel>
 </GenAiFunction>

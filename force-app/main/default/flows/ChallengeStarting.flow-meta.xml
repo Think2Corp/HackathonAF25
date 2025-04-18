@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Check the end date to check if the enddate has passed</description>
+        <name>ShouldtheChallengestart</name>
+        <label>Should the Challenge start ?</label>
+        <locationX>182</locationX>
+        <locationY>252</locationY>
+        <defaultConnectorLabel>Start Date is ahead</defaultConnectorLabel>
+        <rules>
+            <name>StartDateIsNow</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.StartDate__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Flow.CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetStatusToOnGoing</targetReference>
+            </connector>
+            <label>StartDate Is Now</label>
+        </rules>
+    </decisions>
+    <description>Batch that move challenge in status ToStart to OnGoing</description>
+    <environments>Default</environments>
+    <interviewLabel>ChallengeStarting {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ChallengeStarting</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Update the status and Launch the challenge</description>
+        <name>SetStatusToOnGoing</name>
+        <label>Set Status To OnGoing</label>
+        <locationX>50</locationX>
+        <locationY>360</locationY>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>OnGoing</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>ShouldtheChallengestart</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ToStart</stringValue>
+            </value>
+        </filters>
+        <object>Challenge__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-04-10</startDate>
+            <startTime>23:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>
