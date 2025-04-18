@@ -1,28 +1,28 @@
 {
-  "required": ["channelId"],
-  "unevaluatedProperties": false,
-  "properties": {
-    "agentName": {
-      "title": "Agent Name",
-      "description": "The name of the agent (used to fetch the bot token in the custom metadata type)",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+  "required" : [ "channelId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "agentName" : {
+      "title" : "Agent Name",
+      "description" : "The name of the agent (used to fetch the bot token in the custom metadata type)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "channelId": {
-      "title": "channelId",
-      "description": "Slack Channel ID (CXXXXXXXX)",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "channelId" : {
+      "title" : "channelId",
+      "description" : "Slack Channel ID (CXXXXXXXX)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     },
-    "userSlackBotToken": {
-      "title": "User set Slack Bot Token",
-      "description": "Optional bot token (xoxb-...)",
-      "lightning:type": "lightning__textType",
-      "lightning:isPII": false,
-      "copilotAction:isUserInput": true
+    "userSlackBotToken" : {
+      "title" : "User set Slack Bot Token",
+      "description" : "Optional bot token (xoxb-...)",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
     }
   },
-  "lightning:type": "lightning__objectType"
+  "lightning:type" : "lightning__objectType"
 }
