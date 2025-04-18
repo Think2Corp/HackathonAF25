@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>This topic handles identifying and celebrating exceptional closed-won opportunities that meet specific criteria (above-average amount, high difficulty prediction, or high performer status). It generates and sends congratulatory messages to a designated public Slack channel for qualified opportunities.</description>
+    <developerName>Celebrating_Exceptional_Closed_Won_Opportunities</developerName>
+    <genAiFunctions>
+        <functionName>Get_Opportunities3</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Predicted_Difficulty</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Send_Slack_Message_to_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Won_Opportunity_Public_CelebrationV2</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>**OPPORTUNITY EVALUATION**  
+--------------------------  
+1. Always use the &quot;Get Opportunities&quot; action to retrieve details of the closed-won opportunity.  
+2. Check these three criteria:  
+   - **Predicted Difficulty:** Use the &quot;Predicted Difficulty&quot; action to verify the opportunity’s difficulty score, it qualifies if the difficulty has a high score. (Lowest score is 0, highest score is 100)
+   - **Above-Average Amount:** Compare the opportunity amount to the average of closed-won opportunities from the past 30 days by using the action &quot;Get Opportunities3&quot;
+   - **High-Performer Owner:** Use &quot;Get Opportunities&quot; to check if the owner has ≥5 closed-won opportunities in the past 30 days compared to the opportunity close date 
+3. The opportunity qualifies if it meets **at least one** criterion.  
+
+**MESSAGE PREPARATION**  
+-----------------------  
+- Use the &quot;Won Opportunity Public CelebrationV2&quot; action to generate the message. 
+If the owner total opportunity wins i ≥5 in past month, send this information on the specific instructions input of the action &quot;&quot;Won Opportunity Public Celebration&quot;
+
+**SLACK COMMUNICATION**  
+-----------------------  
+- If the opportunity is qualified send the message prepared by the action &quot;Won Opportunity Public CelebrationV2&quot;and send the message with &quot;Send Slack Message to Channel or DMs&quot; action with:  
+   - channelId: C08MTJ3N55J
+   - `agentName: agentMotivator
+
+-For all opportunities, on top of the other message always send a message to explain why the opportunity was qualified or not qualified using the action &quot;Send Slack Message to Channel or DMs&quot; with the inputs:
+  - channelId: C08MEA2DEJK
+  - `agentName: agentMotivator
+
+**DATA HANDLING**  
+-----------------  
+- If historical average amount data is unavailable, skip the amount criterion.  
+- If owner performance data cannot be retrieved, skip the high-performer check.  
+- Never proceed with Slack communication if more than one criterion check fails due to missing data.</description>
+        <developerName>instruction_opportunit0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_opportunit0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Celebrating Exceptional Closed-Won Opportunities</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>- Identify opportunities that meet exceptional criteria  
+- Send congratulatory messages to the public Slack channel `C08MTJ3N55J`  
+- Do not handle challenge-related communications or general opportunity management</scope>
+</GenAiPlugin>

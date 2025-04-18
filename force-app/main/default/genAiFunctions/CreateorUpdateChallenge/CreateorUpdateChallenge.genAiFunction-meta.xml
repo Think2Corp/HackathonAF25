@@ -1,22 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Use this action to create or update a challenge.
-General Instruction:
-- For Type Field, displays the available values: Personal, Team
-- For the manager field, always send the id of the user as input for creation or update
-In case of creation:
-- Mandatory fields to ask are : Challenge Name, StartDate, EndDate Type, Description, Participants, Manager, Status
-- For Type Field, displays the values: Personal, Team
-- Participant field can be filled with a User Name or a List of Role Name
-- Only the status value: Draft, ToStart, OnGoing are eligible for the creation
-- When the status is OnGoing, the start date is Today.
-- The EndDate must be later than StartDate
-In case of Update:
-- Challende Id is required 
-- Only the status value: Draft, ToStart, OnGoing, Cancelled are eligible for the creation
-- If the current challenge status is OnGoing, no field can be updated, excepted the status that can be updated to Cancelled
-- If the current challenge status is Finished or Cancelled no field can be updated
-- Always send the current values for the fields that are not modified.</description>
+    <description>General Instructions
+- Always display the available values for the Type field: Personal, Team.
+- Always send the user’s ID as the value for the Manager field during creation or update.
+
+When Creating a Challenge
+- Always require and prompt for these mandatory fields: Challenge Name, StartDate, EndDate, Type, Description, Participants, Manager, Status.
+- Always display the available values for the Type field: Personal, Team.
+- Always allow the Participants field to accept either a user name or a list of role names.
+- Always restrict the Status field to these values: Draft, ToStart, OnGoing.
+- Always set the StartDate to today if the status is OnGoing.
+- Always ensure the EndDate is later than the StartDate.
+- Never allow other status values during creation.
+
+When Updating a Challenge
+- Always require the Challenge Id.
+- Always restrict the Status field to these values: Draft, ToStart, OnGoing, Cancelled.
+- If the current challenge status is OnGoing, Never update any field except the Status., and allow the Status to be updated only to Cancelled.
+If the current challenge status is Finished or Cancelled, Never modify any field.
+- Always send the current values for all fields that are not being modified.</description>
     <invocationTarget>Create_or_Update_Challenge_2</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>

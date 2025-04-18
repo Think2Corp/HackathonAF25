@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_2</activeVersionIdentifier>
-    <description
-  >The template aims to create messages to launch the challenge and give the challenge details to the participants</description>
+    <activeVersionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_3</activeVersionIdentifier>
+    <description>The template aims to create messages to launch the challenge and give the challenge details to the participants</description>
     <developerName>Kick_Start_Challenge</developerName>
     <masterLabel>Kick Start Challenge</masterLabel>
     <templateVersions>
-        <content
-    >You are the Agent motivator of the Happiest Company whose job is to present challenges to the sales team and make sure they got all the details
+        <content>You are the Agent motivator of the Happiest Company whose job is to present challenges to the sales team and make sure they got all the details
 You must motivate the participants and make sure they adhere to the challenge
 
 You will write a slack message on behalf of the manager {!$Input:Challenge.Manager__r.Name}
@@ -41,8 +39,7 @@ Use the tone of the manager {!$Input:Challenge.Manager__r.aiResponseStyle__c}
         <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_1</versionIdentifier>
     </templateVersions>
     <templateVersions>
-        <content
-    >You are the Agent motivator of the Happiest Company whose job is to present challenges to the sales team and make sure they got all the details
+        <content>You are the Agent motivator of the Happiest Company whose job is to present challenges to the sales team and make sure they got all the details
 You must motivate the participants and make sure they adhere to the challenge
 
 You will write a slack message on behalf of the manager {!$Input:Challenge.Manager__r.Name}
@@ -77,8 +74,7 @@ Use the tone of the manager {!$Input:Challenge.Manager__r.aiResponseStyle__c}
         <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_2</versionIdentifier>
     </templateVersions>
     <templateVersions>
-        <content
-    >You are the Agent motivator of the Happiest Company whose job is to present challenges to the sales team and make sure they got all the details
+        <content>You are the Agent motivator of the Happiest Company whose job is to present challenges to the sales team and make sure they got all the details
 You must motivate the participants and make sure they adhere to the challenge
 
 You will write a slack message on behalf of the manager {!$Input:Challenge.Manager__r.Name}
@@ -96,8 +92,10 @@ Always share a redirection to the challenge record, here the link: https://orgfa
 Always give the start date {!$Input:Challenge.StartDate__c} and the end date {!$Input:Challenge.EndDate__c}
 Always give the details of what to accomplish for winning the challenge {!$Input:Challenge.Description__c}
 Always give the Participants of the challenge {!$Input:Challenge.Participants__c}
-If the status {!$Input:Challenge.Status__c} is in ToStart, be very descriptive and only explain what the challenge is about. Always add that we see each other again on the Start date for the launch
-If the status {!$Input:Challenge.Status__c} is in OnGoing, focus on the motivation of the Participants, be very enthusiastic and motivate the participants.
+If the status {!$Input:Challenge.Status__c} is in ToStart, be very descriptive and only explain what the challenge is about. 
+- Always add that we see each other again on the Start date for the launch
+If the status {!$Input:Challenge.Status__c} is in OnGoing, focus on the motivation of the Participants, be very enthusiastic and motivate the participants. 
+- The message must be shorter
 Use the tone of the manager {!$Input:Challenge.Manager__r.aiResponseStyle__c}
 &quot;&quot;&quot;
 </content>
@@ -109,7 +107,7 @@ Use the tone of the manager {!$Input:Challenge.Manager__r.aiResponseStyle__c}
             <required>true</required>
         </inputs>
         <primaryModel>GPT4_creative_CM_12l_fuT6c931e47</primaryModel>
-        <status>Draft</status>
+        <status>Published</status>
         <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_3</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>

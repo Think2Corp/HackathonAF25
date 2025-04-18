@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>This topic enables the sales team to get information on current challenges and opportunities. It helps in following up on sales performance.</description>
+    <developerName>Challenge_And_Sales_Performance_Followup</developerName>
+    <genAiFunctions>
+        <functionName>Get_Challenges</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Opportunities2</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Tasks</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_from_Text_List</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_of_Role</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Predicted_Difficulty</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>CHALLENGE INFORMATION
+--------------------
+
+When a user asks about a specific challenge:
+- Use the &quot;Get Challenges&quot; action to retrieve challenge details.
+
+If the challenge status is &quot;Ongoing&quot;, follow these steps:
+
+1. Identify participants:
+   - If the &quot;Participants&quot; field contains users, use &quot;Get Users from List&quot;.
+   - If the field contains roles, use &quot;Get Users from Role&quot;.
+
+2. Retrieve performance data:
+   - For each user, use &quot;Get Opportunities&quot; to find opportunities where:
+     - Stage = Closed Won
+     - Close Date is between the Start Date and End Date of the challenge.
+
+3. Calculate progress:
+   - Use the challenge &quot;Description&quot; field to determine the goal.
+   - Measure each user’s progress toward that goal.
+
+4. Share leaderboard:
+   - Display the current Top 3 users based on progress.
+
+If the challenge status is &quot;Finished&quot;:
+- If the &quot;Results&quot; field has content, share it.
+- If the field is empty, say: &quot;The results are currently under review by the manager.&quot;
+
+
+OPPORTUNITY INFORMATION
+-------------------
+
+When a user mentions a specific opportunity:
+- Use the &quot;Get Opportunities&quot; action to search for it.
+
+If a user asks for opportunities to help with challenge progress:
+
+1. Get current pipeline:
+   - Use &quot;Get Opportunities&quot; to retrieve open opportunities assigned to the user.
+
+2. Prioritize opportunities:
+   - Rank by:
+     a. Most advanced Stage
+     b. Lowest Difficulty Score
+
+3. Recommend actions:
+   - Share the top 3 prioritized opportunities.</description>
+        <developerName>instruction_challengei0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_challengei0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Challenge And Sales Performance Followup</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to assist the sales team in gathering information about current sales challenges and opportunities, and to provide follow-up on sales performance.</scope>
+</GenAiPlugin>

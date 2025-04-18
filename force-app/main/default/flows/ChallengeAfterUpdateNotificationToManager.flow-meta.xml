@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>GetManagerSlackId</name>
+        <label>Get Manager SlackId</label>
+        <locationX>308</locationX>
+        <locationY>384</locationY>
+        <actionName>GetUsersInfoSlack</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Send_Notification_to_manager_for_finished_challenge</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>userSalesforceIds</name>
+            <value>
+                <elementReference>ManagerId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>GetUsersInfoSlack</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Notification_to_manager_for_finished_challenge</name>
+        <label>Send Notification to manager for finished challenge</label>
+        <locationX>308</locationX>
+        <locationY>492</locationY>
+        <actionName>slackPostMessage</actionName>
+        <actionType>slackPostMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>slackAppIdForToken</name>
+            <value>
+                <stringValue>A03269G3DNE</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackWorkspaceIdForToken</name>
+            <value>
+                <stringValue>T08LMTRBD2B</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackConversationId</name>
+            <value>
+                <elementReference>ExtractSlackUserId</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <elementReference>MessageToSend</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>slackPostMessage</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign Manager salesforce id to collection</description>
+        <name>Assign_Manager_salesforce_id_to_collection</name>
+        <label>Assign Manager salesforce id to collection</label>
+        <locationX>308</locationX>
+        <locationY>276</locationY>
+        <assignmentItems>
+            <assignToReference>ManagerId</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Manager__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>GetManagerSlackId</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <formulas>
+        <description>Extract Slack user Id from Get slack user info</description>
+        <name>ExtractSlackUserId</name>
+        <dataType>String</dataType>
+        <expression>MID( {!GetManagerSlackId.userInfoListString}, FIND(&quot;Slack ID=&quot;,{!GetManagerSlackId.userInfoListString}) + LEN(&quot;Slack ID=&quot;), 11)</expression>
+    </formulas>
+    <interviewLabel>ChallengeAfterUpdateNotificationToManager {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ChallengeAfterUpdateNotificationToManager</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Finished</stringValue>
+            </value>
+        </filters>
+        <object>Challenge__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Assign_Manager_salesforce_id_to_collection</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>Message to send to the manager</description>
+        <name>MessageToSend</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello &lt;@{!ExtractSlackUserId}&gt;
+
+The challenge &lt;https://orgfarm-951d9af03a-dev-ed.develop.lightning.force.com/lightning/r/Challenge__c/{!$Record.Id}/view|{!$Record.Name}&gt; has just ended.
+It is time to calculate the results and share them with the participants. So send me a message: 
+Calculate results for the challenge: {!$Record.Name}
+
+See you there,
+
+&lt;@U08LUKS2QFR&gt;</text>
+    </textTemplates>
+    <variables>
+        <description>Manager Id in the collection to call the action</description>
+        <name>ManagerId</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

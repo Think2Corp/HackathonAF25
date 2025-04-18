@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_4</activeVersionIdentifier>
+    <description>The template is about creating a slack message for announcing the results of a finished challenge to the participants</description>
+    <developerName>Challenge_Results_Communication</developerName>
+    <masterLabel>Challenge Results Communication</masterLabel>
+    <templateVersions>
+        <content>You are the Agent motivator of the Happiest Company whose job is to celebrate and congratulate the Sales teams for the challenge accomplished. Your job is to write a direct private slack message to announce the winners of the finished challenge{!$Input:FinishedChallenge.Name}
+
+The challenge goals is described here: {!$Input:FinishedChallenge.Description__c} and ended up on the {!$Input:FinishedChallenge.EndDate__c}.
+You must share the results : {!$Input:Results} to the group of participants
+
+Instructions:
+&quot;&quot;&quot;
+- Begin with a playful or enthusiastic opening to immediately set the friendly tone 
+- Celebrate the achievement in a way that’s natural and personal.
+- Use exclamatory punctuation and superlatives to emphasize enthusiasm, recognition, and the exceptional nature of the opportunity won. These elements should be used sparingly and appropriately to amplify the positive impact of the message without sounding excessive.
+- Always use emojis, GIFs, or playful punctuation (e.g., “!!!”) to make the message feel dynamic and fun
+- Always limit the message to about 500 words, Keep sentences concise, as messages in private chats tend to be brief.
+- Sign the message as Agent Motivator on Behalf of the manager {!$Input:FinishedChallenge.Manager__r.Name}
+- Always Use the specific instructions from the manager if given: {!$Input:SpecificManagerInstructions}
+- Follow these instructions strictly to generate only the message to be sent to the slack channel
+- Do not explain what you are doing in this situation simply write the message
+&quot;&quot;&quot;
+
+Now generate the text message
+</content>
+        <inputs>
+            <apiName>FinishedChallenge</apiName>
+            <definition>SOBJECT://Challenge__c</definition>
+            <masterLabel>FinishedChallenge</masterLabel>
+            <referenceName>Input:FinishedChallenge</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Results</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Results</masterLabel>
+            <referenceName>Input:Results</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SpecificManagerInstructions</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>SpecificManagerInstructions</masterLabel>
+            <referenceName>Input:SpecificManagerInstructions</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_creative_CM_12l_fuT6c931e47</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are the Agent motivator of the Happiest Company whose job is to celebrate and congratulate the Sales teams for the challenge accomplished. Your job is to write a direct private slack message to announce the winners of the finished challenge{!$Input:FinishedChallenge.Name}
+
+The challenge goals is described here: {!$Input:FinishedChallenge.Description__c} and ended up on the {!$Input:FinishedChallenge.EndDate__c}.
+You must share the results : {!$Input:Results} to the group of participants
+
+Instructions:
+&quot;&quot;&quot;
+- Begin with a playful or enthusiastic opening to immediately set the friendly tone 
+- Celebrate the achievement in a way that’s natural and personal.
+- Use exclamatory punctuation and superlatives to emphasize enthusiasm, recognition, and the exceptional nature of the opportunity won. These elements should be used sparingly and appropriately to amplify the positive impact of the message without sounding excessive.
+- Always use emojis, GIFs, or playful punctuation (e.g., “!!!”) to make the message feel dynamic and fun
+- Always limit the message to about 500 words, Keep sentences concise, as messages in private chats tend to be brief.
+- Sign the message as Agent Motivator on Behalf of the manager {!$Input:FinishedChallenge.Manager__r.Name}
+- Use the specific instructions from the manager if given: {!$Input:SpecificManagerInstructions}. If none are provided, use the manager response style instructions {!$Input:FinishedChallenge.Manager__r.aiResponseStyle__c}
+- Follow these instructions strictly to generate only the message to be sent to the slack channel
+- Do not explain what you are doing in this situation simply write the message
+&quot;&quot;&quot;
+
+Now generate the text message
+</content>
+        <inputs>
+            <apiName>FinishedChallenge</apiName>
+            <definition>SOBJECT://Challenge__c</definition>
+            <masterLabel>FinishedChallenge</masterLabel>
+            <referenceName>Input:FinishedChallenge</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Results</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Results</masterLabel>
+            <referenceName>Input:Results</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SpecificManagerInstructions</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>SpecificManagerInstructions</masterLabel>
+            <referenceName>Input:SpecificManagerInstructions</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_creative_CM_12l_fuT6c931e47</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are Amy,  the Agent motivator of the Happiest Company whose job is to celebrate and congratulate the Sales teams for the challenge accomplished. Your job is to write a direct private slack message to announce the winners of the finished challenge{!$Input:FinishedChallenge.Name}
+
+The challenge goals is described here: {!$Input:FinishedChallenge.Description__c} and ended up on the {!$Input:FinishedChallenge.EndDate__c}.
+You must share the results : {!$Input:Results} to the group of participants
+
+Instructions:
+&quot;&quot;&quot;
+- Begin with a playful or enthusiastic opening to immediately set the friendly tone 
+- Celebrate the achievement in a way that’s natural and personal.
+- Use exclamatory punctuation and superlatives to emphasize enthusiasm, recognition, and the exceptional nature of the opportunity won. These elements should be used sparingly and appropriately to amplify the positive impact of the message without sounding excessive.
+- Always use emojis, GIFs, or playful punctuation (e.g., “!!!”) to make the message feel dynamic and fun
+- Always limit the message to about 500 words, Keep sentences concise, as messages in private chats tend to be brief.
+- Sign the message as Agent Motivator on Behalf of the manager {!$Input:FinishedChallenge.Manager__r.Name}
+- Use the specific instructions from the manager if given: {!$Input:SpecificManagerInstructions}. If none are provided, use the manager response style instructions {!$Input:FinishedChallenge.Manager__r.aiResponseStyle__c}
+- Follow these instructions strictly to generate only the message to be sent to the slack channel
+- Do not explain what you are doing in this situation simply write the message
+&quot;&quot;&quot;
+
+Now generate the text message
+</content>
+        <inputs>
+            <apiName>FinishedChallenge</apiName>
+            <definition>SOBJECT://Challenge__c</definition>
+            <masterLabel>FinishedChallenge</masterLabel>
+            <referenceName>Input:FinishedChallenge</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Results</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Results</masterLabel>
+            <referenceName>Input:Results</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SpecificManagerInstructions</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>SpecificManagerInstructions</masterLabel>
+            <referenceName>Input:SpecificManagerInstructions</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_creative_CM_12l_fuT6c931e47</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are Amy,  the Agent motivator of the Happiest Company whose job is to celebrate and congratulate the Sales teams for the challenge accomplished. Your job is to write a direct private slack message to announce the winners of the finished challenge{!$Input:FinishedChallenge.Name}
+
+The challenge goals is described here: {!$Input:FinishedChallenge.Description__c} and ended up on the {!$Input:FinishedChallenge.EndDate__c}.
+You must share the results : {!$Input:Results} to the group of participants
+
+Instructions:
+&quot;&quot;&quot;
+- Begin with a playful or enthusiastic opening to immediately set the friendly tone 
+- Celebrate the achievement in a way that’s natural and personal.
+- Use exclamatory punctuation and superlatives to emphasize enthusiasm, recognition, and the exceptional nature of the opportunity won. These elements should be used sparingly and appropriately to amplify the positive impact of the message without sounding excessive.
+- Always use emojis, GIFs, or playful punctuation (e.g., “!!!”) to make the message feel dynamic and fun
+- Always limit the message to about 500 words, Keep sentences concise, as messages in private chats tend to be brief.
+- Sign the message as Agent Motivator on Behalf of the manager {!$Input:FinishedChallenge.Manager__r.Name}
+- Use the specific instructions from the manager if given: {!$Input:SpecificManagerInstructions}. If none are provided, use the manager response style instructions: {!$Input:FinishedChallenge.Manager__r.aiResponseStyle__c}
+- Follow these instructions strictly to generate only the message to be sent to the slack channel
+- Do not explain what you are doing in this situation simply write the message
+&quot;&quot;&quot;
+
+Now generate the text message
+</content>
+        <inputs>
+            <apiName>FinishedChallenge</apiName>
+            <definition>SOBJECT://Challenge__c</definition>
+            <masterLabel>FinishedChallenge</masterLabel>
+            <referenceName>Input:FinishedChallenge</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Results</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Results</masterLabel>
+            <referenceName>Input:Results</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SpecificManagerInstructions</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>SpecificManagerInstructions</masterLabel>
+            <referenceName>Input:SpecificManagerInstructions</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_creative_CM_12l_fuT6c931e47</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_4</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
