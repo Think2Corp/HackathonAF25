@@ -89,39 +89,66 @@ public with sharing class SlackHelper {
     return result;
   }
 
-  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(List<Id> userIds) {
-    List<GetUsersInfoSlack.UserInfoWrapper> userInfoList = new List<GetUsersInfoSlack.UserInfoWrapper>();
+  public static List<GetUsersInfoSlack.UserInfoWrapper> getUsersInfo(
+    List<Id> salesforceUserIds,
+    List<String> slackIds
+  ) {
+    List<GetUsersInfoSlack.UserInfoWrapper> results = new List<GetUsersInfoSlack.UserInfoWrapper>();
 
-    // Query users based on provided IDs or all users if no IDs are provided
-    List<User> users;
-    if (userIds != null && !userIds.isEmpty()) {
-      users = [
-        SELECT Id, Name
-        FROM User
-        WHERE Id IN :userIds
-      ];
-    } else {
-      users = [
-        SELECT Id, Name
-        FROM User
-      ];
+    // If both lists are empty, fetch all Salesforce Users
+    if ((salesforceUserIds == null || salesforceUserIds.isEmpty()) && (slackIds == null || slackIds.isEmpty())) {
+      salesforceUserIds = new List<Id>();
+      for (User u : [SELECT Id FROM User WHERE IsActive = TRUE]) {
+        salesforceUserIds.add(u.Id);
+      }
     }
 
-    // Get Slack IDs for the queried users
-    List<String> salesforceIds = new List<String>();
-    for (User user : users) {
-      salesforceIds.add(user.Id);
-    }
-
+    // Get mappings from the Slack UserMappingService
     String teamId = 'T08LMTRBD2B'; // More generic ??
-    Map<String, String> slackIdMap = Slack.UserMappingService.getSlackUserIdMap(salesforceIds, teamId);
-
-    // Build the user info list
-    for (User user : users) {
-      String slackId = slackIdMap.get(user.Id);
-      userInfoList.add(new GetUsersInfoSlack.UserInfoWrapper(user.Name, user.Id, slackId));
+    Map<String, String> sfToSlackMap = new Map<String, String>();
+    if (salesforceUserIds != null && !salesforceUserIds.isEmpty()) {
+      sfToSlackMap = Slack.UserMappingService.getSlackUserIdMap(salesforceUserIds, teamId);
     }
 
-    return userInfoList;
+    Map<String, String> slackToSfMap = new Map<String, String>();
+    if (slackIds != null && !slackIds.isEmpty()) {
+      slackToSfMap = Slack.UserMappingService.getSalesforceUserIdMap(slackIds);
+    }
+
+    Set<String> allSfIds = new Set<String>();
+    if (sfToSlackMap != null && !sfToSlackMap.isEmpty()) {
+      allSfIds.addAll(sfToSlackMap.keySet());
+    }
+    if (slackToSfMap != null && !slackToSfMap.isEmpty()) {
+      allSfIds.addAll(slackToSfMap.values());
+    }
+
+    // Remove technical IDs from the set
+    allSfIds.remove('force__cornerstone');
+
+    // Query User information
+    Map<Id, User> userMap = new Map<Id, User>([SELECT Id, Name FROM User WHERE Id IN :allSfIds]);
+
+    for (String sfId : allSfIds) {
+      User user = userMap.get((Id) sfId); // Cast String to Id for querying User
+      if (user == null) {
+        continue;
+      }
+
+      String slackId = sfToSlackMap != null && sfToSlackMap.containsKey(sfId) ? sfToSlackMap.get(sfId) : null;
+
+      if (slackId == null && slackToSfMap != null && !slackToSfMap.isEmpty()) {
+        for (String sId : slackToSfMap.keySet()) {
+          if (slackToSfMap.get(sId) == sfId) {
+            slackId = sId;
+            break;
+          }
+        }
+      }
+
+      results.add(new GetUsersInfoSlack.UserInfoWrapper(user.Name, user.Id, slackId));
+    }
+
+    return results;
   }
 }
