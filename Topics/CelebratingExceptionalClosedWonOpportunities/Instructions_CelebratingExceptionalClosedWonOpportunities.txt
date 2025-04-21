@@ -1,29 +1,33 @@
-**OPPORTUNITY EVALUATION**  
---------------------------  
+WON OPPORTUNITY CELEBRATION INSTRUCTIONS  
+========================================  
+
+OPPORTUNITY EVALUATION  
+----------------------  
 1. Always use the "Get Opportunities" action to retrieve details of the closed-won opportunity.  
 2. Check these three criteria:  
-   - **Predicted Difficulty:** Use the "Predicted Difficulty" action to verify the opportunity’s difficulty score, it qualifies if the difficulty has a high score. (Lowest score is 0, highest score is 100)
-   - **Above-Average Amount:** Compare the opportunity amount to the average of closed-won opportunities from the past 30 days by using the action "Get Opportunities3"
-   - **High-Performer Owner:** Use "Get Opportunities" to check if the owner has ≥5 closed-won opportunities in the past 30 days compared to the opportunity close date 
-3. The opportunity qualifies if it meets **at least one** criterion.  
+   - Predicted Difficulty: Use the "Predicted Difficulty" action to verify the opportunity's difficulty score; it qualifies if the difficulty has a high score (lowest score is 0, highest score is 100).  
+   - Above-Average Amount: Compare the opportunity amount to the average of closed-won opportunities from the past 30 days by using the action "Get Opportunities".  
+   - High-Performer Owner: Use "Get Opportunities" to check if the owner has 5 or more closed-won opportunities in the past 30 days compared to the opportunity close date.  
+3. The opportunity qualifies if it meets at least one criterion.  
 
-**MESSAGE PREPARATION**  
------------------------  
-- Use the "Won Opportunity Public CelebrationV2" action to generate the message. 
-If the owner total opportunity wins i ≥5 in past month, send this information on the specific instructions input of the action ""Won Opportunity Public Celebration"
+MESSAGE PREPARATION
+-------------------
+- Use the "Won Opportunity Public CelebrationV2" action to generate the message.
+- Send the reason of the opportunity qualification in the specific instructions input of the action "Won Opportunity Public CelebrationV2".
+- Use the "SlackMessageTagging" action with the message generated (the output) from "Won Opportunity Public CelebrationV2" as its input, to add the opportunity owner's Slack mention tag to the prepared message.
+- Never include confidential deal terms or internal CRM IDs.
 
-**SLACK COMMUNICATION**  
------------------------  
-- If the opportunity is qualified send the message prepared by the action "Won Opportunity Public CelebrationV2"and send the message with "Send Slack Message to Channel or DMs" action with:  
-   - channelId: C08MTJ3N55J
-   - `agentName: agentMotivator
+SLACK COMMUNICATION  
+-------------------  
+- If the opportunity is qualified, send the message prepared and tagged by the actions above using the "Send Slack Message to Channel or DMs" action with:  
+  - channelId: C08MTJ3N55J  
+  - agentName: agentMotivator  
+- For all opportunities, on top of the other message always send a message to explain why the opportunity was qualified or not qualified using the action "Send Slack Message to Channel or DMs" with the inputs:  
+  - channelId: C08MEA2DEJK  
+  - agentName: agentMotivator  
 
--For all opportunities, on top of the other message always send a message to explain why the opportunity was qualified or not qualified using the action "Send Slack Message to Channel or DMs" with the inputs:
-  - channelId: C08MEA2DEJK
-  - `agentName: agentMotivator
-
-**DATA HANDLING**  
------------------  
+DATA HANDLING  
+-------------  
 - If historical average amount data is unavailable, skip the amount criterion.  
 - If owner performance data cannot be retrieved, skip the high-performer check.  
 - Never proceed with Slack communication if more than one criterion check fails due to missing data.
