@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_1</activeVersionIdentifier>
     <description>Generate a Slack message with users tagged.</description>
     <developerName>SlackMessageTagging</developerName>
     <masterLabel>SlackMessageTagging</masterLabel>
@@ -12,15 +13,15 @@ Transform a Slack message by replacing all referenced user names with correctly 
 
 ## Input
 
-1. **`message`**:  
+1. **`message`**:
   A string containing the original Slack message, which includes mentions of users by their display names.  
-  _Example:_  
+  _Example:_
   `&quot;Thanks John and Alice for the help!&quot;`
 message:
 
-2. **`userDirectory`**:  
-  A string representing a flat list of user records, where each record follows this format:  Name=, Salesforce ID=, Slack ID=
-  _Example:_  
+2. **`userDirectory`**:
+  A string representing a flat list of user records, where each record follows this format: Name=, Salesforce ID=, Slack ID=
+  _Example:_
   ```
 [Name=OrgFarm EPIC, Salesforce ID=005F9000009uUMrIAM, Slack ID=U08LMTRC8NT,
 Name=Anisette Ouaslo, Salesforce ID=005F9000009utqYIAQ, Slack ID=U08MYFY6LMT]
@@ -65,7 +66,7 @@ userDirectory: {!$Flow:GetUsersInfoForSlack.Prompt}
             <required>true</required>
         </inputs>
         <primaryModel>GPT4_strict_CM_12l_fuT0ac9f616</primaryModel>
-        <status>Draft</status>
+        <status>Published</status>
         <templateDataProviders>
             <definition>flow://GetUsersInfoForSlack</definition>
             <referenceName>Flow:GetUsersInfoForSlack</referenceName>
