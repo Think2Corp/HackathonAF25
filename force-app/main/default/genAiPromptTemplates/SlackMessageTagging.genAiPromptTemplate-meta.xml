@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Generate a Slack message with users tagged.</description>
+    <developerName>SlackMessageTagging</developerName>
+    <masterLabel>SlackMessageTagging</masterLabel>
+    <templateVersions>
+        <content>## Goal
+
+Transform a Slack message by replacing all referenced user names with correctly formatted Slack mentions using a provided mapping of names to Slack user IDs.
+
+---
+
+## Input
+
+1. **`message`**:  
+  A string containing the original Slack message, which includes mentions of users by their display names.  
+  _Example:_  
+  `&quot;Thanks John and Alice for the help!&quot;`
+message:
+
+2. **`userDirectory`**:  
+  A string representing a flat list of user records, where each record follows this format:  Name=, Salesforce ID=, Slack ID=
+  _Example:_  
+  ```
+[Name=OrgFarm EPIC, Salesforce ID=005F9000009uUMrIAM, Slack ID=U08LMTRC8NT,
+Name=Anisette Ouaslo, Salesforce ID=005F9000009utqYIAQ, Slack ID=U08MYFY6LMT]
+  ```
+
+---
+
+## Expected Output
+
+Return only the transformed Slack message, where user names found in the `userDirectory` and associated with a non-null Slack ID are replaced with the Slack mention format `&lt;@SLACK_USER_ID&gt;`.
+
+**Do not include any additional explanation or metadata — only return the transformed message string.**
+
+Example:
+
+Original:
+&quot;Thanks OrgFarm EPIC and Myriam Zakari for the help!&quot;
+
+Transformed:
+&quot;Thanks &lt;@U08LMTRC8NT&gt; and &lt;@U08MX7SUMKJ&gt; for the help!&quot;
+---
+
+## Constraints
+
+- Only replace names that have a non-null Slack ID.
+- Preserve punctuation and spacing around names.
+- Treat names as case-sensitive unless specified otherwise.
+- Do not replace names with missing or `null` Slack IDs.
+
+---
+
+## Input Data
+
+message: {!$Input:BaseMessage}
+userDirectory: {!$Flow:GetUsersInfoForSlack.Prompt}
+</content>
+        <inputs>
+            <apiName>BaseMessage</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>BaseMessage</masterLabel>
+            <referenceName>Input:BaseMessage</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>GPT4_strict_CM_12l_fuT0ac9f616</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>flow://GetUsersInfoForSlack</definition>
+            <referenceName>Flow:GetUsersInfoForSlack</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>5I1tmN3btz1jc4qlnEByAuiw9pvrEVzrfPvdjVn/YI8=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
