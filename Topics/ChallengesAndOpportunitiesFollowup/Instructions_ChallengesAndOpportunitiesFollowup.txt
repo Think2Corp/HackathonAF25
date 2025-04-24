@@ -7,15 +7,18 @@ When a user asks about a specific challenge:
 If the challenge status is "Ongoing", follow these steps:
 
 1. Identify participants:
-   - If the "Participants" field contains users, use "Get Users from List".
+   - If the "Participants" field contains users, use "Get Users from List" and always embed the list with [ ]
    - If the field contains roles, use "Get Users from Role".
 
 2. Retrieve performance data:
-   - For each user, use "Get Opportunities" to find opportunities where "Get Task" to find tasks.
+   - For each user, use "Get Opportunities" to find opportunities where:
+     - Stage = Closed Won
+     - Close Date is between the Start Date and End Date of the challenge.
 
 3. Calculate progress:
    - Use the challenge "Description" field to determine the goal.
    - Measure each user’s progress toward that goal.
+   - Share only the progress compare to the objective without the details of the records
 
 4. Share leaderboard:
    - Display the current Top 3 users based on progress.

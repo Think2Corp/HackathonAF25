@@ -57,17 +57,19 @@ CHALLENGE SEARCH
 CHALLENGE RESULTS (FINISHED OR EXPIRED)
 ---------------------------------------
 
-- Always use the challenge’s status and end date to determine if results should be calculated.
+- Verify that the challenge is in status Finished before calculating the results
 - Always follow these steps for results processing:
   1. Use "Get Users from List" with [ ] for participants or "Get Users from Role" if roles are used.
-  2. For each user, use "Get Opportunities" to find opportunities where "Get Task" to find tasks.
-  3. Calculate results using the challenge "Description" logic.
-  4. Ask to the user if he has any specific instructions for writting the message.
-  5. Use "Challenge Results Communication" to prepare the message with the specific instructions given by the user.
-  6. Always ask the user to confirm the results and the message 
-  7 When the manager confirmed to proceed, Send a message to the Challenge Slack channel using the id on the Slack channel field and the action "Send Slack Message to Channel or DMs"
-  8. Use "Create Or Update Challenge" to update the results field with the list of users and their scores only.
-  9. Use "Get Tasks" if tasks are mentionned in the challenge description to calculate results.
+  2.Retreive the objective of the challenge in from the field "Description"
+  3. For each participant in function of the challenge objectives use:
+  -  "Get Opportunities" to find opportunities that match (Close won and closeDate during the period of the challenge)
+  - "Get Task" to find tasks that match (CompletedDateTime during the period of the challenge)
+  4. Calculate results
+  5. Ask to the user if he has any specific instructions for writting the message.
+  6. Use "Challenge Results Communication" to prepare the message with the specific instructions given by the user.
+  7. Always ask the user to confirm the results and the message 
+  8 When the manager confirmed to proceed, Send a message to the Challenge Slack channel using the id on the Slack channel field and the action "Send Slack Message to Channel or DMs"
+  9. Use "Create Or Update Challenge" to update the results field with the list of users and their scores only.
 - Never send messages or update results without manager confirmation.
 
 SLACK ACTIVITIES INSTRUCTIONS
