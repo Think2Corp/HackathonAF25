@@ -1,5 +1,5 @@
 public with sharing class SendSlackToChannel {
-  private static final String SLACK_API_URL = 'https://slack.com/api/chat.postMessage';
+  private static final String SLACK_API_URL = 'https://slack.com/api/chat.postMessage?unfurl_links=true';
 
   public class Input {
     @InvocableVariable(
@@ -38,8 +38,9 @@ public with sharing class SendSlackToChannel {
     List<Output> outputs = new List<Output>();
 
     for (Input request : requests) {
+      String messageEscaped = request.messageText.replaceAll('"', '');
       // Prepare the payload
-      String payload = '{"channel":"' + request.channelId + '", "text":"' + request.messageText + '"}';
+      String payload = '{"channel":"' + request.channelId + '", "text":"' + messageEscaped + '"}';
       SlackHelper.ReturnToken returnedToken = SlackHelper.getBotToken(request.agentName, request.userSlackBotToken);
 
       if (String.isBlank(returnedToken.token)) {
