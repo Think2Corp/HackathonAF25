@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>CreateSlackMessageforChallenge</name>
-        <label>Create Slack Message for Challenge</label>
+        <name>Create_Challenge_launch_message</name>
+        <label>Create Challenge launch message</label>
         <locationX>352</locationX>
         <locationY>1308</locationY>
-        <actionName>Kick_Start_Challenge</actionName>
+        <actionName>ChallengeLaunchMessage</actionName>
         <actionType>generatePromptResponse</actionType>
         <connector>
             <targetReference>Tag_users_on_the_message</targetReference>
@@ -17,7 +17,7 @@
                 <elementReference>$Record</elementReference>
             </value>
         </inputParameters>
-        <nameSegment>Kick_Start_Challenge</nameSegment>
+        <nameSegment>ChallengeLaunchMessage</nameSegment>
         <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
@@ -118,7 +118,7 @@
         <inputParameters>
             <name>Input:BaseMessage</name>
             <value>
-                <elementReference>CreateSlackMessageforChallenge.promptResponse</elementReference>
+                <elementReference>Create_Challenge_launch_message.promptResponse</elementReference>
             </value>
         </inputParameters>
         <nameSegment>SlackMessageTagging</nameSegment>
@@ -228,7 +228,8 @@
             <label>Yes</label>
         </rules>
     </decisions>
-    <description>Slack chan creation and message writing when the challenge is validated</description>
+    <description
+  >Copy of ChallengeAfterUpdateSlackChanLaunch for triggering when status moved to ToStart to Ongoing (not working with OR condition on the first one)</description>
     <environments>Default</environments>
     <formulas>
         <description>Name of the Challenge channel</description>
@@ -247,8 +248,8 @@
         <expression
     >IF(ISBLANK({!$Record.SlackChannel__c}),{!CreatedConversationID} , {!$Record.SlackChannel__c})</expression>
     </formulas>
-    <interviewLabel>ChallengeAfterUpdateSlackChanCreation {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>ChallengeAfterUpdateSlackChanLaunch</label>
+    <interviewLabel>ChallengeAfterUpdateChallengeLaunch {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>ChallengeAfterUpdateChallengeLaunch</label>
     <loops>
         <description>Add Participants to the collection for adding users in Slack</description>
         <name>Loop_on_Participants</name>
@@ -300,12 +301,12 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
-        <filterLogic>and</filterLogic>
+        <filterLogic>or</filterLogic>
         <filters>
             <field>Status__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>ToStart</stringValue>
+                <stringValue>OnGoing</stringValue>
             </value>
         </filters>
         <object>Challenge__c</object>
@@ -329,7 +330,7 @@
         <locationX>352</locationX>
         <locationY>1200</locationY>
         <connector>
-            <targetReference>CreateSlackMessageforChallenge</targetReference>
+            <targetReference>Create_Challenge_launch_message</targetReference>
         </connector>
         <flowName>Invite_User_In_Slack_Channel</flowName>
         <inputAssignments>

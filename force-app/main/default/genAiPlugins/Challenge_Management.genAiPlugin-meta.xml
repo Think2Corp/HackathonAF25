@@ -41,7 +41,7 @@ It is strictly for managerial actions</description>
 
 CHALLENGE CREATION
 ------------------
-- Always use the mandatory fields defined in the &quot;Create Or Update Challenge&quot; action when asking the user to create a challenge.
+- Always ask to the user the mandatory fields defined in the &quot;Create Or Update Challenge&quot; action when creating a challenge.
 - Always use a confirmation step with a summary of the entered values before using &quot;Create Or Update Challenge&quot; to create the record.
 
 CHALLENGE UPDATE
