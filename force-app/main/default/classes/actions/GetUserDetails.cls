@@ -1,6 +1,6 @@
 public with sharing class GetUserDetails {
   public class Input {
-    @InvocableVariable(required=true description='Name to search for (not an ID)')
+    @InvocableVariable(required=true description='Name to search for')
     public String name;
   }
 
