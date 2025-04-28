@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
     <canEscalate>false</canEscalate>
-    <description>This topic enables the sales team to get information on current challenges and opportunities. It helps in following up on sales performance.</description>
-    <developerName>Challenge_And_Sales_Performance_Followup</developerName>
+    <description
+  >This topic is dedicated to assisting Sales users with inquiries about the challenges they participate in and the opportunities they own. It provides challenge details, progress updates and personalized opportunity recommendations to help users improve their challenge performance</description>
+    <developerName>Challenges_and_Opportunities_follow_up</developerName>
     <genAiFunctions>
         <functionName>Get_Challenges</functionName>
     </genAiFunctions>
     <genAiFunctions>
-        <functionName>Get_Opportunities2</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
-        <functionName>Get_Tasks</functionName>
+        <functionName>Get_User_Details2</functionName>
     </genAiFunctions>
     <genAiFunctions>
         <functionName>Get_Users_from_Text_List</functionName>
@@ -20,6 +18,12 @@
     </genAiFunctions>
     <genAiFunctions>
         <functionName>Predicted_Difficulty</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Tasks</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Opportunities3</functionName>
     </genAiFunctions>
     <genAiPluginInstructions>
         <description>CHALLENGE INFORMATION
@@ -31,20 +35,18 @@ When a user asks about a specific challenge:
 If the challenge status is &quot;Ongoing&quot;, follow these steps:
 
 1. Identify participants:
-   - If the &quot;Participants&quot; field contains users, use &quot;Get Users from List&quot;.
+   - If the &quot;Participants&quot; field contains users, use &quot;Get Users from List&quot; and always embed the list with [ ]
    - If the field contains roles, use &quot;Get Users from Role&quot;.
 
-2. Retrieve performance data:
-   - For each user, use &quot;Get Opportunities&quot; to find opportunities where:
-     - Stage = Closed Won
-     - Close Date is between the Start Date and End Date of the challenge.
+2. Calculate progress:
+  - Retreive the objective of the challenge in from the field &quot;Description&quot;
+  -  For each participant in function of the challenge objectives use:
+    - If opportunities are part of the objective use the action &quot;Get Opportunities&quot; to find opportunities that match (Close won and closeDate during the period of the challenge)
+    - If opportunities are part of the objective use the action &quot;Get Task&quot; to find tasks that match (CompletedDateTime during the period of the challenge)
 
-3. Calculate progress:
-   - Use the challenge &quot;Description&quot; field to determine the goal.
-   - Measure each user’s progress toward that goal.
-
-4. Share leaderboard:
-   - Display the current Top 3 users based on progress.
+3. Share leaderboard:
+   - Display the current Top 3 users based on progress
+   - Share only the total without records details
 
 If the challenge status is &quot;Finished&quot;:
 - If the &quot;Results&quot; field has content, share it.
@@ -74,7 +76,10 @@ If a user asks for opportunities to help with challenge progress:
         <masterLabel>instruction_challengei0</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
-    <masterLabel>Challenge And Sales Performance Followup</masterLabel>
+    <masterLabel>Challenges and Opportunities follow-up</masterLabel>
     <pluginType>Topic</pluginType>
-    <scope>Your job is only to assist the sales team in gathering information about current sales challenges and opportunities, and to provide follow-up on sales performance.</scope>
+    <scope>Provide details on challenges
+Share current progress on ongoing challenges
+Provide information on opportunities
+Help sales users prioritize their open opportunities</scope>
 </GenAiPlugin>

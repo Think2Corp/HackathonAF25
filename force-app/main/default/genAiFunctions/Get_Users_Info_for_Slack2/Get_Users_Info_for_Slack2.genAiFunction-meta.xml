@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Retrieve a list of User Info including Name, Salesforce ID, and Slack ID, the optional userIds filter can be used to limit the results</description>
-    <invocationTarget>GetUsersInfoSlack</invocationTarget>
-    <invocationTargetType>apex</invocationTargetType>
-    <isConfirmationRequired>false</isConfirmationRequired>
-    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
-    <masterLabel>Get Users Info for Slack (deprecated)</masterLabel>
-</GenAiFunction>

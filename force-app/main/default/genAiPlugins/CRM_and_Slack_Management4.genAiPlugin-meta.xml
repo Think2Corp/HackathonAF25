@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <canEscalate>false</canEscalate>
+    <description
+  >Handles tasks related to CRM users, teams, and roles, as well as managing Slack channels and communication.</description>
+    <developerName>CRM_and_Slack_Management4</developerName>
+    <genAiFunctions>
+        <functionName>Archive_Slack_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__CreateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Create_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__GetActivitiesTimeline</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__GetActivityDetails</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Members_of_Slack_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Sub_Roles</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_User_Details2</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_Info_for_Slack</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_of_Role</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Invite_User_In_Slack_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>List_public_Slack_channels</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__SearchSlack</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Send_Slack_Message_to_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__UpdateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description
+    >Always verify user identity before making changes to CRM roles or Slack channel settings.</description>
+        <developerName>instruction_alwaysveri0</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>instruction_alwaysveri0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>CRM and Slack Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope
+  >Your job is to retrieve CRM user information, teams, and roles, as well as facilitate communication and manage channels on Slack.</scope>
+</GenAiPlugin>

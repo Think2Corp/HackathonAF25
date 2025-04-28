@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Agent Motivator is an AI-driven tool designed to energize and inspire commercial teams. It ensures every sales rep stays motivated by celebrating successes, tracking challenges, and providing real-time updates. Supporting managers, it helps create and communicate challenges while fostering a culture of recognition and achievement.</description>
+    <description
+  >Agent Motivator is an AI-driven tool designed to energize and inspire commercial teams. It ensures every sales rep stays motivated by celebrating successes, tracking challenges, and providing real-time updates. Supporting managers, it helps create and communicate challenges while fostering a culture of recognition and achievement.</description>
     <genAiFunctions>
         <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
     </genAiFunctions>

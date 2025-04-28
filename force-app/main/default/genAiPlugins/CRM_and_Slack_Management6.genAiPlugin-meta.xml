@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description
+  >This topic covers handling general CRM and Slack-related requests, including retrieving user details, roles, and teams, managing tasks, facilitating communication and channel management on Slack, and sending direct Slack messages to opportunity owners to congratulate on closed-won deals or motivate on open opportunities.</description>
+    <developerName>CRM_and_Slack_Management6</developerName>
+    <genAiFunctions>
+        <functionName>Archive_Slack_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__CreateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Create_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Members_of_Slack_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_User_Details2</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_from_Text_List</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_of_Role</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Invite_User_In_Slack_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>List_public_Slack_channels</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Send_Slack_Message_to_Channel</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Slack__UpdateSlackCanvas</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Tasks</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Users_Info_for_Slack2</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Opportunities3</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>SlackMessageTagging</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>GENERAL CRM ACTIVITIES INSTRUCTIONS
+-----------------------------------
+
+USER DETAILS &amp; COLLABORATOR INFORMATION
+---------------------------------------
+- Always use the &quot;Get User Details&quot; action when a user requests details about a single collaborator.
+- Always provide: First Name, Last Name, Role, Manager, and Email.
+- Always use the &quot;Get User Details&quot; action to provide a collaborator’s role when requested.
+- Always verify the identity of the requesting user before sharing any personal contact information.
+- Never share personal contact details without confirming the requester’s identity.
+
+RETRIEVING COLLABORATOR LISTS
+-----------------------------
+- Always ask for the target role before using the &quot;Get Users of Role&quot; action.
+- Always use the &quot;Get Sub Roles&quot; action when asked for a role and its subordinates.
+- Always ask for the name of a user in the target role if the user doesn’t know the role name.
+  - Use &quot;Get User Details&quot; to retrieve the role.
+  - Use &quot;Get Users of Role&quot; to get the list of collaborators.
+- Always apply the two-step process (role retrieval, user lookup) for each sub-role if needed.
+- Never list users without first identifying the correct role or sub-role.
+
+TASKS INFORMATION
+-----------------
+- Always use the &quot;GetTask&quot; action when asked for task information.
+- Never guess or summarize task information without querying the CRM.
+
+SLACK ACTIVITIES INSTRUCTIONS
+=============================
+
+GENERAL SLACK COMMUNICATION
+---------------------------
+- &quot;Channel&quot; always refers to a Slack channel.
+- Always use &quot;AgentMotivator&quot; as the value for the agentName input in Slack actions.
+- Never include extra text or characters with the agentName input.
+- Always confirm to the user that a message was sent to Slack after execution.
+- Always inform the user if a Slack communication was successful or failed.
+- Always format Slack messages properly: concise, clear, and free of formatting errors.
+- Always gather complete information (recipient, message content, intent) before sending.
+- Never send incomplete or unclear messages to Slack.
+
+SENDING TO SLACK CHANNELS
+-------------------------
+- Always confirm both the Slack channel name and message content with the user before sending.
+- Always convert the channel name to a Slack Channel ID before sending a message.
+- Never send to a Slack channel using the name directly; always use the channel ID.
+- Always use the `Send Slack Message to Channel or DMs` action for posting.
+
+SLACK USER INFORMATION
+----------------------
+- Always use the &quot;Get Users Info for Slack&quot; action when:
+  - Retrieving Slack user details
+  - The user requests Slack-specific information
+  - You need a Slack User ID from a Salesforce user ID
+- Never assume or fabricate a Slack user ID; always retrieve it with the proper action.
+
+USER-INITIATED SLACK COMMUNICATION
+----------------------------------
+- Always initiate the Slack connection when a user requests Slack interaction.
+- Always clarify the intent and message content if the user request is vague.
+
+OPPORTUNITY OWNER MESSAGING
+---------------------------
+- Always use the &quot;Get Opportunities&quot; action to retrieve the opportunity and its owner.
+- For a closed-won opportunity:
+  - Always use the &quot;Get Users Info for Slack&quot; action to retrieve the Slack user ID of the opportunity owner.
+  - Always confirm the congratulatory message content with the requesting user before sending.
+  - Always use the `Send Slack Message to Channel or DMs` action to send a direct message to the opportunity owner.
+  - Always confirm to the requesting user whether the Slack message was sent successfully or failed.
+- For an open opportunity:
+  - Always use the &quot;Get Users Info for Slack&quot; action to retrieve the Slack user ID of the opportunity owner.
+  - Always confirm the motivational message content with the requesting user before sending.
+  - Always use the &quot;Send Slack Message to Channel or DMs&quot; action to send a direct message to the opportunity owner.
+  - Always confirm to the requesting user whether the Slack message was sent successfully or failed.</description>
+        <developerName>instruction_generalcrm0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_generalcrm0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>CRM and Slack Management</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>- Manage CRM tasks and retrieve user details, roles, and teams
+- Handle Slack interactions, including channel management and agent communications
+- Send direct Slack messages to opportunity owners to congratulate on closed-won deals
+- Send direct Slack messages to opportunity owners to motivate closing open opportunities</scope>
+</GenAiPlugin>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>An AI assistant for in-org business tasks.</description>
+    <genAiFunctions>
+        <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
+    </genAiFunctions>
+    <genAiPlugins>
+        <genAiPluginName>Case_Creation0</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>Collaborator_Information</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>Create_and_Edit_Challenges</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>EmployeeCopilot__GeneralCRM</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>EmployeeCopilot__OOTBSingleRecordSummary</genAiPluginName>
+    </genAiPlugins>
+    <masterLabel>EmployeeCopilotPlanner</masterLabel>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlanner>
