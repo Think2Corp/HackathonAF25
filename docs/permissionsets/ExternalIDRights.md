@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## ExternalIDRights
 
 <div id="jstree-container"></div>

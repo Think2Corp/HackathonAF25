@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetUsersCustomPermissions Class
 
 <!-- Apex description -->

@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetUsersOfRole Class
 
 <!-- Apex description -->

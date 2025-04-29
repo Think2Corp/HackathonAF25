@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetMembersOfSlackChannel Class
 
 <!-- Apex description -->

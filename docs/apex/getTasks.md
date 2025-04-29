@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # getTasks Class
 
 <!-- Apex description -->

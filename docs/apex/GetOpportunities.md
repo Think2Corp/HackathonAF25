@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetOpportunities Class
 
 <!-- Apex description -->

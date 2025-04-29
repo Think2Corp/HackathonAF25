@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetUsersInfoSlack Class
 
 <!-- Apex description -->

@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Slack_Agent_Integration_Permissions
 
 <div id="jstree-container"></div>

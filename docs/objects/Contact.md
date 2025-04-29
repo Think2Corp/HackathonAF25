@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Schema
 
 ![diagram](./Contact-1.svg)

@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetUsersFromTextList Class
 
 <!-- Apex description -->

@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Challenge
 
 ## Lightning Page attributes

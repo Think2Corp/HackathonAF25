@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Permission Sets
 
 | Permission Set                                                                | User License |

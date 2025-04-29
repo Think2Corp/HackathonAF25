@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # ActionHelper Class
 
 <!-- Apex description -->

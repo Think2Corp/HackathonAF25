@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Flows
 
 | Object         | Name                                                                                                                                |        Type        | Description                                                                                                                                                         |

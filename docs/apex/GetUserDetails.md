@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetUserDetails Class
 
 <!-- Apex description -->

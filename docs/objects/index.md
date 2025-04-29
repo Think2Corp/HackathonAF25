@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Objects
 
 | Name                                          | Label         | Description                                                                                                                                             |

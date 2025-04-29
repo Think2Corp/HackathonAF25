@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Schema
 
 ![diagram](./Challenge__c-1.svg)

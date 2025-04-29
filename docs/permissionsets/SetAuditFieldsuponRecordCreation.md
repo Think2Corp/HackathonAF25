@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## SetAuditFieldsuponRecordCreation
 
 <div id="jstree-container"></div>

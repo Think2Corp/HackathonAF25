@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # GetSubRoles Class
 
 <!-- Apex description -->

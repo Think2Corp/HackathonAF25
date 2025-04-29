@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # SlackCreateChannel Class
 
 <!-- Apex description -->

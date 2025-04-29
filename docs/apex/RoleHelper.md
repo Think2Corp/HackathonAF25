@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # RoleHelper Class
 
 <!-- Apex description -->

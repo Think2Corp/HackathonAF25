@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Login_As
 
 <div id="jstree-container"></div>

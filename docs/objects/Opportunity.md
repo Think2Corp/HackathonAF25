@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Schema
 
 ![diagram](./Opportunity-1.svg)

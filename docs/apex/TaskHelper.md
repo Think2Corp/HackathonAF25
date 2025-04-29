@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # TaskHelper Class
 
 <!-- Apex description -->

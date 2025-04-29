@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Lightning Pages
 
 | Lightning Page                                    |    Type     |

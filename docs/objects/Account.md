@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Schema
 
 ![diagram](./Account-1.svg)

@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## SalesManager
 
 <div id="jstree-container"></div>

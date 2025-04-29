@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # ListSlackPublicChannels Class
 
 <!-- Apex description -->

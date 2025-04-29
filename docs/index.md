@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 Welcome to the documentation of your Salesforce project.
 
 - [Objects](objects/index.md)

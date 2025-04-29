@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## sfdc_aiplanner_service_permset
 
 <div id="jstree-container"></div>

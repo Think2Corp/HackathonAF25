@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Motivation_Agent_Permissions
 
 <div id="jstree-container"></div>

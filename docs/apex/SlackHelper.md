@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # SlackHelper Class
 
 <!-- Apex description -->

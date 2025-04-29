@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # clean_collections Class
 
 <!-- Apex description -->

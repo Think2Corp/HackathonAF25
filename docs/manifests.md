@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Package XML files
 
 | Package name                                                | Description                                                                     |

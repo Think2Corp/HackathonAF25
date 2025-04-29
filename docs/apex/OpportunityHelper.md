@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 # OpportunityHelper Class
 
 <!-- Apex description -->

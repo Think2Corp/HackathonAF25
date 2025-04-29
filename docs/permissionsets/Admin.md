@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Admin
 
 <div id="jstree-container"></div>

@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Apex Classes
 
 | Apex Class                                                |   Type    |

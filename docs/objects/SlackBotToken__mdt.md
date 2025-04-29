@@ -1,8 +1,3 @@
----
-hide:
-  - path
----
-
 ## Schema
 
 ![diagram](./SlackBotToken__mdt-1.svg)
