@@ -11,7 +11,7 @@
     },
     "channelId": {
       "title": "Channel ID",
-      "description": "Slack Channel ID (e.g. C01XXXXXXX)",
+      "description": "Slack Channel ID (e.g. C01XXXXXXX) or Slack User ID (e.g. U01XXXXXXX)",
       "lightning:type": "lightning__textType",
       "lightning:isPII": false,
       "copilotAction:isUserInput": false

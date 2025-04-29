@@ -1,0 +1,31 @@
+{
+  "required": ["Input:WonOpportunity", "Input:Specific_Instruction"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "Input:WonOpportunity": {
+      "title": "WonOpportunity",
+      "description": "Opportunity record designing Qualified opportunity that is qualified for a congratulation messages",
+      "lightning:type": "lightning__recordInfoType",
+      "lightning:sObjectInfo": {
+        "apiName": "Opportunity"
+      },
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "Input:Specific_Instruction": {
+      "title": "Specific Instruction",
+      "description": "Free text for Specific instruction \nIf there is no specific instruction, the default value is none",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "citationMode": {
+      "title": "Citation Mode",
+      "description": "Select Citation Mode",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

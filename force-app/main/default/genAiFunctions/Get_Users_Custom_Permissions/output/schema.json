@@ -1,0 +1,28 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "message": {
+      "title": "message",
+      "description": "Result message",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    },
+    "userPermissionsList": {
+      "title": "userPermissionsList",
+      "description": "List of User Permissions Info",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "@apexClassType/c__GetUsersCustomPermissions$UserPermissionsWrapper"
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

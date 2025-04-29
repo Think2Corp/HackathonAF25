@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+  >Take a Slack message with users referenced by their names and output the same message with correctly tagged users if they are linked to slack.</description>
+    <invocationTarget>SlackMessageTagging</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>SlackMessageTagging</masterLabel>
+</GenAiFunction>

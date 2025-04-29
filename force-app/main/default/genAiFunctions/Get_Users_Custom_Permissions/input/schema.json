@@ -1,0 +1,28 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "userIds": {
+      "title": "userIds",
+      "description": "Optional list of user IDs",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "lightning__recordIdType"
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "userNames": {
+      "title": "userNames",
+      "description": "Optional list of user names",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "lightning__textType"
+      },
+      "lightning:type": "lightning__listType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}
