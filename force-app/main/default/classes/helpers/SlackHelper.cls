@@ -14,8 +14,8 @@ public with sharing class SlackHelper {
     ReturnToken result = new ReturnToken();
 
     SlackBotToken__mdt tokenMetadata = [
-      SELECT Bot_User_OAuth_Token__c
-      FROM SlackBotToken__mdt
+      SELECT AmyDataKit__Bot_User_OAuth_Token__c
+      FROM AmyDataKit__SlackBotToken__mdt
       WHERE DeveloperName = :agentName
       LIMIT 1
     ];

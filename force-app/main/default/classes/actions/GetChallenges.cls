@@ -20,11 +20,11 @@ public with sharing class GetChallenges {
 
   public class Output {
     @InvocableVariable(description='List of Challenge Objects found')
-    public List<Challenge__c> challenges;
+    public List<AmyDataKit__Challenge__c> challenges;
     @InvocableVariable(description='Result message of the search')
     public String message;
 
-    public Output(List<Challenge__c> challenges, String message) {
+    public Output(List<AmyDataKit__Challenge__c> challenges, String message) {
       this.challenges = challenges;
       this.message = message;
     }
@@ -34,12 +34,12 @@ public with sharing class GetChallenges {
   public static List<Output> getChallenges(List<Input> inputList) {
     List<Output> results = new List<Output>();
     if (inputList == null || inputList.isEmpty()) {
-      results.add(new Output(new List<Challenge__c>(), 'No input provided'));
+      results.add(new Output(new List<AmyDataKit__Challenge__c>(), 'No input provided'));
       return results;
     }
 
     Input queryInput = inputList[0];
-    List<Challenge__c> challenges = ChallengeHelper.queryChallenges(
+    List<AmyDataKit__Challenge__c> challenges = ChallengeHelper.queryChallenges(
       queryInput.status,
       queryInput.startDate,
       queryInput.endDate,
@@ -49,14 +49,14 @@ public with sharing class GetChallenges {
     );
 
     // Delegate participant filtering to ChallengeHelper
-    List<Challenge__c> filteredChallenges = ChallengeHelper.filterChallengesByParticipant(
+    List<AmyDataKit__Challenge__c> filteredChallenges = ChallengeHelper.filterChallengesByParticipant(
       challenges,
       queryInput.participantRole,
       queryInput.participantName
     );
 
     if (filteredChallenges.isEmpty()) {
-      results.add(new Output(new List<Challenge__c>(), 'No challenges found'));
+      results.add(new Output(new List<AmyDataKit__Challenge__c>(), 'No challenges found'));
     } else {
       results.add(new Output(filteredChallenges, 'Challenges retrieved successfully'));
     }
