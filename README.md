@@ -72,3 +72,4 @@ Better slack Integration :
 - More action buttons
 
 Better non-deterministic triggering
+[docs/index.md]
