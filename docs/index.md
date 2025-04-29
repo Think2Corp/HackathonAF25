@@ -29,4 +29,11 @@
 - [Actions](../force-app/main/default/genAiFunctions)
 - [Prompts](../force-app/main/default/genAiPromptTemplates)
 
+## DataCloud
+
+(We couldn't figure out how to retrieve the Prediction Model but we got the PredictionJobs though)
+
+- [Datakit Installation URL](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tF9000000JHAH)
+- [DataKit Metadata](../force-app/main/default/dataKit)
+
 _Documentation generated from branch documentation with [sfdx-hardis](https://sfdx-hardis.cloudity.com) by [Cloudity](https://cloudity.com) command [`sf hardis:doc:project2markdown`](https://sfdx-hardis.cloudity.com/hardis/doc/project2markdown/)_
