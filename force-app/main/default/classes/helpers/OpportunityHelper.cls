@@ -2,11 +2,16 @@ public with sharing class OpportunityHelper {
   public static List<Opportunity> queryOpportunities(
     String name,
     String owner,
+    String ownerId,
     Date closeDate,
+    Date closeDateStart,
+    Date closeDateEnd,
     String type,
-    String stage
+    String stage,
+    Boolean isClosed,
+    Boolean isWon
   ) {
-    String query = 'SELECT Id, Name, Owner.Name, Amount, Type, CloseDate, StageName, Difficulty__c, Description FROM Opportunity';
+    String query = 'SELECT Id, Name, Owner.Name, OwnerId, Amount, Type, CloseDate, StageName, Difficulty__c, Description FROM Opportunity';
     List<String> conditions = new List<String>();
 
     // Build query conditions based on input
@@ -18,14 +23,32 @@ public with sharing class OpportunityHelper {
       String likeOwner = '%' + owner + '%';
       conditions.add('Owner.Name LIKE :likeOwner');
     }
+    if (ownerId != null) {
+      conditions.add('OwnerId = :ownerId');
+    }
     if (closeDate != null) {
       conditions.add('CloseDate = :closeDate');
+    } else {
+      if (closeDateStart != null) {
+        conditions.add('CloseDate >= :closeDateStart');
+      }
+      if (closeDateEnd != null) {
+        conditions.add('CloseDate <= :closeDateEnd');
+      }
     }
     if (type != null) {
       conditions.add('Type = :type');
     }
     if (stage != null) {
       conditions.add('StageName = :stage');
+    }
+
+    if (isClosed != null) {
+      conditions.add('IsClosed = :isClosed');
+    }
+
+    if (isWon != null) {
+      conditions.add('IsWon = :isWon');
     }
 
     // If no conditions, return empty results

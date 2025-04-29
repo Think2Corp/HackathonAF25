@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
     <canEscalate>false</canEscalate>
-    <description>This topic covers the end-to-end administration of challenges by managers, including creating, updating, configuring participants and roles, calculating and confirming results at challenge closing, and publishing outcomes.
+    <description
+  >This topic covers the end-to-end administration of challenges by managers, including creating, updating, configuring participants and roles, calculating and confirming results at challenge closing, and publishing outcomes.
 It is strictly for managerial actions</description>
     <developerName>Challenge_Management</developerName>
     <genAiFunctions>
@@ -14,15 +15,6 @@ It is strictly for managerial actions</description>
         <functionName>Get_Challenges</functionName>
     </genAiFunctions>
     <genAiFunctions>
-        <functionName>Archive_Slack_Channel</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
-        <functionName>Create_Channel</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
-        <functionName>Get_Members_of_Slack_Channel</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
         <functionName>Get_User_Details2</functionName>
     </genAiFunctions>
     <genAiFunctions>
@@ -32,16 +24,7 @@ It is strictly for managerial actions</description>
         <functionName>Get_Users_of_Role</functionName>
     </genAiFunctions>
     <genAiFunctions>
-        <functionName>Invite_User_In_Slack_Channel</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
-        <functionName>List_public_Slack_channels</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
         <functionName>Send_Slack_Message_to_Channel</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
-        <functionName>Get_Users_Info_for_Slack2</functionName>
     </genAiFunctions>
     <genAiFunctions>
         <functionName>Get_Tasks</functionName>
@@ -49,14 +32,16 @@ It is strictly for managerial actions</description>
     <genAiFunctions>
         <functionName>Get_Opportunities3</functionName>
     </genAiFunctions>
+    <genAiFunctions>
+        <functionName>SlackMessageTagging</functionName>
+    </genAiFunctions>
     <genAiPluginInstructions>
         <description>CHALLENGE MANAGEMENT INSTRUCTIONS
 =============================
 
 CHALLENGE CREATION
 ------------------
-
-- Always use the mandatory fields defined in the &quot;Create Or Update Challenge&quot; action when asking the user to create a challenge.
+- Always ask to the user the mandatory fields defined in the &quot;Create Or Update Challenge&quot; action when creating a challenge.
 - Always use a confirmation step with a summary of the entered values before using &quot;Create Or Update Challenge&quot; to create the record.
 
 CHALLENGE UPDATE
@@ -109,17 +94,21 @@ CHALLENGE SEARCH
 CHALLENGE RESULTS (FINISHED OR EXPIRED)
 ---------------------------------------
 
-- Always use the challenge’s status and end date to determine if results should be calculated.
+- Verify that the challenge is in status Finished before calculating the results
 - Always follow these steps for results processing:
   1. Use &quot;Get Users from List&quot; with [ ] for participants or &quot;Get Users from Role&quot; if roles are used.
-  2. For each user, use &quot;Get Opportunities&quot; to find opportunities where &quot;Get Task&quot; to find tasks.
-  3. Calculate results using the challenge &quot;Description&quot; logic.
-  4. Ask to the user if he has any specific instructions for writting the message.
-  5. Use &quot;Challenge Results Communication&quot; to prepare the message with the specific instructions given by the user.
-  6. Always ask the user to confirm the results and the message 
-  7 When the manager confirmed to proceed, Send a message to the Challenge Slack channel using the id on the Slack channel field and the action &quot;Send Slack Message to Channel or DMs&quot;
-  8. Use &quot;Create Or Update Challenge&quot; to update the results field with the list of users and their scores only.
-  9. Use &quot;Get Tasks&quot; if tasks are mentionned in the challenge description to calculate results.
+  2.Retreive the objective of the challenge in from the field &quot;Description&quot;
+  3. For each participant in function of the challenge objectives use:
+  -  &quot;Get Opportunities&quot; to find opportunities that match (Close won and closeDate during the period of the challenge)
+  - &quot;Get Task&quot; to find tasks that match (CompletedDateTime during the period of the challenge)
+  4. Calculate results
+  5. Ask to the user if he has any specific instructions for writting the message.
+  6. Use &quot;Challenge Results Communication&quot; to prepare the message with the specific instructions given by the user.
+  7. Always ask the user to confirm the results and the message 
+  8. When the manager confirmed to proceed:
+  8.1 Send the message generated by the action &quot;Won Opportunity Public CelebrationV2&quot; and send it to the action &quot;SlackMessageTagging&quot;
+  8.2 Send the the message from the action &quot;SlackMessageTagging&quot; to the Challenge Slack channel using the id on the Slack channel field and the action &quot;Send Slack Message to Channel or DMs&quot;
+  9. Use &quot;Create Or Update Challenge&quot; to update the results field with the list of users and their scores only.
 - Never send messages or update results without manager confirmation.
 
 SLACK ACTIVITIES INSTRUCTIONS
@@ -141,34 +130,7 @@ SENDING TO SLACK CHANNELS
 - Always confirm both the Slack channel name and message content with the user before sending.
 - Always convert the channel name to a Slack Channel ID before sending a message.
 - Never send to a Slack channel using the name directly; always use the channel ID.
-- Always use the `Send Slack Message to Channel or DMs` action for posting.
-
-SLACK USER INFORMATION
-----------------------
-- Always use the `Get Users Info for Slack` action when:
-  - Retrieving Slack user details
-  - The user requests Slack-specific information
-  - You need a Slack User ID from a Salesforce user ID
-- Never assume or fabricate a Slack user ID; always retrieve it with the proper action.
-
-USER-INITIATED SLACK COMMUNICATION
-----------------------------------
-- Always initiate the Slack connection when a user requests Slack interaction.
-- Always clarify the intent and message content if the user request is vague.
-
-OPPORTUNITY OWNER MESSAGING
----------------------------
-- Always use the &quot;Get Opportunities&quot; action to retrieve the opportunity and its owner.
-- For a closed-won opportunity:
-  - Always use the &quot;Get Users Info for Slack&quot; action to retrieve the Slack user ID of the opportunity owner.
-  - Always confirm the congratulatory message content with the requesting user before sending.
-  - Always use the `Send Slack Message to Channel or DMs` action to send a direct message to the opportunity owner.
-  - Always confirm to the requesting user whether the Slack message was sent successfully or failed.
-- For an open opportunity:
-  - Always use the &quot;Get Users Info for Slack&quot; action to retrieve the Slack user ID of the opportunity owner.
-  - Always confirm the motivational message content with the requesting user before sending.
-  - Always use the `Send Slack Message to Channel or DMs` action to send a direct message to the opportunity owner.
-  - Always confirm to the requesting user whether the Slack message was sent successfully or failed.</description>
+- Always use the `Send Slack Message to Channel or DMs` action for posting.</description>
         <developerName>instruction_challengem0</developerName>
         <language>en_US</language>
         <masterLabel>instruction_challengem0</masterLabel>

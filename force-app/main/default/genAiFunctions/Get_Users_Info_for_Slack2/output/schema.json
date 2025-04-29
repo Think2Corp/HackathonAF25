@@ -1,21 +1,21 @@
 {
-  "unevaluatedProperties" : false,
-  "properties" : {
-    "message" : {
-      "title" : "message",
-      "description" : "Result message",
-      "lightning:type" : "lightning__textType",
-      "lightning:isPII" : false,
-      "copilotAction:isDisplayable" : true,
-      "copilotAction:isUsedByPlanner" : true,
-      "copilotAction:useHydratedPrompt" : false
+  "unevaluatedProperties": false,
+  "properties": {
+    "message": {
+      "title": "message",
+      "description": "Result message",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isDisplayable": true,
+      "copilotAction:isUsedByPlanner": true,
+      "copilotAction:useHydratedPrompt": false
     },
-    "userInfoList" : {
-      "title" : "userInfoList",
-      "description" : "List of User Info",
-      "maxItems" : 2000,
-      "items" : {
-        "lightning:type" : "@apexClassType/c__GetUsersInfoSlack$UserInfoWrapper"
+    "userInfoList": {
+      "title": "userInfoList",
+      "description": "List of User Info",
+      "maxItems": 2000,
+      "items": {
+        "lightning:type": "@apexClassType/c__GetUsersInfoSlack$UserInfoWrapper"
       },
       "lightning:type": "lightning__listType",
       "lightning:isPII": false,
@@ -37,5 +37,5 @@
       "copilotAction:useHydratedPrompt": false
     }
   },
-  "lightning:type" : "lightning__objectType"
+  "lightning:type": "lightning__objectType"
 }

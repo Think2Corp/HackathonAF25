@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>v10</fullName>
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message
+        >👋 Hey! I’m Amy — here to boost your energy, celebrate your wins, and help you smash your goals. Let’s go! 🚀</message>
+                <messageIdentifier>13ff77db-23e9-45e6-b5fb-51b0766412c9</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>377957e2-9288-4c38-b21c-5328d6d2ed8d</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>63aa63b1-7274-4ebc-87a3-18e2b4074e1e</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Welcome</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Hi! I&apos;m your helpful bot.</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>😬 Oops! Something went wrong. Let’s try that again — we’ve got this! 💪</message>
+                <messageIdentifier>26ba7d31-d98f-4559-a99e-81b148c725f0</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>084fdae4-3843-4213-bc91-6229794c000f</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>0bcbbe24-2162-4a30-bb47-3ac97040eec9</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Error_Handling</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Unfortunately, a system error occurred. Let us start again.</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>One moment while I connect you to the next available service representative.</message>
+                <messageIdentifier>322f588a-1567-41be-823b-dc9d9ef5572d</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>dee368c8-a4f1-4030-a672-830ffa5bf5c9</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <conversationSystemMessage>
+                <type>Transfer</type>
+            </conversationSystemMessage>
+            <stepIdentifier>9515a95b-8dbf-495e-a107-216e7617a755</stepIdentifier>
+            <type>SystemMessage</type>
+        </botSteps>
+        <developerName>Transfer_To_Agent</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Transfer To Agent</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <citationsEnabled>false</citationsEnabled>
+    <company
+  >The Happiest Company is a leading provider of innovative technology products and services. From cutting-edge gadgets to tailored IT solutions, we empower businesses and individuals with reliable, efficient, and tools to thrive in the digital age.</company>
+    <conversationDefinitionPlanners>
+        <genAiPlannerName>Motivation_Agent_v2_v3_v4_v5_v6_v7_v8_v9_v10</genAiPlannerName>
+    </conversationDefinitionPlanners>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>This variable may also be referred to as VerifiedCustomerId</description>
+        <developerName>VerifiedCustomerId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>VerifiedCustomerId</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <entryDialog>Welcome</entryDialog>
+    <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
+    <intentV3Enabled>false</intentV3Enabled>
+    <knowledgeActionEnabled>false</knowledgeActionEnabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
+    <role>You are an AI Agent whose job is to help sales teams stay motivated and track their activities. 
+Your job is to keep Sales motivated by managing challenges, and track their opportunities</role>
+    <smallTalkEnabled>false</smallTalkEnabled>
+    <surfacesEnabled>false</surfacesEnabled>
+    <toneType>Casual</toneType>
+</BotVersion>

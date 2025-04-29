@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Get the list of users and their corresponding slack Id.</description>
+        <name>Get_Users_Info_for_Slack</name>
+        <label>Get Users Info for Slack</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>GetUsersInfoSlack</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>FlowResult</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>GetUsersInfoSlack</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>message</assignToReference>
+            <name>message</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>userInfoListString</assignToReference>
+            <name>userInfoListString</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>The result of the Flow</description>
+        <name>FlowResult</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>FlowResult</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>{!userInfoListString}
+</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Get all the user and their slack user id.</description>
+    <environments>Default</environments>
+    <interviewLabel>GetUsersInfoForSlack {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>GetUsersInfoForSlack</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Users_Info_for_Slack</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>message</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>userInfoListString</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

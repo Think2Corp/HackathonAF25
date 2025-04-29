@@ -1,0 +1,76 @@
+{
+  "unevaluatedProperties": false,
+  "properties": {
+    "dueDate": {
+      "title": "dueDate",
+      "description": "Task Due Date",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "dueDateEnd": {
+      "title": "dueDateEnd",
+      "description": "End Date for Due Date Range",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "dueDateStart": {
+      "title": "dueDateStart",
+      "description": "Start Date for Due Date Range",
+      "lightning:type": "lightning__dateType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "owner": {
+      "title": "owner",
+      "description": "Salesforce User ID of the owner of the Task. Use Salesforce User ID format.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "priority": {
+      "title": "priority",
+      "description": "Task Priority",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "status": {
+      "title": "status",
+      "description": "Task Status",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "subject": {
+      "title": "subject",
+      "description": "Task Subject",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "taskSubtype": {
+      "title": "taskSubtype",
+      "description": "Type of the Task. Can be Call or Task.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "whatId": {
+      "title": "whatId",
+      "description": "Related To ID (WhatId)",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    },
+    "whoId": {
+      "title": "whoId",
+      "description": "Name ID (WhoId)",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

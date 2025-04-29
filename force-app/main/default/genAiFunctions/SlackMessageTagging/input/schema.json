@@ -1,0 +1,21 @@
+{
+  "required": ["Input:BaseMessage"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "Input:BaseMessage": {
+      "title": "BaseMessage",
+      "description": "Slack message with users referenced by their names.",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": true
+    },
+    "citationMode": {
+      "title": "Citation Mode",
+      "description": "Select Citation Mode",
+      "lightning:type": "lightning__textType",
+      "lightning:isPII": false,
+      "copilotAction:isUserInput": false
+    }
+  },
+  "lightning:type": "lightning__objectType"
+}

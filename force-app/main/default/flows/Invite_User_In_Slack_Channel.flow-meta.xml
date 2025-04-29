@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
         <name>CheckChannelExist</name>
         <label>CheckChannelExist</label>
-        <locationX>908</locationX>
+        <locationX>776</locationX>
         <locationY>242</locationY>
         <actionName>checkChannelExist</actionName>
         <actionType>apex</actionType>
@@ -33,7 +33,7 @@
     <actionCalls>
         <name>Clean_Collection</name>
         <label>Clean Collection</label>
-        <locationX>908</locationX>
+        <locationX>776</locationX>
         <locationY>134</locationY>
         <actionName>clean_collections</actionName>
         <actionType>apex</actionType>
@@ -62,7 +62,7 @@
         <name>Copy_1_of_Send_Slack_Message_Action_1</name>
         <label>Send Slack Message no user</label>
         <locationX>842</locationX>
-        <locationY>1298</locationY>
+        <locationY>1538</locationY>
         <actionName>slackPostMessage</actionName>
         <actionType>slackPostMessage</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -97,8 +97,8 @@
     <actionCalls>
         <name>Get_Users_Info_for_Slack</name>
         <label>Get Users Info for Slack</label>
-        <locationX>446</locationX>
-        <locationY>674</locationY>
+        <locationX>182</locationX>
+        <locationY>782</locationY>
         <actionName>GetUsersInfoSlack</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -150,7 +150,7 @@
         <name>InviteUserAction</name>
         <label>InviteUserAction</label>
         <locationX>50</locationX>
-        <locationY>1298</locationY>
+        <locationY>1538</locationY>
         <actionName>slackInviteUsersToChannel</actionName>
         <actionType>slackInviteUsersToChannel</actionType>
         <connector>
@@ -197,7 +197,7 @@
         <name>JoinChannel</name>
         <label>JoinChannel</label>
         <locationX>50</locationX>
-        <locationY>1190</locationY>
+        <locationY>1430</locationY>
         <actionName>slackJoinChannel</actionName>
         <actionType>slackJoinChannel</actionType>
         <connector>
@@ -232,7 +232,7 @@
         <name>Send_Slack_Message_Action_1</name>
         <label>Send Slack Message Action 1</label>
         <locationX>50</locationX>
-        <locationY>1514</locationY>
+        <locationY>1754</locationY>
         <actionName>slackPostMessage</actionName>
         <actionType>slackPostMessage</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -267,7 +267,7 @@
     <actionCalls>
         <name>Send_Slack_Message_Action_Fault_Join</name>
         <label>Send Slack Message Action Fault Join</label>
-        <locationX>1370</locationX>
+        <locationX>1106</locationX>
         <locationY>566</locationY>
         <actionName>slackPostMessage</actionName>
         <actionType>slackPostMessage</actionType>
@@ -303,8 +303,8 @@
     <actionCalls>
         <name>Send_Slack_Message_get_user_info</name>
         <label>Send Slack Message get user info</label>
-        <locationX>1106</locationX>
-        <locationY>890</locationY>
+        <locationX>446</locationX>
+        <locationY>998</locationY>
         <actionName>slackPostMessage</actionName>
         <actionType>slackPostMessage</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -340,7 +340,7 @@
         <name>SendSlackMessageActionFaultInvite</name>
         <label>Send Slack Message Action Fault Invite</label>
         <locationX>314</locationX>
-        <locationY>1514</locationY>
+        <locationY>1754</locationY>
         <actionName>slackPostMessage</actionName>
         <actionType>slackPostMessage</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -376,7 +376,7 @@
         <name>SendSlackMessageActionFaultJoin</name>
         <label>Send Slack Message Action Fault Join</label>
         <locationX>578</locationX>
-        <locationY>1406</locationY>
+        <locationY>1646</locationY>
         <actionName>slackPostMessage</actionName>
         <actionType>slackPostMessage</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -414,12 +414,13 @@
         <name>Add_Output_to_Message</name>
         <label>Add Output to Message</label>
         <locationX>50</locationX>
-        <locationY>1406</locationY>
+        <locationY>1646</locationY>
         <assignmentItems>
             <assignToReference>message</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Invite User In Slack Channel : {!CleanCollectionMessage} Invited  in Slack channel: {!channelID}</stringValue>
+                <stringValue
+        >Invite User In Slack Channel : {!CleanCollectionMessage} Invited  in Slack channel: {!channelID}</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -430,12 +431,13 @@
         <name>Add_Output_to_Message_all_user_already_in_chan</name>
         <label>Add Output to Message: all user already in chan</label>
         <locationX>842</locationX>
-        <locationY>1190</locationY>
+        <locationY>1430</locationY>
         <assignmentItems>
             <assignToReference>message</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Invite User In Slack Channel : All user {!CleanCollectionMessage} already in channel {!channelID}</stringValue>
+                <stringValue
+        >Invite User In Slack Channel : All user {!CleanCollectionMessage} already in channel {!channelID}</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -446,12 +448,13 @@
         <name>Add_Output_to_Message_Fault_Invite</name>
         <label>Add Output to Message Fault Invite</label>
         <locationX>314</locationX>
-        <locationY>1406</locationY>
+        <locationY>1646</locationY>
         <assignmentItems>
             <assignToReference>message</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Invite User In Slack Channel : Failed to Invite {!CleanCollectionMessage} in Slack channel  {!channelID}</stringValue>
+                <stringValue
+        >Invite User In Slack Channel : Failed to Invite {!CleanCollectionMessage} in Slack channel  {!channelID}</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -462,7 +465,7 @@
         <name>Add_Output_to_Message_Fault_Join</name>
         <label>Add Output to Message Fault Join</label>
         <locationX>578</locationX>
-        <locationY>1298</locationY>
+        <locationY>1538</locationY>
         <assignmentItems>
             <assignToReference>message</assignToReference>
             <operator>Assign</operator>
@@ -477,13 +480,14 @@
     <assignments>
         <name>Add_Output_to_Message_Get_user_info</name>
         <label>Add Output to Message: Get user info</label>
-        <locationX>1106</locationX>
-        <locationY>782</locationY>
+        <locationX>446</locationX>
+        <locationY>890</locationY>
         <assignmentItems>
             <assignToReference>message</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>Get user slack info: Error to get the info {!Get_Users_Info_for_Slack.message} - {!channelID}</stringValue>
+                <stringValue
+        >Get user slack info: Error to get the info {!Get_Users_Info_for_Slack.message} - {!channelID}</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -493,7 +497,7 @@
     <assignments>
         <name>AddOutputChannelnotFound</name>
         <label>Add Output Channel not Found</label>
-        <locationX>1370</locationX>
+        <locationX>1106</locationX>
         <locationY>458</locationY>
         <assignmentItems>
             <assignToReference>message</assignToReference>
@@ -520,14 +524,14 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Users_Info_for_Slack</targetReference>
+            <targetReference>Is_There_Slack_Channel_Member</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>RemoveExistingChannelMemberFromUsersToInvite</name>
         <label>RemoveExistingChannelMemberFromUsersToInvite</label>
-        <locationX>534</locationX>
-        <locationY>890</locationY>
+        <locationX>270</locationX>
+        <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>UserToInvite</assignToReference>
             <operator>RemoveAll</operator>
@@ -542,7 +546,7 @@
     <decisions>
         <name>ifChannelExist</name>
         <label>ifChannelExist</label>
-        <locationX>908</locationX>
+        <locationX>776</locationX>
         <locationY>350</locationY>
         <defaultConnector>
             <targetReference>AddOutputChannelnotFound</targetReference>
@@ -565,10 +569,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Is_There_Slack_Channel_Member</name>
+        <label>Is There Slack Channel Member ?</label>
+        <locationX>446</locationX>
+        <locationY>674</locationY>
+        <defaultConnector>
+            <targetReference>IsThereUserToAdd</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetMemberOfSlackChannel.slackUserIds</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Users_Info_for_Slack</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>IsThereUserToAdd</name>
         <label>IsThereUserToAdd ?</label>
         <locationX>446</locationX>
-        <locationY>1082</locationY>
+        <locationY>1322</locationY>
         <defaultConnector>
             <targetReference>Add_Output_to_Message_all_user_already_in_chan</targetReference>
         </defaultConnector>
@@ -594,15 +623,16 @@
     <formulas>
         <name>CurrentItemFromLoopChannelMemberSalesforceID</name>
         <dataType>String</dataType>
-        <expression>MID( {!RemoveExistingMember}, FIND(&quot;Salesforce ID=&quot;,{!RemoveExistingMember}) + LEN(&quot;Salesforce ID=&quot;), 18)</expression>
+        <expression
+    >MID( {!RemoveExistingMember}, FIND(&quot;Salesforce ID=&quot;,{!RemoveExistingMember}) + LEN(&quot;Salesforce ID=&quot;), 18)</expression>
     </formulas>
     <interviewLabel>Invite User In Slack Channel {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Invite User In Slack Channel</label>
     <loops>
         <name>RemoveExistingMember</name>
         <label>RemoveExistingMember</label>
-        <locationX>446</locationX>
-        <locationY>782</locationY>
+        <locationX>182</locationX>
+        <locationY>890</locationY>
         <collectionReference>Get_Users_Info_for_Slack.userInfoListString</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -633,7 +663,7 @@
     <processType>AutoLaunchedFlow</processType>
     <runInMode>DefaultMode</runInMode>
     <start>
-        <locationX>782</locationX>
+        <locationX>650</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Clean_Collection</targetReference>

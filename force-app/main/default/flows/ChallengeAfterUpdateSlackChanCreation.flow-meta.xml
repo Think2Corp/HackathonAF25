@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
         <name>CreateSlackMessageforChallenge</name>
@@ -8,7 +8,7 @@
         <actionName>Kick_Start_Challenge</actionName>
         <actionType>generatePromptResponse</actionType>
         <connector>
-            <targetReference>Send_Message_to_channel</targetReference>
+            <targetReference>Tag_users_on_the_message</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -101,6 +101,27 @@
             </value>
         </inputParameters>
         <nameSegment>StructureParticipantsList</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <actionCalls>
+        <name>Tag_users_on_the_message</name>
+        <label>Tag users on the message</label>
+        <locationX>352</locationX>
+        <locationY>1416</locationY>
+        <actionName>SlackMessageTagging</actionName>
+        <actionType>generatePromptResponse</actionType>
+        <connector>
+            <targetReference>Send_Message_to_channel</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>Input:BaseMessage</name>
+            <value>
+                <elementReference>CreateSlackMessageforChallenge.promptResponse</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SlackMessageTagging</nameSegment>
         <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
@@ -223,7 +244,8 @@
         <description>Id of the Slack Channel</description>
         <name>ConversationID</name>
         <dataType>String</dataType>
-        <expression>IF(ISBLANK({!$Record.SlackChannel__c}),{!CreatedConversationID} , {!$Record.SlackChannel__c})</expression>
+        <expression
+    >IF(ISBLANK({!$Record.SlackChannel__c}),{!CreatedConversationID} , {!$Record.SlackChannel__c})</expression>
     </formulas>
     <interviewLabel>ChallengeAfterUpdateSlackChanCreation {!$Flow.CurrentDateTime}</interviewLabel>
     <label>ChallengeAfterUpdateSlackChanLaunch</label>
@@ -265,7 +287,7 @@
         <name>UpdateChallengeWithSlackChannel</name>
         <label>UpdateChallengeWithSlackChannel</label>
         <locationX>352</locationX>
-        <locationY>1524</locationY>
+        <locationY>1632</locationY>
         <inputAssignments>
             <field>SlackChannel__c</field>
             <value>
@@ -278,19 +300,12 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
-        <filterLogic>or</filterLogic>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Status__c</field>
             <operator>EqualTo</operator>
             <value>
                 <stringValue>ToStart</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Status__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>OnGoing</stringValue>
             </value>
         </filters>
         <object>Challenge__c</object>
@@ -365,7 +380,7 @@
         <name>Send_Message_to_channel</name>
         <label>Send Message to channel</label>
         <locationX>352</locationX>
-        <locationY>1416</locationY>
+        <locationY>1524</locationY>
         <connector>
             <targetReference>UpdateChallengeWithSlackChannel</targetReference>
         </connector>
@@ -385,7 +400,7 @@
         <inputAssignments>
             <name>MessageToSend</name>
             <value>
-                <elementReference>CreateSlackMessageforChallenge.promptResponse</elementReference>
+                <elementReference>Tag_users_on_the_message.promptResponse</elementReference>
             </value>
         </inputAssignments>
         <storeOutputAutomatically>true</storeOutputAutomatically>

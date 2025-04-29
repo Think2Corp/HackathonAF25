@@ -24,7 +24,7 @@ public with sharing class GetUsersFromTextList {
 
   @InvocableMethod(
     label='Get Users from Text List'
-    description='Extract user names or roles from input text in the format "[Name1, Name2, Name3]", query users, and return their IDs and sObjects'
+    description='Extract user names or roles from input text, query users, and return their IDs and sObjects'
   )
   public static List<Output> getUsersFromTextList(List<Input> inputList) {
     List<Output> results = new List<Output>();

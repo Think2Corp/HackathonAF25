@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Sends a message to a Slack channel</description>
+    <description>- Send Slack Message to Channel providing a Slack Channel ID
+- Send Slack Direct Message (DM) to a User providing a Slack User ID</description>
     <invocationTarget>SendSlackToChannel</invocationTarget>
     <invocationTargetType>apex</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
-    <masterLabel>Send Slack Message to Channel</masterLabel>
+    <masterLabel>Send Slack Message to Channel or DMs</masterLabel>
 </GenAiFunction>
