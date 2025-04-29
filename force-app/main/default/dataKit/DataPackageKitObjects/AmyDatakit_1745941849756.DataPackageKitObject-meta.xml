@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataPackageKitObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>AmyDatakit</masterLabel>
+    <parentDataPackageKitDefinitionName>AmyDataKit__AmyDatakit</parentDataPackageKitDefinitionName>
+    <referenceObjectName>AmyDataKit__GPT4_strict_CM_12l_fuT0ac9f616</referenceObjectName>
+    <referenceObjectType>DataKitObjectTemplate</referenceObjectType>
+</DataPackageKitObject>

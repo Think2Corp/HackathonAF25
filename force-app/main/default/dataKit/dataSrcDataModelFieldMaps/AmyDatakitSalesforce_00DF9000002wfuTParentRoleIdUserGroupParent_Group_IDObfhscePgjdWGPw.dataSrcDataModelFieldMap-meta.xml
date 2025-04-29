@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataSrcDataModelFieldMap xmlns="http://soap.sforce.com/2006/04/metadata">
+    <filterApplied>false</filterApplied>
+    <filterOperationType>Equal</filterOperationType>
+    <masterLabel>AmyDatakitSalesforce_00DF9000002wfuTParentRoleIdUserGroupParent_Group_IDObfhscePgjdWGPw</masterLabel>
+    <sourceField>AmyDataKit__UserRole_Home1.AmyDataKit__ParentRoleId__c</sourceField>
+    <targetField>ssot__UserGroup__dlm.AmyDataKit__Parent_Group_ID__c</targetField>
+    <templateVersion>1</templateVersion>
+    <versionNumber>1.0</versionNumber>
+</DataSrcDataModelFieldMap>

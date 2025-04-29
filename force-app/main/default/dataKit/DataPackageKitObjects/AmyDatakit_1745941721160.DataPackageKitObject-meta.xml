@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataPackageKitObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>AmyDatakit</masterLabel>
+    <parentDataPackageKitDefinitionName>AmyDataKit__AmyDatakit</parentDataPackageKitDefinitionName>
+    <referenceObjectName
+  >AmyDataKit__GenAIContentQuality_parent_map_GenAIGatewayRequest_gatewayRequestId_1744274877562</referenceObjectName>
+    <referenceObjectType>FieldSrcTrgtRelationship</referenceObjectType>
+</DataPackageKitObject>
