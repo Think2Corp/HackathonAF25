@@ -18,9 +18,9 @@
 - [Datakit Installation URL](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tF9000000JHAH)
 - [DataKit Metadata](../force-app/main/default/dataKit)
 
-## Org Objects
+## Objects
 
-- [Objects](objects/index.md)
+- [Objects List](objects/index.md)
 
 ## Automations
 
