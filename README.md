@@ -24,20 +24,20 @@ For Hackathon Project documentation [click here](Hackathon.md)
 
 ## Objects
 
-- [Objects List](objects/index.md)
+- [Objects List](./docs/objects/index.md)
 
 ## Automations
 
-- [Flows](flows/index.md)
-- [Apex](apex/index.md)
+- [Flows](./docs/flows/index.md)
+- [Apex](./docs/apex/index.md)
 
 ## Authorizations
 
-- [Permission Set Groups](permissionsetgroups/index.md)
-- [Permission Sets](permissionsets/index.md)
+- [Permission Set Groups](./docs/permissionsetgroups/index.md)
+- [Permission Sets](./docs/permissionsets/index.md)
 
 ## UI
 
-- [Lightning Pages](pages/index.md)
+- [Lightning Pages](./docs/pages/index.md)
 
 _Documentation generated from branch documentation with [sfdx-hardis](https://sfdx-hardis.cloudity.com) by [Cloudity](https://cloudity.com) command [`sf hardis:doc:project2markdown`](https://sfdx-hardis.cloudity.com/hardis/doc/project2markdown/)_
