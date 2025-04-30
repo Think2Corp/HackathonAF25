@@ -1,8 +1,12 @@
-# AMY, the Agent Motivator Technical Documentation
+# AMY, the Agent Motivator
 
 This is the technical documentation of AMY, a Agentforce Agent Motivator, for the Virtual Agentforce Hackathon 2025.
 
 For Hackathon Project documentation [click here](Hackathon.md)
+
+But you can check the demo :
+
+[![Video](https://img.youtube.com/vi/BfLAOZOtoqk/maxresdefault.jpg)](https://www.youtube.com/watch?v=BfLAOZOtoqk)
 
 ## AgentForce
 
