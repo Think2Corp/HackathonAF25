@@ -4,6 +4,10 @@ This is the technical documentation of AMY, a Agentforce Agent Motivator, for th
 
 For Hackathon Project documentation [click here](Hackathon.md)
 
+But you can check the demo :
+
+[![Video](https://img.youtube.com/vi/BfLAOZOtoqk/maxresdefault.jpg)](https://www.youtube.com/watch?v=BfLAOZOtoqk)
+
 ## AgentForce
 
 - Agent

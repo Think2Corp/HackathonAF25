@@ -1,75 +1,209 @@
-## **Inspiration**
+# Amy, the Agent Motivator
 
-As Sales Managers and Salesforce experts, we’ve seen how motivation directly impacts performance—yet most tools focus on data, not people. Sales teams today are more distributed, working from both the office and remotely, and still need shared rituals: challenges, recognition, and celebration to build team spirit. With AgentMotivator, we also wants to highlight diverse sales profiles, especially those who perform well but don’t naturally showcase their success. By bringing AI into the mix, we put people back at the center of sales team engagement.
+## Inspiration
 
-## **What it does**
+As Sales Managers and Salesforce experts, we know that motivation directly affects performance. However, most tools focus on data rather than people. Today's sales teams are more spread out, working both in the office and remotely, yet they still need shared rituals like challenges, recognition, and celebrations to foster team spirit.
 
-Amy is a Slack-integrated Agentforce agent designed to boost sales team engagement and performance. Amy automatically identifies the most challenging deals closed by sales reps and celebrates their wins with personalized congratulatory messages, fostering a positive and motivating team culture.
+While a direct manager plays a key role, they cannot provide constant support to every sales team member. Our Agent steps in to fill this gap by offering tailored motivation strategies at any time.
 
-Sales managers can use Amy to effortlessly create, announce, manage, and close custom sales challenges all in natural language, directly within Slack. No complex setup or dashboards required: simply chat with Amy to launch new competitions, keep everyone motivated, and recognize top performers in real time.
+Plus, with Amy, we aim to highlight diverse sales profiles, especially those who perform well but don't naturally showcase their success. By incorporating AI, we bring the focus back to people in sales team engagement.
+
+We've also set some boundaries for our project : we aimed to achieve our business goals relying only on standard Salesforce and Slack capabilities without any third-party integrations to showcase the power of the Salesforce ecosystem.
+
+## What it does
+
+Amy is a Slack-integrated Agentforce agent designed to boost sales team engagement and performance. It focuses on communication and motivation to support sales reps and managers.
+
+Amy automatically identifies the most challenging deals closed by sales reps and celebrates their wins with personalized congratulatory messages, fostering a positive and motivating team culture.
+
+Sales managers can use Amy to easily create, announce, manage, and close custom sales challenges using natural language, directly within Slack. No complex setup or dashboards are required, just chat with Amy to launch new competitions, keep everyone motivated, and recognize top performers in real time.
 
 Amy has a customizable personality set by the manager and can adapt to each sales rep’s preferred style of interaction.
 
-With Amy, powering up your sales team’s motivation is as simple as starting a conversation.
+With Amy, powering up your sales team’s motivation is as simple as starting a conversation, right there they work, on Slack.
 
-### **Challenge Management for Sales Managers**
+## How we built it
+
+### Project management
+
+- Brainstorming ideas
+
+Our vision is that AI and agents bridge the gap between software and people. Digital solutions often create distance between humans, but AI offers a chance to bring them closer by making interactions more natural.
+
+We considered several options, but we quickly decided to focus on Agent Motivator. Our experience as CRM managers and our close relationship with the sales team led us to concentrate on boosting sales team motivation and engagement.
+
+- Discovery and macro-design
+
+We began with a brainstorming phase, focusing first on the outcomes our agent must produce and then on the functionalities needed to achieve those outcomes. We prioritized these based on their impact and complexity. (We still have a full roadmap to improve our solution.)
+
+During the macro-design phase, we encountered the challenge that the prioritized functionalities were not as straightforward as a solution without an agent. So, we shifted from our regular process mapping to a mind map, which helped us better identify the connections between elements like data, actions, and interactions.
+
+- US and specifications
+
+This part is quite standard. We identified the prioritized functionalities and split them into User Stories. The main difference between Agent and classic User Stories is that we kept the specifications very light, focusing on the expected output. The actual implementation was mostly achieved through trial and error until we reached the desired results.
+
+### Technical solution
+
+Our technical solution combines Agentforce, flows, prompts, invocable methods, and a prediction model.
+
+Creating the challenge requires collaboration between the manager and the agent. We decided to facilitate this through direct chat. Any creation or modification of the challenge can be done via chat or directly on the challenge record.
+
+For the next steps, which involve more scheduled activities and administrative tasks, we use Record-triggered and scheduled flows. Once the manager finishes configuring the challenge, they can update it to `To Start`. A Record-triggered flow then creates the Slack channel, adds participants, and sends an initial communication generated by a prompt.
+
+A batch schedule moves the status to `OnGoing` at the start date. This status change triggers a flow similar to the first one, resolving any new participant issues or Slack channel problems. Initially, we used the same flow with two status conditions, but it didn't trigger the second time. So, we cloned the flows to make it work. We plan to improve this by moving all actions to an Autolaunched flow and calling it as a subflow for both triggers.
+
+During the challenge, we focus on interactions and support for collaborators. The celebration of a won opportunity is also triggered by a flow. This time, we needed a non-deterministic decision based on historical data and predictions. The flow calls Agentforce, which handles all steps, queries past opportunities, calls the prediction, and decides whether to send a communication or not.
+
+Another use case we managed is providing sales reps with up-to-date and always available information. We return to direct chatting with the agent. However, just sharing progress doesn't add more value than a report, so we added functionalities to guide sales reps in reaching challenge goals.
+
+In the final step, a batch flow updates the status to `Finished`, and a Record-triggered flow sends a notification to the manager using Salesforce for Slack. Ideally, Amy would send the notification and open an agent session, but our initial attempts didn't work. The notification was sent to the right app without an agent session. We then decided to split the process: first, the notification asks the manager to contact the Agent. Then, a session is created, and results can be calculated. To avoid controversy, we believe it's essential for the manager to validate the results first.
+
+### Agent and topics
+
+We used an Agent Service Agent for its standalone and Slack capabilities.
+
+First, we created specialized topics. Later in the project, we grouped them into larger categories. We wanted to test the agent's ability to handle broader categories, and it performed quite well.
+
+Instructions are crucial for the agent's accuracy, so we shifted from an empirical approach to a shared framework to facilitate evolution.
+
+Actions were added iteratively. Initially, we focused on core actions for our use cases. We quickly identified several intermediate actions, such as preparing data or improving fluidity.
+
+At the end our agent is organized into 4 main topics:
+
+**Challenge Management for Sales Managers**
 
 Easily create, launch, and monitor personalized sales challenges directly within Salesforce, tailored to team objectives and individual rep performance.
 
-### **Challenge and Opportunity Follow-up for Sales Reps**
+**Challenge and Opportunity Follow-up for Sales Reps**
 
-Give reps visibility on their progress in challenges and help them focus on the right opportunities—especially those at risk through smart, contextual nudges.
+Give reps visibility on their progress in challenges and help them focus on the right opportunities, especially those at risk through smart, contextual nudges.
 
-### **Slack Challenge Animation, Celebrations, and Rep Support**
+**CRM and Slack Management**
 
-Bring the energy to where teams collaborate : Slack. Amy animates challenges, celebrates wins, and supports reps with timely, personalized messages to foster emulations.
+Handle generic CRM and Slack actions for facilitating interactions between collaborators and slack related requests
 
-### **Prediction on Opportunity Difficulty**
+**Celebrating Exceptional Closed-Won Opportunities**
 
-Predict which opportunities are the most difficult to close based on past data and rep feedback allowing Amy to use this information for selecting most relevant deals to celebrate, adapt its messages or calculate challenges results.
+Identify and celebrate exceptional closed-won opportunities that meet specific criteria. It sends congratulatory messages to a designated public Slack channel for those qualified opportunities.
 
-## **How we built it**
+### Prompts
 
-### **Agentforce Service Agent**
+Our prompts are built on Salesforce best practices. To add more originality and flexibility, we've included options that let both agents and users bring their unique style to interactions. This aims to enhance the overall experience by enabling more personalized and engaging communication.
 
-We used an Agent Service Agent for its standalone & Slack capabilities that we enhanced with Custom Actions.
+On another note, we've created two prompts for "technical" purposes. The first one structures a Participants list in a flow, allowing us to use our invocable action to query the Salesforce ID. The second prompt lets us tag users in our Slack messages generated by Salesforce prompts. This tagging requires the SlackUserId.
 
-### **Prompt Builder**
+Since we needed different LLM configurations, we created two custom models based on GPT-4: one creative for generating our communication and another strict for technical needs.
 
-### **Einstein Studio**
+Additionally, we've integrated a RAG retriever into the system. However, it's important to note that this feature is not yet being fully utilized. At this stage, it serves as a proof of concept for future enhancements.
 
-### **Slack**
+### DataCloud / Einstein Studio
 
-## **Challenges we ran into**
+We pushed CRM Opportunities, Users, Roles with their custom field with Data Streams and used Data Transformation to create a new DMO with all required informations to build a Predictive Model in Einstein Studio. This Predictive model is then available for Agentforce to predict Opportunity difficulty.
 
-### **Unstructured \<-\> Structured Data switching**
+Amy can then predict which opportunities are the most difficult to close based on historical data and rep feedback allowing her to use this information for selecting most relevant deals to celebrate, adapt its messages or calculate challenges results.
+
+### Slack x Salesforce Integration
+
+To meet our business goals we had to make us of all available Slack integrations :
+
+**Agentforce Slack Actions**
+
+We aimed to personify Amy at the most so we wanted her to be able to write in DM but also in Slack Channels. Also we needed her to be able to map Slack Ids and Salesforce ID.
+
+- Standard Slack Actions
+- Custom Apex integrations using Slack APIs and the Bot Token of the Agent in Slack (not available anymore in the Slack setup now, we had it just in time)
+
+**Salesforce for Slack**
+
+- We rely on these standard Flow actions for management like creating, inviting, archiving channels etc..
+
+### Retrieving data with invocable methods
+
+In order to maximize natural interactions between users and Agentforce, we use unstructured data (in challenges descriptions and participants, tone of voice, messages to Amy, etc.).
+
+For some purposes we still need to retrieve more structured data about some records. Moreover, the standard action "Get Record Details" isn't available for a service agent.
+
+That's why we had to create custom invocable methods to make the bridge between unstructured, fuzzy search filters and structured records. We decided to filter the records not strictly by id but more dynamically using like queries on names. Along with theses fuzzy filters, we added more structured filters (start date, status, etc.) that the agent handle well with the appropriate input instructions.
+
+All theses retrieving technics have been used to query users, role hierarchy, opportunities and challenges.
+
+### Flows
+
+All our triggers and batches are built in flows. We aim to create a generic auto-launched flow for Slack actions to handle pre-checks and errors. These actions are then reused in our functional flows.
+
+We still have two flows that are quite similar when launching challenges. Initially, there was only one flow, but it didn't trigger on the second status. Due to time constraints, we cloned it, and it worked. We plan to create an auto-launched flow that both triggers will call.
+
+## Challenges we ran into
+
+### Unstructured <-> Structured Data switching
 
 Since we work with agents and natural language processing, we often handle unstructured data. However, actions or flow inputs require structured data. Switching between these two formats while keeping the benefits of AI’s flexible behavior was sometimes difficult. To address this, we used specific action input instructions for simple cases and relied on carefully designed dedicated prompts in Prompt Builder for more complex scenarios.
 
-### **Slack Integration**
+### Slack Integration
 
-AgentForce is already integrated with Slack and provides some custom Slack actions. However, at the time this proof of concept was developed, it still could not handle more advanced features, such as posting messages in public channels. By combining AgentForce custom actions with the Slack API, these gaps can be filled. This allows a wider range of interactions and automations to be supported directly in Slack.
+AgentForce is already integrated with Slack and provides some custom Slack actions. However, at the time this proof of concept was developed, it still could not handle more advanced features, such as posting messages in public channels, list channels etc. By combining AgentForce custom actions with the Slack API, these gaps can be filled. This allows a wider range of interactions and automations to be supported directly in Slack.
 
-### **Non-Deterministic triggering**
+### Non-Deterministic triggering
 
-Our goal was to maintain an undeterministic approach to celebrating closed deals, giving the Agent autonomy to choose which achievements truly stood out. Ideally, Amy would proactively identify and celebrate notable wins on her own. In practice, we found the most reliable method was to trigger the Agent for every closed-won opportunity and have it decide, based on its own evaluation criteria, whether the deal merited celebration.
+Our goal was to maintain an nondeterministic approach to celebrating closed deals, giving the Agent autonomy to choose which achievements truly stood out. Ideally, the agent would proactively identify and celebrate notable wins on her own. In practice, we found the most reliable method was to trigger the Agent for every closed-won opportunity and have it decide, based on its own evaluation criteria, whether the deal merited celebration.
 
-## **Accomplishments that we're proud of**
+## Accomplishments that we're proud of
 
-##
+- Taking the best of Salesforce's new features to meet a business goals : Agentforce, Data Cloud, Einstein Studio, Slack integrations.
+- Agentforce - Slack integration enhancement (in the wait of the new Slack standard actions announced that should come soon).
+- Our video editing new learned skills :')
+- Resiliency :
+  In two occasions we've been challenged by fate:
 
-## **What we learned**
+* We broke up everything few hours before the end of the challenge when we added a namespace through package manager and we re-built the agent from scratch (hence the name **Amy Reloaded** in the Org)
+* Slack introduced the breaking change preventing us to use the bot token in our custom actions anymore but we managed to make the bot explain the situation for you test
 
-As long as you provide agent with enough contextual data he's pretty good at determining reasoning from NLP request / description, for example he understand how to query the right records and get the right method to calculate challenge results or progress from a simple description like
+## What we learned
+
+- How to build a Prediction Model.
+- That as long as you provide agent with enough contextual data he's pretty good at determining reasoning from NLP request / description, for example he understand how to query the right records and get the right method to calculate challenge results or progress from a simple description like.
 
 `"The winner is the reps with the biggest opportunity value and the most call's type tasks"`.
 
-## **What's next for AgentMotivator**
+- Agentforce can't handle multiple topics at once, like using actions from different topics for one request. This might change with Multi-Agent features, in the meantime a good strategy for managing topics is needed.
+- Building a Predictive Model in Einstein Studio is seamless and can be used in Agentforce as an action.
+- We learned the hard way, just 2 days before the hackathon ended, that adding a namespace in Package Manager adds it as a prefix to all your ApiNames. This isn't reflected in the Apex Code (which is fine) but also affects the Agentforce Custom actions! There's no warning before this big change. We made this mistake when we followed the Salesforce documentation to create a Data Cloud Kit to put our DataCloud work into the repo. All the org got broke. What a stress !
+- And if you duplicate your Agent after creating the namespaces, the new version is not prefixed with the namespaces, and then it fails.
+- Agent Builder UI often throw error messages when you save stuffs.
+- Agentforce collections output are always escaped making it impossible to use it for another Action input. We fixed than we a custom apex classes that clean the Agent output.
 
-Better slack Integration :
+## What's next for Amy
+
+Better slack Integration : 
 
 - Make use of Slack Blocks to format message
 - More action buttons
+- Make use of the new announced and upcoming Slack Agentforce Actions
 
 Better non-deterministic triggering
-[Project Documentation](docs/index.md)
+
+- Create more spontaneous and time-scheduled challenge reminders and motivational messages for users. We want to focus on making the challenge experience more engaging and providing private support messages to sales reps. To prevent user fatigue, these messages should be unpredictable and sent at random times. Celebrating won opportunities is a great first step in this direction
+
+Agent Session Creation Triggering on Slack
+
+- Dig the ability to create an agent session through a trigger. This way, the user (in our case, the manager) can continue the discussion directly after receiving a message from the agent and calculate results without having to go through Salesforce for Slack notifications.
+
+## Testing Context
+
+Dear Jury Members,
+
+Hope you have been provided with enough pop-corns to watch all wonderful participants submissions.
+
+If you make us the honor to test Amy in our Org bear in mind these few contextual informations if you're facing some strange issues :
+
+- The right version of the agent to test is "Amy Reloaded"
+- Our extended Slack Custom Actions was making use of the Slack API and then required a Bot Token, for the purpose of a Hackathon POC we didn't mind to expose this token in our Git repository. When we made or repository public for the purpose of the submission, Slack spotted it and we instantly received an email telling us that for obvious security reasons our Bot Token has been invalidated.
+- In the early days of this Hackathon, this Bot Token of the Agentforce App in Slack was avalaible in the Slack App. But now it shows : "The OAuth & Permissions information is not available for Agentforce agents."
+- This change was unannounced and now our Slack Custom Action are useless, the Agent will throw an Slack API error when/if it needs it.
+- But since Agentforce is smart he will explain you when and why this occure.
+
+In any case you can rely on the video to see what was the full capabilities of Amy before this breaking change happened.
+
+Regards,
+
+Amy's Team
