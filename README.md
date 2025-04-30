@@ -33,7 +33,6 @@ For Hackathon Project documentation [click here](Hackathon.md)
 
 ## Authorizations
 
-- [Permission Set Groups](./docs/permissionsetgroups/index.md)
 - [Permission Sets](./docs/permissionsets/index.md)
 
 ## UI
