@@ -1,5 +1,5 @@
 public with sharing class ChallengeHelper {
-  public static List<Challenge__c> queryChallenges(
+  public static List<AmyDataKit__Challenge__c> queryChallenges(
     String status,
     Date startDate,
     Date endDate,
@@ -7,18 +7,18 @@ public with sharing class ChallengeHelper {
     String name,
     String manager
   ) {
-    String query = 'SELECT Id, Name, Status__c, Type__c, Description__c, Result__c, SlackChannel__c, StartDate__c, EndDate__c, Manager__c, Manager__r.Name, Participants__c, Reward__c FROM Challenge__c';
+    String query = 'SELECT Id, Name, AmyDataKit__Status__c, AmyDataKit__Type__c, AmyDataKit__Description__c, AmyDataKit__Result__c, AmyDataKit__SlackChannel__c, AmyDataKit__StartDate__c, AmyDataKit__EndDate__c, AmyDataKit__Manager__c, AmyDataKit__Manager__r.Name, AmyDataKit__Participants__c, AmyDataKit__Reward__c FROM AmyDataKit__Challenge__c';
     List<String> conditions = new List<String>();
 
     // Build query conditions based on input
     if (status != null) {
-      conditions.add('Status__c = :status');
+      conditions.add('AmyDataKit__Status__c = :status');
     }
     if (startDate != null) {
-      conditions.add('StartDate__c >= :startDate');
+      conditions.add('AmyDataKit__StartDate__c >= :startDate');
     }
     if (endDate != null) {
-      conditions.add('EndDate__c <= :endDate');
+      conditions.add('AmyDataKit__EndDate__c <= :endDate');
     }
     if (id != null) {
       conditions.add('Id = :id');
@@ -29,7 +29,7 @@ public with sharing class ChallengeHelper {
     }
     if (manager != null) {
       String likeManager = '%' + manager + '%';
-      conditions.add('Manager__r.Name LIKE :likeManager');
+      conditions.add('AmyDataKit__Manager__r.Name LIKE :likeManager');
     }
 
     // If no conditions, return empty results
@@ -41,8 +41,8 @@ public with sharing class ChallengeHelper {
     return Database.query(query);
   }
 
-  public static List<Challenge__c> filterChallengesByParticipant(
-    List<Challenge__c> challenges,
+  public static List<AmyDataKit__Challenge__c> filterChallengesByParticipant(
+    List<AmyDataKit__Challenge__c> challenges,
     String participantRole,
     String participantName
   ) {
@@ -52,13 +52,15 @@ public with sharing class ChallengeHelper {
 
     String participantRoleFilter = participantRole != null ? participantRole.toLowerCase().trim() : null;
     String participantNameFilter = participantName != null ? participantName.toLowerCase().trim() : null;
-    List<Challenge__c> filteredChallenges = new List<Challenge__c>();
+    List<AmyDataKit__Challenge__c> filteredChallenges = new List<AmyDataKit__Challenge__c>();
 
-    for (Challenge__c challenge : challenges) {
+    for (AmyDataKit__Challenge__c challenge : challenges) {
       if (
-        challenge.Participants__c != null &&
-        ((participantRoleFilter != null && challenge.Participants__c.toLowerCase().contains(participantRoleFilter)) ||
-        (participantNameFilter != null && challenge.Participants__c.toLowerCase().contains(participantNameFilter)))
+        challenge.AmyDataKit__Participants__c != null &&
+        ((participantRoleFilter != null &&
+        challenge.AmyDataKit__Participants__c.toLowerCase().contains(participantRoleFilter)) ||
+        (participantNameFilter != null &&
+        challenge.AmyDataKit__Participants__c.toLowerCase().contains(participantNameFilter)))
       ) {
         filteredChallenges.add(challenge);
       }

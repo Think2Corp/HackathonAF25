@@ -11,7 +11,7 @@ public with sharing class OpportunityHelper {
     Boolean isClosed,
     Boolean isWon
   ) {
-    String query = 'SELECT Id, Name, Owner.Name, OwnerId, Amount, Type, CloseDate, StageName, Difficulty__c, Description FROM Opportunity';
+    String query = 'SELECT Id, Name, Owner.Name, OwnerId, Amount, Type, CloseDate, StageName, AmyDataKit__Difficulty__c, Description FROM Opportunity';
     List<String> conditions = new List<String>();
 
     // Build query conditions based on input
